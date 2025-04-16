@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://dbaul56nxjy32"]
+[gd_scene load_steps=3 format=3 uid="uid://dbaul56nxjy32"]
+
+[ext_resource type="Texture2D" uid="uid://dj8j48hhout2w" path="res://Assets/Sprites/Map_WhisperingWoods_ Testing.PNG" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/Player_testing.tscn" id="2_qxrlw"]
 
 [node name="Game" type="Node2D"]
+
+[node name="MapWhisperingWoodsTesting" type="Sprite2D" parent="."]
+position = Vector2(1911, -3)
+texture = ExtResource("1_ebmjs")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_qxrlw")]
+position = Vector2(188, 1050)
