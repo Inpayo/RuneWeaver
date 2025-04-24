@@ -1,0 +1,33 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1745457713
+icon.svg::CompressedTexture2D/CompressedTexture2D::1667042199476016479::1744542048::1744542055::1::::<><><>0<>0<>d8960dd33b74b764aa550665343d766d<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Assets/::1745453909
+::res://Assets/Sprites/::1745457713
+entity_player_spritesheet.png::CompressedTexture2D::2957754654063765606::1745454285::1745454350::1::::<><><>0<>0<>86697c2ac36980d713c069a5fcd6c090<>res://.godot/imported/entity_player_spritesheet.png-cff2e91ed4e7955443ed5e5e08c71f3b.ctex::
+entity_player_testing.png::CompressedTexture2D/CompressedTexture2D::3624298704128922300::1744857384::1744857387::1::::<><><>0<>0<>88994c8d88f020fb08853c970dccb642<>res://.godot/imported/entity_player_testing.png-0da7a15c08e33ae0250e2c9a127608e9.ctex::
+entity_PunishingBird_enemy.png::CompressedTexture2D/CompressedTexture2D::5155377200673955962::1744847296::1744847296::1::::<><><>0<>0<>34dc05514f599c7319cb4e43dae65529<>res://.godot/imported/entity_PunishingBird_enemy.png-c450f82abc19a9a14fffda0fd1890c7a.ctex::
+Fisting.png::CompressedTexture2D/CompressedTexture2D::4816547105765820298::1745219410::1745457784::1::::<><><>0<>0<>28bdf39fad46b72dce8b423cc40d5307<>res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex::
+Map_WhisperingWoods_ Testing.PNG::CompressedTexture2D/CompressedTexture2D::7859686095085458712::1745457045::1745457050::1::::<><><>0<>0<>de902661c17a139b5ec6bcbbf998bb25<>res://.godot/imported/Map_WhisperingWoods_ Testing.PNG-b6b8e8413e35556f28c71ee1af747857.ctex::
+objects_forest_TreesAndRocks.png::CompressedTexture2D::482828427764273992::1745454337::1745454350::1::::<><><>0<>0<>4b9ccf60fb5d92a915ab9205eb35ede3<>res://.godot/imported/objects_forest_TreesAndRocks.png-d6f9dad60887ff9285250d75ae76a3c1.ctex::
+Tiles_WhisperingWoods_Testing.PNG::CompressedTexture2D/CompressedTexture2D::493782782483474370::1744817565::1744817565::1::::<><><>0<>0<>50f0559f0c50a535627e35577ad85b7e<>res://.godot/imported/Tiles_WhisperingWoods_Testing.PNG-dc55094280559f3c22c4059aff49d583.ctex::
+::res://Assets/test/::1745455648
+PuzzleManager.gd::GDScript::745307761773433278::1745455648::0::1::::<>Node<><>0<>0<><>::
+PuzzlePiece.gd::GDScript::727951229998888180::1745453911::0::1::::<>Area2D<><>0<>0<><>::
+RuneDrawDetector.gd::GDScript::8616568820601159855::1745453911::0::1::::<>Node2D<><>0<>0<><>::
+::res://Scenes/::1745457713
+game.tscn::PackedScene::7230686502516838603::1745455690::0::1::::<><><>0<>0<><>::uid://dj8j48hhout2w::::res://Assets/Sprites/Map_WhisperingWoods_ Testing.PNG<>uid://vqic7rnw066y::::res://Scenes/Player_testing.tscn<>uid://dpbtiectljtq::::res://Scenes/punishing_bird.tscn
+Player_testing.tscn::PackedScene::1507486775623537082::1745457713::0::1::::<><><>0<>0<><>::uid://bx17yvxqct6qv::::res://Scripts/player_testing.gd<>uid://bie010186al2u::::res://Assets/Sprites/entity_player_spritesheet.png
+punishing_bird.tscn::PackedScene::241627270784676738::1745457713::0::1::::<><><>0<>0<><>::uid://8sruk52q2y8v::::res://Scripts/punishing_bird.gd<>uid://cfpkkrse1bu1o::::res://Assets/Sprites/entity_PunishingBird_enemy.png
+::res://Scripts/::1745457713
+player_testing.gd::GDScript::4056424851046921641::1745457713::0::1::::<>CharacterBody2D<><>0<>0<><>::
+punishing_bird.gd::GDScript/GDScript::2354459117210134287::1744857057::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://Story/::1745453880
+ember_caverns.gd::GDScript/GDScript::4899092120402526736::1744857384::0::1::::<>Node<><>0<>0<><>::
+epilogue.gd::GDScript/GDScript::895243264250540782::1744857384::0::1::::<>Node<><>0<>0<><>::
+forgotten_ruins.gd::GDScript/GDScript::5317223796794371453::1744857384::0::1::::<>Node<><>0<>0<><>::
+PuzzleManager.gd::GDScript::745307761773433278::1745453911::0::1::::<>Node<><>0<>0<><>::
+PuzzlePiece.gd::GDScript::727951229998888180::1745453911::0::1::::<>Area2D<><>0<>0<><>::
+RuneDrawDetector.gd::GDScript::8616568820601159855::1745453911::0::1::::<>Node2D<><>0<>0<><>::
+rune_academy.gd::GDScript/GDScript::9211543507982606953::1744860868::0::1::::<>Node<><>0<>0<><>::
+spire_of_echoes.gd::GDScript/GDScript::8486509121508943141::1744857384::0::1::::<>Node<><>0<>0<><>::
+whispering_woods.gd::GDScript/GDScript::5360695948737048188::1744817579::0::1::::<>Node<><>0<>0<><>::

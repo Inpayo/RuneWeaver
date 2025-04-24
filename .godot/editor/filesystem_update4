@@ -1,0 +1,8 @@
+res://Story/PuzzleManager.gd
+res://Story/PuzzlePiece.gd
+res://Story/RuneDrawDetector.gd
+res://Scenes/Player_testing.tscn
+res://Scripts/player_testing.gd
+res://Assets/test/PuzzleManager.gd
+res://Scenes/game.tscn
+res://Scenes/punishing_bird.tscn
