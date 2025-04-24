@@ -5,6 +5,7 @@ extends CharacterBody2D
 func get_input():
 	var input_direction = Input.get_vector("Move_left", "Move_right", "Move_up", "Move_down")
 	if input_direction.length() > 0:
+		$Sprite2D/AnimationPlayer.play("Walking")
 		input_direction = input_direction.normalized()
 	if Input.is_action_pressed("sprint"):
 		speed = 1200
