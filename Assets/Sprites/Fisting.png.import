@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://toqprprgmogh"
+=======
+uid="uid://b8wub7twaxpr5"
+>>>>>>> 643f8f1a9467b8115979b909e39a003164fe818f
 path="res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex"
 metadata={
 "vram_texture": false
