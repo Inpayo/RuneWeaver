@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8wub7twaxpr5"
-path="res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex"
+uid="uid://brvvw1xgwkbpk"
+path="res://.godot/imported/entity_player_testing.png-0da7a15c08e33ae0250e2c9a127608e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Fisting.png"
-dest_files=["res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex"]
+source_file="res://Assets/Sprites/entity_player_testing.png"
+dest_files=["res://.godot/imported/entity_player_testing.png-0da7a15c08e33ae0250e2c9a127608e9.ctex"]
 
 [params]
 

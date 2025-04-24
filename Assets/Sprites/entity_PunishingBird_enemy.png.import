@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8wub7twaxpr5"
-path="res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex"
+uid="uid://cfpkkrse1bu1o"
+path="res://.godot/imported/entity_PunishingBird_enemy.png-c450f82abc19a9a14fffda0fd1890c7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Fisting.png"
-dest_files=["res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex"]
+source_file="res://Assets/Sprites/entity_PunishingBird_enemy.png"
+dest_files=["res://.godot/imported/entity_PunishingBird_enemy.png-c450f82abc19a9a14fffda0fd1890c7a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8wub7twaxpr5"
-path="res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex"
+uid="uid://dj8j48hhout2w"
+path="res://.godot/imported/Map_WhisperingWoods_ Testing.PNG-b6b8e8413e35556f28c71ee1af747857.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Fisting.png"
-dest_files=["res://.godot/imported/Fisting.png-804fd1a43dc7c3a4c5f3731764d4e7c6.ctex"]
+source_file="res://Assets/Sprites/Map_WhisperingWoods_ Testing.PNG"
+dest_files=["res://.godot/imported/Map_WhisperingWoods_ Testing.PNG-b6b8e8413e35556f28c71ee1af747857.ctex"]
 
 [params]
 

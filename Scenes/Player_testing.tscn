@@ -1,49 +1,7 @@
-<<<<<<< HEAD
-[gd_scene load_steps=7 format=3 uid="uid://vqic7rnw066y"]
-=======
 [gd_scene load_steps=5 format=3 uid="uid://vqic7rnw066y"]
->>>>>>> 643f8f1a9467b8115979b909e39a003164fe818f
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player_testing.gd" id="1_i8wls"]
-[ext_resource type="Texture2D" uid="uid://bie010186al2u" path="res://Assets/Sprites/entity_player_spritesheet.png" id="2_i8wls"]
-
-[sub_resource type="Animation" id="Animation_ldamb"]
-resource_name = "Walking"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [17, 18, 19, 20, 21, 22, 21, 20]
-}
-
-[sub_resource type="Animation" id="Animation_was2g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [17]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vxjc"]
-_data = {
-&"RESET": SubResource("Animation_was2g"),
-&"Walking": SubResource("Animation_ldamb")
-}
+[ext_resource type="Texture2D" uid="uid://brvvw1xgwkbpk" path="res://Assets/Sprites/entity_player_testing.png" id="2_ldamb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8wls"]
 size = Vector2(53, 174)
@@ -55,18 +13,8 @@ size = Vector2(41, 23.75)
 script = ExtResource("1_i8wls")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -91)
-texture = ExtResource("2_i8wls")
-hframes = 16
-vframes = 6
-frame = 17
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_6vxjc")
-}
+position = Vector2(1, -90)
+texture = ExtResource("2_ldamb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -42)
