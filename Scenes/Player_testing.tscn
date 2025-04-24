@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://vqic7rnw066y"]
+[gd_scene load_steps=5 format=3 uid="uid://vqic7rnw066y"]
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player_testing.gd" id="1_i8wls"]
 [ext_resource type="Texture2D" uid="uid://brvvw1xgwkbpk" path="res://Assets/Sprites/entity_player_testing.png" id="2_ldamb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8wls"]
+size = Vector2(53, 174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utw4k"]
 size = Vector2(41, 23.75)
@@ -13,12 +16,18 @@ script = ExtResource("1_i8wls")
 position = Vector2(1, -90)
 texture = ExtResource("2_ldamb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -14)
-shape = SubResource("RectangleShape2D_utw4k")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -42)
 limit_left = 0
 limit_bottom = 1102
 position_smoothing_enabled = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="HurtyWurty" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(4.5, -77)
+shape = SubResource("RectangleShape2D_i8wls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -14)
+shape = SubResource("RectangleShape2D_utw4k")
