@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var Friction = Acceleration/Speed
 var input_direction = Vector2.ZERO
 
+
 func get_input(_delta):
 	var input_direction = Input.get_vector("Move_left", "Move_right", "Move_up", "Move_down")
 <<<<<<< HEAD
