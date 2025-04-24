@@ -26,6 +26,3 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_detected = false
 		player = body
-		
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	pass
