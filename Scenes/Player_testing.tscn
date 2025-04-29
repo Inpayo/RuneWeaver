@@ -1,3 +1,5 @@
+[ext_resource type="Texture2D" uid="uid://qkoiw7kpyeij" path="res://Assets/Sprites/Aim_pointy.png" id="3_was2g"]
+[ext_resource type="Script" uid="uid://dgs0acpo68tx5" path="res://Scenes/arrow.gd" id="4_6vxjc"]
 [gd_scene load_steps=9 format=3 uid="uid://vqic7rnw066y"]
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player_testing.gd" id="1_i8wls"]
@@ -65,7 +67,11 @@ size = Vector2(53, 174)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utw4k"]
 size = Vector2(41, 23.75)
 
+<<<<<<< HEAD
 [node name="player" type="CharacterBody2D"]
+=======
+[node name="Player" type="CharacterBody2D"]
+>>>>>>> main
 script = ExtResource("1_i8wls")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -97,4 +103,27 @@ shape = SubResource("RectangleShape2D_i8wls")
 position = Vector2(-2, -14)
 shape = SubResource("RectangleShape2D_utw4k")
 
+<<<<<<< HEAD
 [connection signal="ready" from="Hitbox/HurtyWurty" to="." method="_on_hurty_wurty_ready"]
+=======
+[node name="Arrow_anchor" type="Marker2D" parent="."]
+position = Vector2(0, -77)
+
+[node name="Arrow" type="Sprite2D" parent="Arrow_anchor"]
+position = Vector2(-204, 0)
+scale = Vector2(0.226563, 0.186111)
+texture = ExtResource("3_was2g")
+offset = Vector2(0, -77)
+script = ExtResource("4_6vxjc")
+
+[node name="Attacks" type="Node" parent="."]
+
+[node name="Right Hook" type="Marker2D" parent="Attacks"]
+position = Vector2(-55, -138)
+
+[node name="Front_stuff" type="Marker2D" parent="Attacks"]
+position = Vector2(-55, -90)
+
+[node name="Left Hook" type="Marker2D" parent="Attacks"]
+position = Vector2(-55, -16)
+>>>>>>> main
