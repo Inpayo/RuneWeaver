@@ -1,9 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dbaul56nxjy32"]
 
+
 [ext_resource type="Texture2D" uid="uid://dj8j48hhout2w" path="res://Assets/Sprites/Map_WhisperingWoods_ Testing.PNG" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rock2.tscn" id="2_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/Player_testing.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/punishing_bird.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bjojkbwbjos0j" path="res://Scenes/fist.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rocks.tscn" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunk2.tscn" id="4_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://dfiwkot5wm0uc" path="res://Scenes/trunk.tscn" id="5_ldgsr"]
@@ -22,7 +24,8 @@ texture = ExtResource("1_ebmjs")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map"]
 polygon = PackedVector2Array(-8, 943, 99, 919, 228, 880, 314, 826, 381, 764, 472, 722, 537, 660, 558, 564, 620, 486, 680, 390, 698, 273, 677, 196, 646, 126, 685, 123, 752, 170, 802, 206, 898, 279, 973, 336, 1071, 403, 1160, 452, 1300, 494, 1463, 509, 1580, 520, 1792, 530, 1883, 543, 1984, 600, 2060, 707, 2184, 787, 2379, 849, 2560, 854, 2698, 891, 2716, 914, 2799, 901, 2892, 891, 2851, 836, 2716, 779, 2581, 751, 2456, 730, 2283, 696, 2210, 618, 2109, 517, 2044, 465, 1909, 408, 1800, 380, 1725, 369, 1587, 380, 1494, 382, 1364, 375, 1211, 320, 1102, 276, 1009, 227, 908, 152, 796, 76, 745, 19, 623, -61, 542, -97, 441, -136, 348, -157, 275, -168, 182, -173, 75, -173, 52, -168, -10, -149, -15, -204, 49, -214, 119, -217, 278, -214, 415, -214, 566, -201, 662, -188, 752, -183, 840, -193, 960, -240, 1019, -300, 1069, -352, 1105, -404, 1134, -437, 1279, -455, 1372, -453, 1266, -515, 1167, -598, 1102, -632, 1071, -497, 1010, -415, 895, -349, 785, -332, 591, -349, 397, -378, 272, -388, 101, -375, -13, -370, -1, -1075, 1311, -1072, 1294, -1021, 1251, -964, 1211, -872, 1186, -812, 1186, -778, 1251, -735, 1337, -655, 1450, -588, 1314, -728, 1338, -823, 1391, -941, 1428, -1015, 1462, -1055, 1505, -1069, 3826, -1065, 3824, 1067, 3824, 1097, 2984, 1092, 2977, 1065, 2965, 1044, 2912, 1030, 2871, 1027, 2815, 1043, 2798, 1050, 2794, 1073, 2790, 1085, 2790, 1097, 534, 1094, -17, 1088, -11, 978, -43, 985, -65, 1126, 3875, 1143, 3874, -1117, -68, -1114, -74, 926, -50, 698, -61, -110, 15, -123, 182, -135, 311, -132, 462, -73, 541, -35, 614, 28, 626, 143, 636, 249, 576, 339, 538, 443, 502, 547, 420, 580, 326, 631, 279, 666, 152, 719, 54, 783, -23, 820, -27, 940)
 
-[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_qxrlw")]
 y_sort_enabled = true
 
 [node name="objects" type="Node" parent="Node2D"]
@@ -41,6 +44,7 @@ position = Vector2(674, 617)
 
 [node name="CharacterBody2D" parent="Node2D" instance=ExtResource("2_qxrlw")]
 y_sort_enabled = true
+
 position = Vector2(192, 1046)
 
 [node name="enemies" type="Node" parent="Node2D"]
@@ -53,3 +57,5 @@ position = Vector2(1980, 919)
 
 [node name="Punishing Bird3" parent="Node2D/enemies" instance=ExtResource("2_wrm1d")]
 position = Vector2(3181, 234)
+
+[node name="Fist" parent="." instance=ExtResource("4_3dryh")]
