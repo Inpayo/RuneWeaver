@@ -23,6 +23,15 @@ func get_input(_delta):
 		input_direction = Input.get_vector("Move_left_keyboard", "Move_right_keyboard", "Move_up_keyboard", "Move_down_keyboard")
 	else:
 		input_direction = Input.get_vector("Move_left_controller", "Move_right_controller", "Move_up_controller", "Move_down_controller")
+	if input_direction != Vector2.ZERO :
+		$Sprite2D/AnimationPlayer.play("Walking")
+	else:
+		$Sprite2D/AnimationPlayer.play("Idle")
+	if input_direction.x > 0:
+		$Sprite2D.flip_h = true
+	else:
+		$Sprite2D.flip_h = false
+		
 	input_direction = input_direction.normalized()
 	
 	if Input.is_action_just_pressed("Toggle_mouse_aim"):
