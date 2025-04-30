@@ -1,18 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjojkbwbjos0j"]
+[gd_scene load_steps=3 format=3 uid="uid://dpeg51705srk5"]
 
-[ext_resource type="Script" uid="uid://duccan6f1nsve" path="res://Scenes/fist.gd" id="1_4upvt"]
 [ext_resource type="Texture2D" uid="uid://b8wub7twaxpr5" path="res://Assets/Sprites/Fisting.png" id="2_whwme"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_whwme"]
-size = Vector2(66, 84)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4upvt"]
+size = Vector2(95, 81)
 
-[node name="Fist" type="Area2D"]
-script = ExtResource("1_4upvt")
+[node name="Fist" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ActualFist" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ActualFist"]
 texture = ExtResource("2_whwme")
-flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-28, 6)
-shape = SubResource("RectangleShape2D_whwme")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActualFist"]
+position = Vector2(6.5, 7.5)
+shape = SubResource("RectangleShape2D_4upvt")
