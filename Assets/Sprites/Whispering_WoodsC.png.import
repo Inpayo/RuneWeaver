@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rbpuogdn4xai"
-path="res://.godot/imported/Aim_pointy.png-a48fe3cfba640fc2164913cf8212cc51.ctex"
+uid="uid://bdlhotou1xinf"
+path="res://.godot/imported/Whispering_WoodsC.png-7545aeb25d93928cc4440ef127d5a8e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Aim_pointy.png"
-dest_files=["res://.godot/imported/Aim_pointy.png-a48fe3cfba640fc2164913cf8212cc51.ctex"]
+source_file="res://Assets/Sprites/Whispering_WoodsC.png"
+dest_files=["res://.godot/imported/Whispering_WoodsC.png-7545aeb25d93928cc4440ef127d5a8e3.ctex"]
 
 [params]
 

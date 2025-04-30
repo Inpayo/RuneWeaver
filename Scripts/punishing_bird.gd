@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 300
+var speed = 500
 
 var dead = false
 var player_detected = false

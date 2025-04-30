@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbaul56nxjy32"]
+[gd_scene load_steps=10 format=3 uid="uid://dbaul56nxjy32"]
 
-[ext_resource type="Texture2D" uid="uid://dj8j48hhout2w" path="res://Assets/Sprites/Map_WhisperingWoods_ Testing.PNG" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rock2.tscn" id="2_1l0tm"]
+[ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/Player_testing.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/punishing_bird.tscn" id="2_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://bdlhotou1xinf" path="res://Assets/Sprites/Whispering_WoodsC.png" id="3_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rocks.tscn" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunk2.tscn" id="4_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://dfiwkot5wm0uc" path="res://Scenes/trunk.tscn" id="5_ldgsr"]
@@ -11,16 +13,24 @@
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="map" type="StaticBody2D" parent="."]
+[node name="WhisperingWoods_Map" type="StaticBody2D" parent="."]
 z_index = -1
 y_sort_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="map"]
+[node name="Sprite2D" type="Sprite2D" parent="WhisperingWoods_Map"]
 position = Vector2(1904, 18)
-texture = ExtResource("1_ebmjs")
+texture = ExtResource("1_1l0tm")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map"]
-polygon = PackedVector2Array(-8, 943, 99, 919, 228, 880, 314, 826, 381, 764, 472, 722, 537, 660, 558, 564, 620, 486, 680, 390, 698, 273, 677, 196, 646, 126, 685, 123, 752, 170, 802, 206, 898, 279, 973, 336, 1071, 403, 1160, 452, 1300, 494, 1463, 509, 1580, 520, 1792, 530, 1883, 543, 1984, 600, 2060, 707, 2184, 787, 2379, 849, 2560, 854, 2698, 891, 2716, 914, 2799, 901, 2892, 891, 2851, 836, 2716, 779, 2581, 751, 2456, 730, 2283, 696, 2210, 618, 2109, 517, 2044, 465, 1909, 408, 1800, 380, 1725, 369, 1587, 380, 1494, 382, 1364, 375, 1211, 320, 1102, 276, 1009, 227, 908, 152, 796, 76, 745, 19, 623, -61, 542, -97, 441, -136, 348, -157, 275, -168, 182, -173, 75, -173, 52, -168, -10, -149, -15, -204, 49, -214, 119, -217, 278, -214, 415, -214, 566, -201, 662, -188, 752, -183, 840, -193, 960, -240, 1019, -300, 1069, -352, 1105, -404, 1134, -437, 1279, -455, 1372, -453, 1266, -515, 1167, -598, 1102, -632, 1071, -497, 1010, -415, 895, -349, 785, -332, 591, -349, 397, -378, 272, -388, 101, -375, -13, -370, -1, -1075, 1311, -1072, 1294, -1021, 1251, -964, 1211, -872, 1186, -812, 1186, -778, 1251, -735, 1337, -655, 1450, -588, 1314, -728, 1338, -823, 1391, -941, 1428, -1015, 1462, -1055, 1505, -1069, 3826, -1065, 3824, 1067, 3824, 1097, 2984, 1092, 2977, 1065, 2965, 1044, 2912, 1030, 2871, 1027, 2815, 1043, 2798, 1050, 2794, 1073, 2790, 1085, 2790, 1097, 534, 1094, -17, 1088, -11, 978, -43, 985, -65, 1126, 3875, 1143, 3874, -1117, -68, -1114, -74, 926, -50, 698, -61, -110, 15, -123, 182, -135, 311, -132, 462, -73, 541, -35, 614, 28, 626, 143, 636, 249, 576, 339, 538, 443, 502, 547, 420, 580, 326, 631, 279, 666, 152, 719, 54, 783, -23, 820, -27, 940)
+[node name="Sprite2D2" type="Sprite2D" parent="WhisperingWoods_Map"]
+position = Vector2(1904, -2142)
+texture = ExtResource("2_h4fw4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="WhisperingWoods_Map"]
+position = Vector2(5744, -2142)
+texture = ExtResource("3_ldgsr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WhisperingWoods_Map"]
+polygon = PackedVector2Array(-17, 1098, 2790, 1098, 2793, 1087, 2791, 1060, 2793, 1050, 2829, 1036, 2869, 1032, 2899, 1032, 2917, 1032, 2950, 1031, 2961, 1038, 2969, 1062, 2978, 1080, 2981, 1096, 3825, 1096, 3821, -1064, 7657, -1064, 7657, -1384, 7537, -1290, 7484, -1246, 7503, -1319, 7569, -1454, 7569, -1588, 7572, -1818, 7537, -3224, 2142, -3220, 2089, -3170, 1719, -3136, 1326, -3120, 171, -3114, 106, -3045, 52, -2866, 33, -2583, 74, -1234, 52, -1168, -1, -1140, -20, -1099, -20, -343, 65, -364, 181, -368, 341, -364, 470, -358, 689, -339, 783, -339, 878, -339, 962, -421, 1013, -474, 1091, -521, 1147, -528, 1226, -509, 1326, -456, 1373, -434, 1260, -408, 1223, -374, 1157, -292, 1078, -220, 975, -173, 871, -167, 752, -173, 623, -201, 473, -214, 363, -217, 250, -217, 197, -217, 93, -223, -7, -220, -23, -208, -20, -179, 112, -182, 206, -182, 319, -176, 429, -151, 501, -117, 564, -82, 714, -13, 777, 69, 943, 172, 1006, 235, 1207, 323, 1358, 360, 1515, 373, 1659, 376, 1800, 386, 1898, 404, 1957, 433, 2048, 495, 2117, 543, 2211, 612, 2337, 696, 2466, 728, 2613, 747, 2707, 772, 2827, 809, 2889, 863, 2927, 900, 2801, 900, 2739, 916, 2654, 894, 2510, 847, 2393, 841, 2227, 816, 2098, 768, 2014, 652, 1960, 574, 1847, 521, 1640, 514, 1502, 511, 1333, 492, 1223, 458, 1091, 411, 1009, 342, 934, 291, 827, 238, 743, 188, 680, 128, 670, 191, 686, 276, 664, 417, 592, 495, 542, 599, 470, 687, 347, 750, 253, 812, 178, 856, 21, 932, -11, 944, -11, 828, 52, 781, 171, 731, 306, 681, 360, 643, 479, 549, 510, 489, 564, 389, 611, 304, 639, 248, 645, 188, 630, 122, 611, 56, 573, -4, 501, -54, 426, -91, 331, -123, 212, -132, 121, -139, 11, -139, -20, -139, -26, 508, -33, 1032, -127, 1029, -182, -3443, 7877, -3380, 7877, -945, 3874, -1008, 3919, 1168, 114, 1276, -81, 1134, -36, 1044)
 
 [node name="Node2D#objects" type="Node" parent="."]
 
