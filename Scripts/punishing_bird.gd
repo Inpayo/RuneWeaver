@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var speed = 600
+var speed = 300
 
 var dead = false
 var player_detected = false
-@onready var player_postion = $"../../CharacterBody2D/Hitbox/HurtyWurty"
+var direction = Vector2.ZERO
 var player
 
 func _ready():
@@ -14,13 +14,13 @@ func _physics_process(_delta):
 	if !dead:
 		$Player_detection/CollisionShape2D.disabled = false
 		if player_detected:
-			var direction = (player_postion-position).normalized()
-			velocity += direction * speed
+			direction = (player.position-position).normalized()
+			velocity = direction * speed
+		else:
+			velocity = Vector2.ZERO
 	else:
 		$Player_detection/CollisionShape2D.disabled = true
-		
-func Enemy_movement(CurrentX, CurrentY, ToX, ToY):
-	pass
+	move_and_slide()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
