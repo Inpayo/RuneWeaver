@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+@export var Hp: int = 100
+var current_Hp: int = Hp
 @export var Speed: float = 800
 @export var Acceleration: float = 2400
 @export var Friction: float = Acceleration/Speed
@@ -11,7 +14,9 @@ var input_direction = Vector2.ZERO
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 
+
 func Mode_toggle():
+	current_Hp = clamp(current_Hp, 0, Hp)
 	if Input.is_action_just_pressed("Swap_mode"):
 		Keyboard = not Keyboard
 		if Keyboard:
@@ -21,6 +26,7 @@ func Mode_toggle():
 		print(Keyboard)
 
 func get_input(_delta):
+	
 	if Keyboard:
 		input_direction = Input.get_vector("Move_left_keyboard", "Move_right_keyboard", "Move_up_keyboard", "Move_down_keyboard")
 	else:
@@ -65,10 +71,15 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 
-func Apply_knockback(direction: Vector2, intensity: float, time: float) -> void:
-	knockback = direction * intensity
+func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
+	knockback = knockback_direction * intensity
 	knockback_timer = time
-	print("knocked")
+
+func received_damage(damage: int):
+	Hp -= damage
+	if Hp <= 0:
+		print(Hp)
+		print("death")
 	
 func player():
 	pass

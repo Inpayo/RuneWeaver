@@ -89,6 +89,7 @@ position = Vector2(0, -42)
 limit_left = 0
 limit_bottom = 1102
 position_smoothing_enabled = true
+position_smoothing_speed = 60.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 
