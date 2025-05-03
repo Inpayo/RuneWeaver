@@ -18,7 +18,7 @@ func _physics_process(_delta):
 			velocity = direction * speed * _delta * 50
 		else:
 			if last_location != null:
-				if not (last_location - position) > Vector2(100,100) and not (last_location - position) < Vector2(-100,-100):
+				if not (last_location - position).x > 100 and not (last_location - position).x < -100 and not (last_location - position).y > 100 and not (last_location - position).y < -100:
 					velocity = Vector2.ZERO
 				else:
 					direction = (last_location - position).normalized()

@@ -13,24 +13,32 @@ radius = 32.0156
 radius = 466.13
 
 [node name="Punishing Bird" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 16
 script = ExtResource("1_6gbma")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q8l2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 18
+visibility_layer = 2
 position = Vector2(-2.5, 6.5)
 shape = SubResource("RectangleShape2D_6gbma")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+light_mask = 18
+visibility_layer = 2
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_n3oyg")
 
 [node name="Player_detection" type="Area2D" parent="."]
 
 [node name="Detection" type="CollisionShape2D" parent="Player_detection"]
+light_mask = 18
+visibility_layer = 2
 shape = SubResource("CircleShape2D_tdmi6")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
