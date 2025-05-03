@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const bullet_scene = preload("res://Scenes/bullet.tscn")
+
 @export var speed: float = 300.0
 @export var Hp: int = 20
 var last_location = null
@@ -10,14 +12,18 @@ var direction: Vector2 = Vector2.ZERO
 var player
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
+var on_cd: bool = false
+@export var cd_duration: float = 2.0 
+@onready var init_location: Marker2D = $Sprite2D/Marker2D
 
 func _ready():
 	dead = false
+	$shoot_cd.wait_time = cd_duration
 	
 func _physics_process(_delta):
 	if Hp <= 0:
 		dead = true
-
+		
 	if !dead:
 		$Player_detection/Detection.disabled = false
 		
@@ -28,7 +34,10 @@ func _physics_process(_delta):
 				knockback = Vector2.ZERO
 		
 		if player_in_range:
-			pass
+			if not on_cd:
+				shoot()
+				on_cd = true
+				$shoot_cd.start()
 		
 		if player_detected and knockback_timer <= 0.0:
 			direction = position.direction_to(player.position)
@@ -52,6 +61,11 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_detected = false
 
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	bullet.position = init_location.position
+	bullet.rotation = (player.position - position).angle()
+	get_parent().add_child(bullet)
 
 func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
 	knockback = knockback_direction * intensity
@@ -74,3 +88,8 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_range = false
+
+
+func _on_shoot_cd_timeout() -> void:
+	on_cd = false
+	

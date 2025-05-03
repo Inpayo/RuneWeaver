@@ -23,6 +23,8 @@ script = ExtResource("1_2agt4")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_buyhr")
 
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 18
 visibility_layer = 2
@@ -49,9 +51,12 @@ shape = SubResource("CircleShape2D_tdmi6")
 [node name="attack" type="CollisionShape2D" parent="Attack_range"]
 shape = SubResource("CircleShape2D_2agt4")
 
+[node name="shoot_cd" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Player_detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="Player_detection" to="." method="_on_player_detection_body_exited"]
 [connection signal="body_entered" from="Attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="Attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="shoot_cd" to="." method="_on_shoot_cd_timeout"]
