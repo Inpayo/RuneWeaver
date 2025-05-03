@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bbro3t2mchlq3" path="res://Assets/Sprites/objects_forest_TreesAndRocks.png" id="1_qnycn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5muk"]
-size = Vector2(51, 35.1094)
+size = Vector2(91, 25.5547)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 16
@@ -17,5 +17,5 @@ vframes = 18
 frame = 242
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -25)
+position = Vector2(5.5, -36.7774)
 shape = SubResource("RectangleShape2D_e5muk")

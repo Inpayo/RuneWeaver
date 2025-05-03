@@ -1,16 +1,17 @@
 extends CharacterBody2D
 
-var speed = 500
-var last_location
-var dead = false
-var player_detected = false
-var direction = Vector2.ZERO
-var player
+@export var speed: float = 500.0
+var last_location = null
+var dead: bool = false
+var player_detected: bool = false
+var direction: Vector2 = Vector2.ZERO
+@onready var player: Node = $"../.."
 
 func _ready():
 	dead = false
 	
 func _physics_process(_delta):
+	print(player)
 	if !dead:
 		$Player_detection/Detection.disabled = false
 		if player_detected:
@@ -37,3 +38,10 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 		player_detected = false
 		last_location = player.position
 		player = body
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body == player:
+		var knockback_direction = position.direction_to(player.position)
+		body.Apply_knockback(knockback_direction, 150.0, 0.12)
+		print("knocking")

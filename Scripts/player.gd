@@ -8,6 +8,8 @@ func _ready() -> void:
 var input_direction = Vector2.ZERO
 @export var Bullet : PackedScene
 @export var Keyboard: bool = true
+var knockback: Vector2 = Vector2.ZERO
+var knockback_timer: float = 0.0
 
 func Mode_toggle():
 	if Input.is_action_just_pressed("Swap_mode"):
@@ -53,7 +55,20 @@ func _physics_process(_delta):
 	Mode_toggle()
 	get_input(_delta)
 	Apply_friction(_delta)
+	
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= _delta
+		if knockback_timer <= 0.0:
+			knockback = Vector2.ZERO
+	
 	move_and_slide()
+	
+
+func Apply_knockback(direction: Vector2, intensity: float, time: float) -> void:
+	knockback = direction * intensity
+	knockback_timer = time
+	print("knocked")
 	
 func player():
 	pass
