@@ -5,7 +5,7 @@ var last_location = null
 var dead: bool = false
 var player_detected: bool = false
 var direction: Vector2 = Vector2.ZERO
-@onready var player: Node = $"../.."
+var player
 
 func _ready():
 	dead = false
@@ -41,7 +41,7 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body == player:
+	if body.has_method("player"):
 		var knockback_direction = position.direction_to(player.position)
-		body.Apply_knockback(knockback_direction, 150.0, 0.12)
+		body.Apply_knockback(knockback_direction, 1500.0, 0.12)
 		print("knocking")
