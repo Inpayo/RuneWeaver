@@ -36,6 +36,7 @@ func _physics_process(_delta):
 		if player_in_range:
 			if not on_cd:
 				shoot()
+				print("shot")
 				on_cd = true
 				$shoot_cd.start()
 		

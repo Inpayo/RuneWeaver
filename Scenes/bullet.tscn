@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://de7cu8h5hmww7"]
+[gd_scene load_steps=3 format=3 uid="uid://de7cu8h5hmww7"]
 
+[ext_resource type="Script" uid="uid://lmkgb65uejdh" path="res://Scenes/bullet.gd" id="1_oduel"]
 [ext_resource type="Texture2D" uid="uid://waa0x4cohj2x" path="res://Assets/Sprites/Aim_pointy.png" id="1_xjght"]
 
 [node name="bullet" type="Sprite2D"]
+script = ExtResource("1_oduel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.999992, 0)
