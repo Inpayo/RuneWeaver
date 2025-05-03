@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpbtiectljtq"]
+[gd_scene load_steps=7 format=3 uid="uid://dpbtiectljtq"]
 
 [ext_resource type="Script" uid="uid://8sruk52q2y8v" path="res://Scripts/punishing_bird.gd" id="1_6gbma"]
 [ext_resource type="Texture2D" uid="uid://cfpkkrse1bu1o" path="res://Assets/Sprites/entity_PunishingBird_enemy.png" id="1_q8l2p"]
@@ -11,6 +11,9 @@ radius = 32.0156
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdmi6"]
 radius = 466.13
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6gbma"]
+radius = 859.524
 
 [node name="Punishing Bird" type="CharacterBody2D"]
 script = ExtResource("1_6gbma")
@@ -32,6 +35,11 @@ shape = SubResource("CircleShape2D_n3oyg")
 
 [node name="Detection" type="CollisionShape2D" parent="Player_detection"]
 shape = SubResource("CircleShape2D_tdmi6")
+
+[node name="Chase" type="Area2D" parent="."]
+
+[node name="Chasing_Collision" type="CollisionShape2D" parent="Chase"]
+shape = SubResource("CircleShape2D_6gbma")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Player_detection" to="." method="_on_player_detection_body_entered"]

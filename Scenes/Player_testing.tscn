@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player_testing.gd" id="1_i8wls"]
 [ext_resource type="Texture2D" uid="uid://d0t4dacl0eejh" path="res://Assets/Sprites/entity_player_spritesheet.png" id="2_i8wls"]
-[ext_resource type="Texture2D" uid="uid://qkoiw7kpyeij" path="res://Assets/Sprites/Aim_pointy.png" id="3_was2g"]
-[ext_resource type="Script" uid="uid://dgs0acpo68tx5" path="res://Scripts/arrow.gd" id="4_6vxjc"]
+[ext_resource type="Texture2D" uid="uid://waa0x4cohj2x" path="res://Assets/Sprites/Aim_pointy.png" id="3_was2g"]
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="4_6vxjc"]
 
 [sub_resource type="Animation" id="Animation_i8wls"]
 resource_name = "Idle"
