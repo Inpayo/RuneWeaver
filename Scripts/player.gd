@@ -24,10 +24,13 @@ func Mode_toggle():
 			Input.mouse_mode = (Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.mouse_mode = (Input.MOUSE_MODE_CAPTURED)
-		print(Keyboard)
 
 func get_input(_delta):
-	
+
+	var facing = Vector2.ZERO
+	var ArrDirOrigin = get_node("Arrow_anchor/Arrow")
+	var ArrDir = ArrDirOrigin.LMDir
+
 	if Keyboard:
 		input_direction = Input.get_vector("Move_left_keyboard", "Move_right_keyboard", "Move_up_keyboard", "Move_down_keyboard")
 	else:
@@ -36,10 +39,17 @@ func get_input(_delta):
 		$Sprite2D/AnimationPlayer.play("Walking")
 	else:
 		$Sprite2D/AnimationPlayer.play("Idle")
-	if input_direction.x > 0:
-		$Sprite2D.flip_h = true
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		ArrDir.x = 0
+	if abs(ArrDir.x) > 0:
+		facing = ArrDir
 	else:
+		facing = input_direction
+	if facing.x > 0:
+		$Sprite2D.flip_h = true
+	elif facing.x < 0:
 		$Sprite2D.flip_h = false
+		
 		
 	input_direction = input_direction.normalized()
 	
