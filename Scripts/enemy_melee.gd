@@ -14,8 +14,6 @@ func _ready():
 	dead = false
 	
 func _physics_process(_delta):
-	if Hp <= 0:
-		dead = true
 		
 	if !dead:
 		$Player_detection/Detection.disabled = false
@@ -40,8 +38,14 @@ func _physics_process(_delta):
 		$Player_detection/Detection.disabled = true
 	move_and_slide()
 
-func received_damage():
-	pass
+func received_damage(damage: int):
+	Hp -= damage
+	if Hp <= 0:
+		on_death()
+
+func on_death():
+	dead = true
+	queue_free()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -64,3 +68,4 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		body.apply_knockback(direction, 850.0, 0.12)
 		body.received_damage(20)
 		apply_knockback(knockback_self, 150.0, 0.12)
+		received_damage(20)

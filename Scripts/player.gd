@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 func _ready() -> void:
+	$Hitbox/HurtyWurty.disabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 @export var Hp: int = 100
@@ -78,8 +79,10 @@ func apply_knockback(knockback_direction: Vector2, intensity: float, time: float
 func received_damage(damage: int):
 	Hp -= damage
 	if Hp <= 0:
-		print(Hp)
 		print("death")
+	
+func on_death():
+	$Hitbox/HurtyWurty.disabled = true
 	
 func player():
 	pass

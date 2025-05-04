@@ -61,14 +61,13 @@ _data = {
 &"Walking": SubResource("Animation_ldamb")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8wls"]
-size = Vector2(53, 174)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utw4k"]
 size = Vector2(41, 23.75)
 
-[node name="player_character" type="CharacterBody2D"]
-collision_layer = 129
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8wls"]
+size = Vector2(53, 174)
+
+[node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 script = ExtResource("1_i8wls")
 
@@ -92,6 +91,11 @@ limit_bottom = 1102
 position_smoothing_enabled = true
 position_smoothing_speed = 60.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 18
+position = Vector2(-2, -14)
+shape = SubResource("RectangleShape2D_utw4k")
+
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 64
@@ -99,11 +103,6 @@ collision_mask = 64
 [node name="HurtyWurty" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(4.5, -77)
 shape = SubResource("RectangleShape2D_i8wls")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 18
-position = Vector2(-2, -14)
-shape = SubResource("RectangleShape2D_utw4k")
 
 [node name="Arrow_anchor" type="Marker2D" parent="."]
 position = Vector2(0, -77)
