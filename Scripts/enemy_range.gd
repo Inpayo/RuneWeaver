@@ -14,13 +14,16 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var on_cd: bool = false
 @export var cd_duration: float = 2.0 
-@onready var init_location: Marker2D = $Sprite2D/Marker2D
+@onready var mark: Marker2D = $Sprite2D/Marker2D
+
 
 func _ready():
 	dead = false
 	$shoot_cd.wait_time = cd_duration
 	
 func _physics_process(_delta):
+
+	
 	if Hp <= 0:
 		dead = true
 		
@@ -36,9 +39,9 @@ func _physics_process(_delta):
 		if player_in_range:
 			if not on_cd:
 				shoot()
-				print("shot")
 				on_cd = true
 				$shoot_cd.start()
+		
 		
 		if player_detected and knockback_timer <= 0.0:
 			direction = position.direction_to(player.position)
@@ -64,7 +67,7 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 
 func shoot():
 	var bullet = bullet_scene.instantiate()
-	bullet.position = init_location.position
+	bullet.position = mark.global_position
 	bullet.rotation = (player.position - position).angle()
 	get_parent().add_child(bullet)
 

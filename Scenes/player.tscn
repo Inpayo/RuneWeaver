@@ -68,6 +68,7 @@ size = Vector2(53, 174)
 size = Vector2(41, 23.75)
 
 [node name="player_character" type="CharacterBody2D"]
+collision_layer = 129
 collision_mask = 16
 script = ExtResource("1_i8wls")
 
@@ -92,6 +93,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 60.0
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 64
 
 [node name="HurtyWurty" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(4.5, -77)
