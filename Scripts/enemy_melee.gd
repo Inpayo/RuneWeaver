@@ -18,6 +18,16 @@ func _physics_process(_delta):
 	if !dead:
 		$Player_detection/Detection.disabled = false
 		
+		if direction != Vector2.ZERO:
+			$Sprite2D/AnimationPlayer.play("Fly")
+		else:
+			$Sprite2D/AnimationPlayer.play("idle")
+			
+		if direction.x > 0:
+			$Sprite2D.flip_h = true
+		elif direction.x < 0:
+			$Sprite2D.flip_h = false
+		
 		if knockback_timer > 0.0:
 			velocity = knockback
 			knockback_timer -= _delta
