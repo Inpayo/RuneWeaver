@@ -9,7 +9,6 @@ var speed: float = 750
 func _physics_process(delta: float) -> void:
 	position += Vector2.RIGHT.rotated(rotation) * speed * delta
 	if RayCast.is_colliding():
-		print(RayCast.get_collider())
 		if RayCast.get_collider() == player or RayCast.get_collider() == player_hitbox:
 			damage_player()
 		queue_free()

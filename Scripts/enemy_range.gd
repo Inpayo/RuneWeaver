@@ -22,10 +22,6 @@ func _ready():
 	$shoot_cd.wait_time = cd_duration
 	
 func _physics_process(_delta):
-
-	
-	if Hp <= 0:
-		dead = true
 		
 	if !dead:
 		$Player_detection/Detection.disabled = false
