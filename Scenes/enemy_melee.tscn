@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpbtiectljtq"]
 
-[ext_resource type="Script" uid="uid://8sruk52q2y8v" path="res://Scripts/punishing_bird.gd" id="1_6gbma"]
+[ext_resource type="Script" uid="uid://8sruk52q2y8v" path="res://Scripts/enemy_melee.gd" id="1_6gbma"]
 [ext_resource type="Texture2D" uid="uid://cfpkkrse1bu1o" path="res://Assets/Sprites/entity_PunishingBird_enemy.png" id="1_q8l2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gbma"]
@@ -10,29 +10,38 @@ size = Vector2(43, 37)
 radius = 32.0156
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdmi6"]
-radius = 461.255
+radius = 466.13
 
-[node name="Punishing Bird" type="CharacterBody2D"]
+[node name="enemy_melee" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 16
 script = ExtResource("1_6gbma")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q8l2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 18
+visibility_layer = 2
 position = Vector2(-2.5, 6.5)
 shape = SubResource("RectangleShape2D_6gbma")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+light_mask = 18
+visibility_layer = 2
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_n3oyg")
 
 [node name="Player_detection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_detection"]
+[node name="Detection" type="CollisionShape2D" parent="Player_detection"]
+light_mask = 18
+visibility_layer = 2
 shape = SubResource("CircleShape2D_tdmi6")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Player_detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="Player_detection" to="." method="_on_player_detection_body_exited"]
