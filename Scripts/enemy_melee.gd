@@ -78,4 +78,3 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		body.apply_knockback(direction, 850.0, 0.12)
 		body.received_damage(20)
 		apply_knockback(knockback_self, 150.0, 0.12)
-		received_damage(20)
