@@ -1,49 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbaul56nxjy32"]
+[gd_scene load_steps=9 format=3 uid="uid://dbaul56nxjy32"]
 
-[ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rock2.tscn" id="2_1l0tm"]
-[ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_h4fw4"]
-[ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/Player_testing.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/punishing_bird.tscn" id="2_wrm1d"]
-[ext_resource type="Texture2D" uid="uid://bdlhotou1xinf" path="res://Assets/Sprites/Whispering_WoodsC.png" id="3_ldgsr"]
-[ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rocks.tscn" id="3_v158k"]
-[ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunk2.tscn" id="4_h4fw4"]
-[ext_resource type="PackedScene" uid="uid://dfiwkot5wm0uc" path="res://Scenes/trunk.tscn" id="5_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://w2ahnqvfsj78" path="res://Scenes/whispering_woods_map.tscn" id="1_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rockB.tscn" id="2_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/player.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/enemy_melee.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rockA.tscn" id="3_v158k"]
+[ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunkB.tscn" id="4_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://dfiwkot5wm0uc" path="res://Scenes/trunkA.tscn" id="5_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://cht8irfmo3nbb" path="res://Scenes/enemy_range.tscn" id="8_v158k"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="WhisperingWoods_Map" type="StaticBody2D" parent="."]
-z_index = -1
-y_sort_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="WhisperingWoods_Map"]
-position = Vector2(1904, 18)
-texture = ExtResource("1_1l0tm")
-
-[node name="Sprite2D2" type="Sprite2D" parent="WhisperingWoods_Map"]
-position = Vector2(1904, -2142)
-texture = ExtResource("2_h4fw4")
-
-[node name="Sprite2D3" type="Sprite2D" parent="WhisperingWoods_Map"]
-position = Vector2(5744, -2142)
-texture = ExtResource("3_ldgsr")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WhisperingWoods_Map"]
-polygon = PackedVector2Array(-17, 1098, 2790, 1098, 2793, 1087, 2791, 1060, 2793, 1050, 2829, 1036, 2869, 1032, 2899, 1032, 2917, 1032, 2950, 1031, 2961, 1038, 2969, 1062, 2978, 1080, 2981, 1096, 3825, 1096, 3821, -1064, 7657, -1064, 7657, -1384, 7537, -1290, 7484, -1246, 7503, -1319, 7569, -1454, 7569, -1588, 7572, -1818, 7537, -3224, 2142, -3220, 2089, -3170, 1719, -3136, 1326, -3120, 171, -3114, 106, -3045, 52, -2866, 33, -2583, 74, -1234, 52, -1168, -1, -1140, -20, -1099, -20, -343, 65, -364, 181, -368, 341, -364, 470, -358, 689, -339, 783, -339, 878, -339, 962, -421, 1013, -474, 1091, -521, 1147, -528, 1226, -509, 1326, -456, 1373, -434, 1260, -408, 1223, -374, 1157, -292, 1078, -220, 975, -173, 871, -167, 752, -173, 623, -201, 473, -214, 363, -217, 250, -217, 197, -217, 93, -223, -7, -220, -23, -208, -20, -179, 112, -182, 206, -182, 319, -176, 429, -151, 501, -117, 564, -82, 714, -13, 777, 69, 943, 172, 1006, 235, 1207, 323, 1358, 360, 1515, 373, 1659, 376, 1800, 386, 1898, 404, 1957, 433, 2048, 495, 2117, 543, 2211, 612, 2337, 696, 2466, 728, 2613, 747, 2707, 772, 2827, 809, 2889, 863, 2927, 900, 2801, 900, 2739, 916, 2654, 894, 2510, 847, 2393, 841, 2227, 816, 2098, 768, 2014, 652, 1960, 574, 1847, 521, 1640, 514, 1502, 511, 1333, 492, 1223, 458, 1091, 411, 1009, 342, 934, 291, 827, 238, 743, 188, 680, 128, 670, 191, 686, 276, 664, 417, 592, 495, 542, 599, 470, 687, 347, 750, 253, 812, 178, 856, 21, 932, -11, 944, -11, 828, 52, 781, 171, 731, 306, 681, 360, 643, 479, 549, 510, 489, 564, 389, 611, 304, 639, 248, 645, 188, 630, 122, 611, 56, 573, -4, 501, -54, 426, -91, 331, -123, 212, -132, 121, -139, 11, -139, -20, -139, -26, 508, -33, 1032, -127, 1029, -182, -3443, 7877, -3380, 7877, -945, 3874, -1008, 3919, 1168, 114, 1276, -81, 1134, -36, 1044)
+[node name="WhisperingWoods_Map" parent="." instance=ExtResource("1_1l0tm")]
+collision_layer = 16
+collision_mask = 0
 
 [node name="Node2D#objects" type="Node" parent="."]
 
 [node name="Node2D_objects#Rock1" parent="." instance=ExtResource("2_1l0tm")]
+light_mask = 0
+visibility_layer = 16
 position = Vector2(3115, 837)
 
 [node name="Node2D_objects#Rock2" parent="." instance=ExtResource("3_v158k")]
+light_mask = 0
+visibility_layer = 16
 position = Vector2(821, 462)
 
 [node name="Node2D_objects#TreeTrunk1" parent="." instance=ExtResource("4_h4fw4")]
+light_mask = 0
+visibility_layer = 16
 position = Vector2(106, 535)
 
 [node name="Node2D_objects#TreeTrunk2" parent="." instance=ExtResource("5_ldgsr")]
+light_mask = 0
+visibility_layer = 16
 position = Vector2(674, 617)
 
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
@@ -52,11 +44,10 @@ position = Vector2(192, 1046)
 
 [node name="Node2D#enemies" type="Node" parent="."]
 
-[node name="Node2D_enemies#Punishing Bird" parent="." instance=ExtResource("2_wrm1d")]
-position = Vector2(1307, 678)
-
 [node name="Node2D_enemies#Punishing Bird2" parent="." instance=ExtResource("2_wrm1d")]
-position = Vector2(1980, 919)
+light_mask = 0
+visibility_layer = 2
+position = Vector2(1283, 671)
 
-[node name="Node2D_enemies#Punishing Bird3" parent="." instance=ExtResource("2_wrm1d")]
-position = Vector2(3181, 234)
+[node name="enemy_range" parent="." instance=ExtResource("8_v158k")]
+position = Vector2(2393, -241)

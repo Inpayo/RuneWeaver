@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://nxkumwtepwy5"]
+
+[ext_resource type="Texture2D" uid="uid://bbro3t2mchlq3" path="res://Assets/Sprites/objects_forest_TreesAndRocks.png" id="1_qnycn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5muk"]
+size = Vector2(91, 25.5547)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -43)
+texture = ExtResource("1_qnycn")
+hframes = 16
+vframes = 18
+frame = 242
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, -36.7774)
+shape = SubResource("RectangleShape2D_e5muk")

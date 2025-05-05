@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://de7cu8h5hmww7"]
+
+[ext_resource type="Script" uid="uid://lmkgb65uejdh" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://waa0x4cohj2x" path="res://Assets/Sprites/Aim_pointy.png" id="1_xjght"]
+
+[node name="bullet" type="Sprite2D"]
+visibility_layer = 128
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.480556, 0.113889)
+texture = ExtResource("1_xjght")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(69, 0)
+collision_mask = 144
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
