@@ -33,8 +33,12 @@ func _physics_process(_delta):
 			
 		if direction.x > 0:
 			$Sprite2D.flip_h = true
+			$Sprite2D/Marker2D.position.x = 76
+
 		elif direction.x < 0:
 			$Sprite2D.flip_h = false
+			$Sprite2D/Marker2D.position.x = -76
+
 		
 		if knockback_timer > 0.0:
 			velocity = knockback

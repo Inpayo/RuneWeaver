@@ -8,6 +8,10 @@ var speed: float = 750
 
 func _physics_process(delta: float) -> void:
 	position += Vector2.RIGHT.rotated(rotation) * speed * delta
+	
+	if $Sprite2D/AnimationPlayer.animation_finished:
+		$Sprite2D/AnimationPlayer.play("shoot")
+	
 	if RayCast.is_colliding():
 		if RayCast.get_collider() == player or RayCast.get_collider() == player_hitbox:
 			damage_player()
