@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rockA.tscn" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunkB.tscn" id="4_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://dfiwkot5wm0uc" path="res://Scenes/trunkA.tscn" id="5_ldgsr"]
-[ext_resource type="PackedScene" uid="uid://cht8irfmo3nbb" path="res://Scenes/enemy_range.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://du0wca2y10sgs" path="res://Scenes/hawktuah.tscn" id="8_v158k"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -49,5 +49,5 @@ light_mask = 0
 visibility_layer = 2
 position = Vector2(1283, 671)
 
-[node name="enemy_range" parent="." instance=ExtResource("8_v158k")]
-position = Vector2(2393, -241)
+[node name="enemy_range2" parent="." instance=ExtResource("8_v158k")]
+position = Vector2(1711, -186)
