@@ -3,19 +3,22 @@ extends CharacterBody2D
 func _ready() -> void:
 	$Hitbox/HurtyWurty.disabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+	
+var Fisting: bool = true
 @export var Hp: int = 100
 var current_Hp: int = Hp
 @export var Speed: float = 800
 @export var Acceleration: float = 2400
 @export var Friction: float = Acceleration/Speed
 var input_direction = Vector2.ZERO
-@export var Bullet : PackedScene
+@export var Fist : PackedScene
+@export var Spell: PackedScene
 @export var Keyboard: bool = true
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var dead: bool = false
-
+var ArrDirOrigin
+@onready var Left: Marker2D = $"Arrow_anchor/Attacks/Left Hook"
 
 func Mode_toggle():
 	current_Hp = clamp(current_Hp, 0, Hp)
@@ -27,9 +30,13 @@ func Mode_toggle():
 			Input.mouse_mode = (Input.MOUSE_MODE_CAPTURED)
 
 func get_input(_delta):
-
+	
+	if Input.is_action_just_pressed("SP1") or Input.is_action_just_pressed("SP2") or Input.is_action_just_pressed("SP3") or Input.is_action_just_pressed("SP4"):
+		Fisting = false
+		Fight()
+	
 	var facing = Vector2.ZERO
-	var ArrDirOrigin = get_node("Arrow_anchor/Arrow")
+	ArrDirOrigin = get_node("Arrow_anchor/Arrow")
 	var ArrDir = ArrDirOrigin.LMDir
 
 	if Keyboard:
@@ -54,7 +61,15 @@ func get_input(_delta):
 		$Sprite2D.flip_h = true
 	elif facing.x < 0:
 		$Sprite2D.flip_h = false
-		
+	
+	if Keyboard:
+		if Input.is_action_just_pressed("Fist_keyboard"):
+			Fisting = true
+			Fight()
+	elif !Keyboard:
+		if Input.is_action_just_pressed("Fist_controller"):
+			Fisting = true
+			Fight()
 		
 	input_direction = input_direction.normalized()
 	
@@ -106,3 +121,11 @@ func on_death():
 	
 func player():
 	pass
+	
+func Fight():
+	var Punching
+	if Fisting ==  true:
+		Punching = Fist.instantiate()
+	Punching.position = $Arrow_anchor.global_position
+	Punching.rotation = (ArrDirOrigin.global_position - $Arrow_anchor.global_position).angle()
+	get_parent().add_child(Punching)

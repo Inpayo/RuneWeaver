@@ -1,6 +1,6 @@
-extends Area2D
+extends Sprite2D
 
-var speed = 500
+var speed: float = 750
 
-func _physics_process(delta):
-	position += transform.x * speed * delta
+func _physics_process(delta: float) -> void:
+	position += Vector2.RIGHT.rotated(rotation) * speed * delta
