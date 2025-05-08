@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://du0wca2y10sgs"]
 
-[ext_resource type="Script" uid="uid://m8c4foh5a8qs" path="res://Scripts/enemy_range.gd" id="1_rpk5w"]
+[ext_resource type="Script" path="res://Scripts/enemy_range.gd" id="1_rpk5w"]
 [ext_resource type="Texture2D" uid="uid://ckgaog2dxe26c" path="res://Assets/Sprites/entity_hawktuah_spritesheet.png" id="2_rpk5w"]
 
 [sub_resource type="Animation" id="Animation_s1fu1"]
