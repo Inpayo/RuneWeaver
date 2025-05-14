@@ -10,7 +10,12 @@ func Cast(Damage, Knockback, Sprite, Speed):
 	speed = Speed
 	damage = Damage
 	knockback = Knockback
-	$Sprite2D.texture = load(Sprite)
+	self.texture = load(Sprite)
+	var tex = load(Sprite)
+	self.texture = tex
+	var target_size = Vector2(64, 64)
+	var scale_factor = target_size / tex.get_size()
+	self.scale = scale_factor
 	
 	
 func _physics_process(delta: float) -> void:

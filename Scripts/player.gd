@@ -13,6 +13,7 @@ var current_Hp: int = Hp
 var input_direction = Vector2.ZERO
 @export var Fist : PackedScene
 @export var Spell: PackedScene
+
 @export var Keyboard: bool = true
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
@@ -126,6 +127,8 @@ func Fight():
 	var Punching
 	if Fisting ==  true:
 		Punching = Fist.instantiate()
+	elif Fisting == false:
+		Punching = Spell.instantiate()
 	Punching.position = $Arrow_anchor.global_position
 	Punching.rotation = (ArrDirOrigin.global_position - $Arrow_anchor.global_position).angle()
 	get_parent().add_child(Punching)
