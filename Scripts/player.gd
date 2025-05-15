@@ -4,6 +4,9 @@ func _ready() -> void:
 	$Hitbox/HurtyWurty.disabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+
+var chance: float = 0.0
+@export var luck: float = 1.0
 var Fisting: bool = true
 @export var Hp: int = 100
 var current_Hp: int = Hp
@@ -108,18 +111,24 @@ func _physics_process(_delta):
 	
 
 func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
-	knockback = knockback_direction * intensity
-	knockback_timer = time
+		knockback = knockback_direction * intensity
+		knockback_timer = time
 
 func received_damage(damage: int):
-	Hp -= damage
-	if Hp <= 0:
-		on_death()
+		Hp -= damage
+		if Hp <= 0:
+			on_death()
+		
 	
 func on_death():
 	dead = true
 	$Hitbox/HurtyWurty.disabled = true
 	$Sprite2D/AnimationPlayer.play("death")
+	
+func luck_change(value):
+	luck += value
+func get_luck():
+	return luck
 	
 func player():
 	pass
