@@ -4,16 +4,16 @@ var speed = 0
 var damage = 0
 var knockback = 0
 
-var Vars = ["Fire", "No_move","None", "None"]
+var Vars = ["Wind", "Move","Power", "None"]
 
 func Cast(Damage, Knockback, Sprite, Speed, Aug1Dam, Aug1Spd, Aug1CT, Aug2Dam, Aug2Spd, Aug2CT):
 	var target_size = Vector2(64, 64)
 	
-	$Mana_req1.wait_time += Aug1CT + Aug2CT
+	$Mana_req4.wait_time += Aug1CT + Aug2CT
 	
 	if "Move" in Vars:
-		$Mana_req1.start()
-		await $Mana_req1.timeout
+		$Mana_req4.start()
+		await $Mana_req4.timeout
 		
 	speed = Speed * (1 + Aug1Spd + Aug2Spd)
 	damage = Damage * (1 + Aug1Dam + Aug2Dam)

@@ -16,12 +16,14 @@ var current_Hp: int = Hp
 var input_direction = Vector2.ZERO
 @export var Fist : PackedScene
 @export var Spell: PackedScene
+
 @export var Keyboard: bool = true
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var dead: bool = false
 var ArrDirOrigin
 @onready var Left: Marker2D = $"Arrow_anchor/Attacks/Left Hook"
+var con: float = 0.0
 
 func Mode_toggle():
 	current_Hp = clamp(current_Hp, 0, Hp)
@@ -132,9 +134,39 @@ func player():
 	pass
 	
 func Fight():
-	var Punching
-	if Fisting ==  true:
-		Punching = Fist.instantiate()
-	Punching.position = $Arrow_anchor.global_position
-	Punching.rotation = (ArrDirOrigin.global_position - $Arrow_anchor.global_position).angle()
-	get_parent().add_child(Punching)
+	var punching
+	var SPC = ""
+	var TTF
+
+	if Fisting == true:
+		punching = Fist.instantiate()
+	elif Fisting == false and con < 1:
+		punching = Spell.instantiate()
+		if Input.is_action_just_pressed("SP1"):
+			SPC = "SP1"
+			TTF = punching.get_node("SP1/Mana_req1")
+		elif Input.is_action_just_pressed("SP2"):
+			SPC = "SP2"
+			TTF = punching.get_node("SP2/Mana_req2")
+		elif Input.is_action_just_pressed("SP3"):
+			SPC = "SP3"
+			TTF = punching.get_node("SP3/Mana_req3")
+		elif Input.is_action_just_pressed("SP4"):
+			SPC = "SP4"
+			TTF = punching.get_node("SP4/Mana_req4")
+		punching.GetVars(SPC)
+		
+		TTF.timeout.connect(Callable(self, "Casted"))
+		TTF.Ready.connect(Callable(self, "Casting"))
+		
+	
+	if Fisting == true or con < 1:
+		punching.position = $Arrow_anchor.global_position
+		punching.rotation = (ArrDirOrigin.global_position - $Arrow_anchor.global_position).angle()
+		get_parent().add_child(punching)
+
+func Casted():
+	con -= 1
+	
+func Casting():
+	con += 1
