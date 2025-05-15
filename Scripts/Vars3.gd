@@ -4,7 +4,7 @@ var speed = 0
 var damage = 0
 var knockback = 0
 
-var Vars = ["Fire", "Move", "Speed", "None"]
+var Vars = ["Fire", "Move", "Power", "Power"]
 
 func Cast(Damage, Knockback, Sprite, Speed, Aug1Dam, Aug1Spd, Aug1CT, Aug2Dam, Aug2Spd, Aug2CT):
 	var target_size = Vector2(64, 64)

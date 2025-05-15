@@ -103,7 +103,7 @@ size = Vector2(41, 23.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8wls"]
 size = Vector2(53, 174)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 16
 script = ExtResource("1_i8wls")
 Fist = ExtResource("2_fkybt")

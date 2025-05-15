@@ -2,6 +2,7 @@ extends Sprite2D
 
 var DefDir = Vector2.LEFT
 var LMDir = Vector2.ZERO
+var TDir = Vector2.ZERO
 
 func _process(_delta: float) -> void:
 	var Keyboard = get_parent().get_parent().Keyboard
@@ -22,6 +23,7 @@ func _process(_delta: float) -> void:
 	else:
 		direction = DefDir
 	
+	TDir = direction
 	
 	position = direction * 200
 	
