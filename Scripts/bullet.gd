@@ -14,9 +14,11 @@ func _physics_process(delta: float) -> void:
 	
 	if RayCast.is_colliding():
 		if RayCast.get_collider() == player or RayCast.get_collider() == player_hitbox:
-			damage_player()
+			if randf_range(0.0, 100.0) > player.get_luck():
+				damage_player()
 		queue_free()
 
 func damage_player():
 	player.apply_knockback((player.position - position).normalized(), 750 ,0.12)
 	player.received_damage(20)
+	player.luck_change(20)

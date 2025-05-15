@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const bullet_scene = preload("res://Scenes/bullet.tscn")
+const coin_scene = preload("res://Scenes/coin.tscn")
 
 @export var speed: float = 300.0
 @export var Hp: int = 20
@@ -23,7 +24,7 @@ func _ready():
 	
 func _physics_process(_delta):
 		
-	if !dead:
+	if not dead:
 		$Player_detection/Detection.disabled = false
 		
 		if direction != Vector2.ZERO:
@@ -70,7 +71,13 @@ func received_damage(damage):
 
 func on_death():
 	dead = true
-	queue_free()
+	loot()
+
+	$Sprite2D/AnimationPlayer.play("death")
+	await $Sprite2D/AnimationPlayer.animation_finished
+	velocity = Vector2.ZERO
+	$Hitbox/CollisionShape2D.disabled = true
+	$death_timer.start()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -86,6 +93,14 @@ func shoot():
 	bullet.position = mark.global_position
 	bullet.rotation = (player.position - position).angle()
 	get_parent().add_child(bullet)
+
+func loot():
+	for n in range(3):
+		var loot = coin_scene.instantiate()
+		loot.position.x = position.x + randf_range(50.0, 100.0)
+		loot.position.y = position.y + randf_range(50.0, 100.0)
+		get_parent().add_child(loot)
+	
 
 func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
 	knockback = knockback_direction * intensity
@@ -114,3 +129,5 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 func _on_shoot_cd_timeout() -> void:
 	on_cd = false
 	
+func _on_death_timer_timeout() -> void:
+	queue_free()

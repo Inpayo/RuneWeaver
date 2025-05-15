@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dpbtiectljtq"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_melee.gd" id="1_6gbma"]
+[ext_resource type="Script" uid="uid://8sruk52q2y8v" path="res://Scripts/enemy_melee.gd" id="1_6gbma"]
 [ext_resource type="Texture2D" uid="uid://d0t4dacl0eejh" path="res://Assets/Sprites/entity_player_spritesheet.png" id="2_3dfpd"]
 
 [sub_resource type="Animation" id="Animation_s1fu1"]
