@@ -66,7 +66,7 @@ radius = 32.0156
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdmi6"]
 radius = 466.13
 
-[node name="enemy_melee" type="CharacterBody2D"]
+[node name="enemy_melee" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_6gbma")
