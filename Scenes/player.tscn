@@ -104,7 +104,7 @@ size = Vector2(41, 23.75)
 size = Vector2(53, 174)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_mask = 16
+collision_mask = 80
 script = ExtResource("1_i8wls")
 Fist = ExtResource("2_fkybt")
 Spell = ExtResource("3_x3wgy")

@@ -5,6 +5,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
+var moneh: int = 0
 var chance: float = 0.0
 @export var luck: float = 1.0
 var Fisting: bool = true
@@ -122,7 +123,9 @@ func received_damage(damage: int):
 		Hp -= damage
 		if Hp <= 0:
 			on_death()
-		
+
+func add_moneh(ammount):
+	moneh += ammount
 	
 func on_death():
 	dead = true

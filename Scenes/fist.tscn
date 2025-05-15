@@ -14,3 +14,10 @@ script = ExtResource("1_4upvt")
 wait_time = 0.2
 one_shot = true
 autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-66.6667, 8.33333)
+target_position = Vector2(145, 3.33333)
+collision_mask = 22
+hit_from_inside = true
+collide_with_areas = true
