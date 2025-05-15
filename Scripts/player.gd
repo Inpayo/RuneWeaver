@@ -32,14 +32,18 @@ func Mode_toggle():
 			Input.mouse_mode = (Input.MOUSE_MODE_CAPTURED)
 
 func get_input(_delta):
-	
-	if Input.is_action_just_pressed("SP1") or Input.is_action_just_pressed("SP2") or Input.is_action_just_pressed("SP3") or Input.is_action_just_pressed("SP4"):
-		Fisting = false
-		Fight()
+	if Keyboard:
+		if Input.is_action_just_pressed("SP1_Key") or Input.is_action_just_pressed("SP2_Key") or Input.is_action_just_pressed("SP3_Key") or Input.is_action_just_pressed("SP4_Key"):
+			Fisting = false
+			Fight()
+	elif !Keyboard:
+		if Input.is_action_just_pressed("SP1_Con") or Input.is_action_just_pressed("SP2_Con") or Input.is_action_just_pressed("SP3_Con") or Input.is_action_just_pressed("SP4_Con"):
+			Fisting = false
+			Fight()
 	
 	var facing = Vector2.ZERO
 	ArrDirOrigin = get_node("Arrow_anchor/Arrow")
-	var ArrDir = ArrDirOrigin.LMDir
+	var ArrDir = ArrDirOrigin.TDir
 
 	if Keyboard:
 		input_direction = Input.get_vector("Move_left_keyboard", "Move_right_keyboard", "Move_up_keyboard", "Move_down_keyboard")
@@ -133,16 +137,16 @@ func Fight():
 		punching = Fist.instantiate()
 	elif Fisting == false and con < 1:
 		punching = Spell.instantiate()
-		if Input.is_action_just_pressed("SP1"):
+		if Input.is_action_just_pressed("SP1_Key") or Input.is_action_just_pressed("SP1_Con"):
 			SPC = "SP1"
 			TTF = punching.get_node("SP1/Mana_req1")
-		elif Input.is_action_just_pressed("SP2"):
+		elif Input.is_action_just_pressed("SP2_Key") or Input.is_action_just_pressed("SP2_Con"):
 			SPC = "SP2"
 			TTF = punching.get_node("SP2/Mana_req2")
-		elif Input.is_action_just_pressed("SP3"):
+		elif Input.is_action_just_pressed("SP3_Key") or Input.is_action_just_pressed("SP3_Con"):
 			SPC = "SP3"
 			TTF = punching.get_node("SP3/Mana_req3")
-		elif Input.is_action_just_pressed("SP4"):
+		elif Input.is_action_just_pressed("SP4_Key") or Input.is_action_just_pressed("SP4_Con"):
 			SPC = "SP4"
 			TTF = punching.get_node("SP4/Mana_req4")
 		punching.GetVars(SPC)
