@@ -13,7 +13,6 @@ func _physics_process(delta: float) -> void:
 	if $RayCast2D.is_colliding():
 		var entity = $RayCast2D.get_collider()
 		entity = entity.get_parent()
-		print(entity)
 		entity.received_damage(20)
 		#emit_signal("Hit", entity, 20)
 		queue_free()
