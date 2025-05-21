@@ -13,3 +13,8 @@ func _physics_process(delta: float) -> void:
 	
 	if $Sprite2D/AnimationPlayer.animation_finished:
 		$Sprite2D/AnimationPlayer.play("shoot")
+
+func damage_player():
+	player.apply_knockback((player.position - position).normalized(), 750 ,0.12)
+	player.received_damage(20)
+	player.luck_change(20)
