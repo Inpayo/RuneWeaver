@@ -73,12 +73,12 @@ func on_death():
 	queue_free()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.is_in_group("Player"):
 		player_detected = true
 		player = body
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.is_in_group("Player"):
 		player_detected = false
 
 func shoot():
@@ -91,17 +91,9 @@ func apply_knockback(knockback_direction: Vector2, intensity: float, time: float
 	knockback = knockback_direction * intensity
 	knockback_timer = time
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		var knockback_self = direction * -1
-		body.apply_knockback(direction, 850.0, 0.12)
-		body.received_damage(20)
-		apply_knockback(knockback_self, 150.0, 0.12)
-		received_damage(20)
-
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.is_in_group("Player"):
 		player_in_range = true
 		player = body
 
@@ -114,3 +106,12 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 func _on_shoot_cd_timeout() -> void:
 	on_cd = false
 	
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Player") or area.is_in_group("Player_attacks"):
+		var Stats = area.get_parent()
+		received_damage(Stats.damage)
+		apply_knockback((Stats.position - position), Stats.KBIntensity, Stats.KBTime)
+		if area.is_in_group("Player_attacks"):
+			Stats.queue_free()

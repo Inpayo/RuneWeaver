@@ -98,12 +98,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utw4k"]
-size = Vector2(41, 23.75)
+size = Vector2(41, 20.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8wls"]
 size = Vector2(53, 174)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
 collision_mask = 16
 script = ExtResource("1_i8wls")
 Fist = ExtResource("2_fkybt")
@@ -131,12 +132,12 @@ position_smoothing_speed = 60.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 18
-position = Vector2(-2, -14)
+position = Vector2(3.5, -15.4375)
 shape = SubResource("RectangleShape2D_utw4k")
 
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 128
-collision_mask = 64
+[node name="Hitbox" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 2
+collision_mask = 28
 
 [node name="HurtyWurty" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(4.5, -77)
@@ -154,3 +155,5 @@ scale = Vector2(0.226563, 0.186111)
 texture = ExtResource("3_was2g")
 offset = Vector2(0, -77)
 script = ExtResource("4_6vxjc")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

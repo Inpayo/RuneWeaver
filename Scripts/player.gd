@@ -22,6 +22,10 @@ var ArrDirOrigin
 @onready var Left: Marker2D = $"Arrow_anchor/Attacks/Left Hook"
 var con: float = 0.0
 
+var KBIntensity = 200
+var KBTime = 0.5
+var damage = 10
+
 func Mode_toggle():
 	current_Hp = clamp(current_Hp, 0, Hp)
 	if Input.is_action_just_pressed("Swap_mode"):
@@ -110,15 +114,6 @@ func _physics_process(_delta):
 		
 		move_and_slide()
 	
-
-func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
-	knockback = knockback_direction * intensity
-	knockback_timer = time
-
-func received_damage(damage: int):
-	Hp -= damage
-	if Hp <= 0:
-		on_death()
 	
 func on_death():
 	dead = true
@@ -154,6 +149,7 @@ func Fight():
 		TTF.timeout.connect(Callable(self, "Casted"))
 		TTF.Ready.connect(Callable(self, "Casting"))
 		
+		
 	
 	if Fisting == true or con < 1:
 		punching.position = $Arrow_anchor.global_position
@@ -165,3 +161,16 @@ func Casted():
 	
 func Casting():
 	con += 1
+
+
+func _on_hitbox_area_entered(area):
+	print("Collided")
+	if area.is_in_group("Enemy_attacks") or area.is_in_group("Enemies"):
+		var Stats = area.get_parent()
+		knockback = (self.position - area.position).normalized() * Stats.KBIntensity
+		knockback_timer = Stats.KBTime
+		Hp -= Stats.damage
+		if Hp <= 0:
+			on_death()
+		if area.is_in_group("Enemy_attacks"):
+			Stats.queue_free()

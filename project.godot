@@ -23,6 +23,14 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
 
+[global_group]
+
+Enemy_attacks=""
+Player_attacks=""
+Enemies=""
+Player=""
+Special_proj=""
+
 [input]
 
 ui_left={
@@ -182,3 +190,11 @@ SP4_Con={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":10,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Projectiles"
+2d_physics/layer_5="Detection"
