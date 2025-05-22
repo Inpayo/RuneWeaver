@@ -9,6 +9,11 @@ var direction: Vector2 = Vector2.ZERO
 var player
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
+var Delta
+
+var KBIntensity = 200
+var KBTime = 0.12
+var damage = 10
 
 func _ready():
 	dead = false
@@ -16,6 +21,7 @@ func _ready():
 func _physics_process(_delta):
 		
 	if !dead:
+		Delta = _delta
 		$Player_detection/Detection.disabled = false
 		
 		if direction != Vector2.ZERO:
@@ -28,24 +34,9 @@ func _physics_process(_delta):
 		elif direction.x < 0:
 			$Sprite2D.flip_h = false
 		
-		if knockback_timer > 0.0:
-			velocity = knockback
-			knockback_timer -= _delta
-			if knockback_timer <= 0.0:
-				knockback = Vector2.ZERO
-			
-		if player_detected and knockback_timer <= 0.0:
-			direction = position.direction_to(player.position)
-			velocity = direction * speed * _delta * 50
-		else:
-			if last_location != null:
-				if not (last_location - position).x > 100 and not (last_location - position).x < -100 and not (last_location - position).y > 100 and not (last_location - position).y < -100:
-					velocity = Vector2.ZERO
-				else:
-					direction = (last_location - position).normalized()
-					velocity = direction * speed * _delta * 50
 	else:
 		$Player_detection/Detection.disabled = true
+	Knockback(Vector2.ZERO, 0, 0)
 	move_and_slide()
 
 func received_damage(damage: int):
@@ -53,28 +44,52 @@ func received_damage(damage: int):
 	if Hp <= 0:
 		on_death()
 
+
 func on_death():
 	dead = true
 	queue_free()
 
-func _on_player_detection_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+func Knockback(knockback_intensity, knockback_timer, KBDir):
+	$KBTimer.start(knockback_timer)
+	if $KBTimer.is_stopped() == false:
+			velocity = KBDir * knockback_intensity * Delta
+	else:
+		knockback = Vector2.ZERO
+			
+	if player_detected and $KBTimer.is_stopped() == false:
+		direction = position.direction_to(player.position)
+		velocity = direction * speed * Delta * 50
+	else:
+		if last_location != null:
+			if not (last_location - position).x > 100 and not (last_location - position).x < -100 and not (last_location - position).y > 100 and not (last_location - position).y < -100:
+				velocity = Vector2.ZERO
+			else:
+				direction = (last_location - position).normalized()
+				velocity = direction * speed * Delta * 50
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Player") or area.is_in_group("Player_attacks"):
+		var Stats = area.get_parent()
+		if area.is_in_group("Special_proj"):
+			Stats = area.get_parent().SPC
+		received_damage(Stats.damage)
+		var KBDir = area.position - position
+		Knockback(Stats.KBIntensity, Stats.KBTime, KBDir)
+		Stats = area.get_parent()
+		if area.is_in_group("Special_proj"):
+			Stats.KYS()
+			pass
+		if area.is_in_group("Player_attacks"):
+			Stats.queue_free()
+
+
+func _on_player_detection_body_entered(body):
+	if body.is_in_group("Player"):
 		player_detected = true
 		player = body
 
-func _on_player_detection_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
+func _on_player_detection_body_exited(body) :
+	if body.is_in_group("Player"):
 		player_detected = false
 		last_location = player.position
-		player = body
-
-func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
-	knockback = knockback_direction * intensity
-	knockback_timer = time
-
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		var knockback_self = direction * -1
-		body.apply_knockback(direction, 850.0, 0.12)
-		body.received_damage(20)
-		apply_knockback(knockback_self, 150.0, 0.12)
+		player = body.get_parent()

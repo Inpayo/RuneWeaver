@@ -35,21 +35,6 @@ tracks/0/keys = {
 "values": [51]
 }
 
-[sub_resource type="Animation" id="Animation_rpk5w"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4, 5]
-}
-
 [sub_resource type="Animation" id="Animation_84rqt"]
 resource_name = "idle"
 loop_mode = 1
@@ -66,6 +51,21 @@ tracks/0/keys = {
 "values": [11]
 }
 
+[sub_resource type="Animation" id="Animation_rpk5w"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rc88t"]
 _data = {
 &"Fly": SubResource("Animation_s1fu1"),
@@ -78,7 +78,7 @@ _data = {
 size = Vector2(43, 37)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3oyg"]
-radius = 57.0
+radius = 32.0156
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdmi6"]
 radius = 311.0
@@ -86,9 +86,9 @@ radius = 311.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_2agt4"]
 radius = 632.064
 
-[node name="enemy_range" type="CharacterBody2D" groups=["Enemies"]]
-collision_layer = 2
-collision_mask = 16
+[node name="enemy_range" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 10
 script = ExtResource("1_rpk5w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -114,12 +114,12 @@ shape = SubResource("RectangleShape2D_6gbma")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 18
 visibility_layer = 2
-position = Vector2(-7, -52)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_n3oyg")
 
 [node name="Player_detection" type="Area2D" parent="."]
@@ -130,6 +130,9 @@ visibility_layer = 2
 shape = SubResource("CircleShape2D_tdmi6")
 
 [node name="Attack_range" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 2
 
 [node name="attack" type="CollisionShape2D" parent="Attack_range"]
 shape = SubResource("CircleShape2D_2agt4")

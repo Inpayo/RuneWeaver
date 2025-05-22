@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpbtiectljtq"]
+[gd_scene load_steps=11 format=3 uid="uid://du0wca2y10sgs"]
 
-[ext_resource type="Script" uid="uid://8sruk52q2y8v" path="res://Scripts/enemy_melee.gd" id="1_6gbma"]
-[ext_resource type="Texture2D" uid="uid://d0t4dacl0eejh" path="res://Assets/Sprites/entity_player_spritesheet.png" id="2_3dfpd"]
+[ext_resource type="Script" uid="uid://m8c4foh5a8qs" path="res://Scripts/enemy_range.gd" id="1_rpk5w"]
+[ext_resource type="Texture2D" uid="uid://ckgaog2dxe26c" path="res://Assets/Sprites/entity_hawktuah_spritesheet.png" id="2_rpk5w"]
 
 [sub_resource type="Animation" id="Animation_s1fu1"]
 resource_name = "Fly"
-length = 0.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -14,10 +14,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [51, 52, 53, 54]
+"values": [3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_b7o5j"]
@@ -61,27 +61,33 @@ _data = {
 size = Vector2(43, 37)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3oyg"]
-radius = 31.0
+radius = 32.0156
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdmi6"]
-radius = 466.13
+radius = 311.0
 
-[node name="enemy_melee" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("1_6gbma")
+[sub_resource type="CircleShape2D" id="CircleShape2D_2agt4"]
+radius = 632.064
+
+[node name="enemy_range" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_rpk5w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(25, -68)
-texture = ExtResource("2_3dfpd")
-hframes = 16
-vframes = 6
-frame = 51
+position = Vector2(23, -89)
+texture = ExtResource("2_rpk5w")
+hframes = 10
+vframes = 2
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
 &"": SubResource("AnimationLibrary_rc88t")
 }
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-74, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 18
@@ -89,29 +95,38 @@ visibility_layer = 2
 position = Vector2(-2.5, 6.5)
 shape = SubResource("RectangleShape2D_6gbma")
 
-[node name="Hitbox" type="Area2D" parent="." groups=["Enemies"]]
-collision_layer = 5
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 18
 visibility_layer = 2
-position = Vector2(6, -36)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_n3oyg")
 
 [node name="Player_detection" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 2
+visible = false
 
 [node name="Detection" type="CollisionShape2D" parent="Player_detection"]
 light_mask = 18
 visibility_layer = 2
 shape = SubResource("CircleShape2D_tdmi6")
 
-[node name="KBTimer" type="Timer" parent="."]
-one_shot = true
+[node name="Attack_range" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 2
+
+[node name="attack" type="CollisionShape2D" parent="Attack_range"]
+shape = SubResource("CircleShape2D_2agt4")
+
+[node name="shoot_cd" type="Timer" parent="."]
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Player_detection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="Player_detection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="Attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="Attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="shoot_cd" to="." method="_on_shoot_cd_timeout"]
