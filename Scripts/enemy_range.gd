@@ -40,20 +40,20 @@ func _physics_process(_delta):
 			$Sprite2D/Marker2D.position.x = -76
 
 		
-		if knockback_timer > 0.0:
-			velocity = knockback
-			knockback_timer -= _delta
-			if knockback_timer <= 0.0:
-				knockback = Vector2.ZERO
+
 		
 		if player_in_range:
 			if not on_cd:
 				shoot()
 				on_cd = true
 				$shoot_cd.start()
+		if knockback_timer > 0.0:
+			velocity = knockback
+			knockback_timer -= _delta
+			if knockback_timer <= 0.0:
+				knockback = Vector2.ZERO
 		
-		
-		if player_detected and knockback_timer <= 0.0:
+		elif player_detected and knockback_timer <= 0.0:
 			direction = position.direction_to(player.position)
 			velocity = direction * speed * _delta * 50 * -1
 		else:
@@ -88,8 +88,10 @@ func shoot():
 	get_parent().add_child(bullet)
 
 func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
+	print(knockback_direction, intensity, time)
 	knockback = knockback_direction * intensity
 	knockback_timer = time
+	print(knockback, knockback_timer)
 
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
@@ -111,7 +113,14 @@ func _on_shoot_cd_timeout() -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player") or area.is_in_group("Player_attacks"):
 		var Stats = area.get_parent()
+		if area.is_in_group("Special_proj"):
+			Stats = area.get_parent().SPC
 		received_damage(Stats.damage)
-		apply_knockback((Stats.position - position), Stats.KBIntensity, Stats.KBTime)
+		var KBDir = (area.position - position).normalized()
+		apply_knockback(KBDir, Stats.KBIntensity, Stats.KBTime )
+		Stats = area.get_parent()
+		if area.is_in_group("Special_proj"):
+			Stats.KYS()
+			pass
 		if area.is_in_group("Player_attacks"):
 			Stats.queue_free()
