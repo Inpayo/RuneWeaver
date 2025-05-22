@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://de7cu8h5hmww7"]
+[gd_scene load_steps=7 format=3 uid="uid://de7cu8h5hmww7"]
 
 [ext_resource type="Script" uid="uid://lmkgb65uejdh" path="res://Scripts/bullet.gd" id="1_oduel"]
 [ext_resource type="Texture2D" uid="uid://ckgaog2dxe26c" path="res://Assets/Sprites/entity_hawktuah_spritesheet.png" id="2_oduel"]
@@ -41,6 +41,10 @@ _data = {
 &"shoot": SubResource("Animation_ycag2")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
+radius = 19.0
+height = 62.0
+
 [node name="spit" type="Sprite2D"]
 visibility_layer = 128
 script = ExtResource("1_oduel")
@@ -68,3 +72,12 @@ collide_with_areas = true
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy_attacks"]]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_oduel")
