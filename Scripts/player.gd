@@ -1,10 +1,5 @@
 extends CharacterBody2D
 
-func _ready() -> void:
-	$Hitbox/HurtyWurty.disabled = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-
 var chance: float = 0.0
 @export var luck: float = 1.0
 var Fisting: bool = true
@@ -25,9 +20,17 @@ var ArrDirOrigin
 @onready var Left: Marker2D = $"Arrow_anchor/Attacks/Left Hook"
 var con: float = 0.0
 
-var KBIntensity = 200
+var KBIntensity = 600
 var KBTime = 0.5
 var damage = 10
+
+@onready var Health_bar = $CanvasLayer/ProgressBar
+@onready var Restart = $RestartTime
+
+func _ready() -> void:
+	$Hitbox/HurtyWurty.disabled = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Health_bar.health_init(Hp)
 
 func Mode_toggle():
 	current_Hp = clamp(current_Hp, 0, Hp)
@@ -40,6 +43,9 @@ func Mode_toggle():
 
 func get_input(_delta):
 	if Keyboard:
+		if Input.is_action_just_pressed("restart"):
+			get_tree().reload_current_scene()
+			
 		if Input.is_action_just_pressed("SP1_Key") or Input.is_action_just_pressed("SP2_Key") or Input.is_action_just_pressed("SP3_Key") or Input.is_action_just_pressed("SP4_Key"):
 			Fisting = false
 			Fight()
@@ -128,9 +134,11 @@ func received_damage(damage: int):
 			on_death()
 	
 func on_death():
-	dead = true
-	$Hitbox/HurtyWurty.disabled = true
-	$Sprite2D/AnimationPlayer.play("death")
+	if not dead:
+		dead = true
+		$Hitbox/HurtyWurty.disabled = true
+		$Sprite2D/AnimationPlayer.play("death")
+		$RestartTime.start()
 	
 func luck_change(value):
 	luck += value
@@ -180,14 +188,20 @@ func Casting():
 	con += 1
 
 
+
 func _on_hitbox_area_entered(area):
 	print("Collided")
 	if area.is_in_group("Enemy_attacks") or area.is_in_group("Enemies"):
 		var Stats = area.get_parent()
-		knockback = (self.position - area.position).normalized() * Stats.KBIntensity
+		knockback = Stats.direction * Stats.KBIntensity
 		knockback_timer = Stats.KBTime
 		Hp -= Stats.damage
+		Health_bar.health_change(Stats.damage*-1)
 		if Hp <= 0:
 			on_death()
 		if area.is_in_group("Enemy_attacks"):
 			Stats.queue_free()
+
+
+func _on_restart_time_timeout() -> void:
+	get_tree().reload_current_scene()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m8c4foh5a8qs" path="res://Scripts/enemy_range.gd" id="1_2agt4"]
 [ext_resource type="Texture2D" uid="uid://d0t4dacl0eejh" path="res://Assets/Sprites/entity_player_spritesheet.png" id="2_2agt4"]
-[ext_resource type="Script" uid="uid://depa4gk7qtvat" path="res://Scenes/hitbox.gd" id="3_buyhr"]
+[ext_resource type="Script" uid="uid://depa4gk7qtvat" path="res://Scripts/hitbox.gd" id="3_buyhr"]
 
 [sub_resource type="Animation" id="Animation_s1fu1"]
 resource_name = "Fly"

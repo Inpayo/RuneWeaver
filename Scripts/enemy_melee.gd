@@ -11,7 +11,7 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var Delta
 
-var KBIntensity = 200
+var KBIntensity = 600
 var KBTime = 0.12
 var damage = 10
 

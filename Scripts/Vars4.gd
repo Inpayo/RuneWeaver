@@ -14,7 +14,7 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	var Tempbox = Mid.shape                                       
 	Mid.shape = Tempbox.duplicate()                           
 	Box = Mid.shape  
-	var target_size = Vector2(64, 64)
+	var target_size = Vector2(132, 132)
 	
 	
 	if "Move" in Vars:
@@ -29,7 +29,7 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 		Knockback = 100
 	
 	KBIntensity = Knockback * (1 + Aug1KB + Aug2KB)
-	var BScale = target_size/Vector2(Box.radius * 2, Box.height + Box.radius * 2)
+	var BScale = target_size/Vector2(Box.radius * 2, Box.height + Box.radius * 2)/2
 	var tex = load(Sprite)
 	self.texture = tex
 	var scale_factor = target_size / tex.get_size()

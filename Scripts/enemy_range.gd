@@ -39,21 +39,18 @@ func _physics_process(_delta):
 		elif direction.x < 0:
 			$Sprite2D.flip_h = false
 			$Sprite2D/Marker2D.position.x = -76
-
-		
-
 		
 		if player_in_range:
 			if not on_cd:
 				shoot()
 				on_cd = true
 				$shoot_cd.start()
+
 		if knockback_timer > 0.0:
 			velocity = knockback
 			knockback_timer -= _delta
 			if knockback_timer <= 0.0:
 				knockback = Vector2.ZERO
-		
 		elif player_detected and knockback_timer <= 0.0:
 			direction = position.direction_to(player.position)
 			velocity = direction * speed * _delta * 50 * -1
@@ -62,6 +59,8 @@ func _physics_process(_delta):
 
 	else:
 		$Player_detection/Detection.disabled = true
+		$CollisionShape2D.disabled = true
+		
 	move_and_slide()
 
 func received_damage(damage):
@@ -91,7 +90,7 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 func shoot():
 	var bullet = bullet_scene.instantiate()
 	bullet.position = mark.global_position
-	bullet.rotation = (player.position - position).angle()
+	bullet.rotation = (player.position - $Sprite2D/Marker2D.global_position).angle()
 	get_parent().add_child(bullet)
 
 func loot():
