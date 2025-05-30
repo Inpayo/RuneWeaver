@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://damg756xr3o6h"]
+
+[ext_resource type="Texture2D" uid="uid://87xl7xxvtrnk" path="res://Assets/Sprites/Whiteytighty.png" id="1_as65t"]
+
+[node name="Map2B" type="StaticBody2D"]
+
+[node name="Whiteytighty" type="Sprite2D" parent="."]
+position = Vector2(1822.5, 1183)
+scale = Vector2(1.89844, 2.19074)
+texture = ExtResource("1_as65t")
+
+[node name="WestBorder" type="CollisionPolygon2D" parent="."]
+position = Vector2(-562, -77)
+polygon = PackedVector2Array(0, -13, 0, 1088, -48, 1088, -47.3853, 411.242, -47, -13)
+
+[node name="SouthBorder" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3688, -277)
+polygon = PackedVector2Array(2115, 1082, 2115, 1332, -91, 1332, -91, 1080)
+
+[node name="NorthBorder" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2991, -73)
+polygon = PackedVector2Array(-2, -1, 2087, 0, 2087, -167, -2, -167)
+
+[node name="EastBorder" type="CollisionPolygon2D" parent="."]
+position = Vector2(-4653, 275)
+polygon = PackedVector2Array(1925, -23, 2044, -23, 2044, 1142, 1924, 1142)

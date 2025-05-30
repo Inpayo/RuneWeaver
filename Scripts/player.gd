@@ -7,20 +7,25 @@ func _ready() -> void:
 
 var chance: float = 0.0
 @export var luck: float = 1.0
+
 var Fisting: bool = true
-@export var Hp: int = 100
-var current_Hp: int = Hp
-@export var Speed: float = 800
-@export var Acceleration: float = 2400
-@export var Friction: float = Acceleration/Speed
-var input_direction = Vector2.ZERO
 @export var Fist : PackedScene
 @export var Spell: PackedScene
 
-@export var Keyboard: bool = true
+@export var Hp: int = 100
+var current_Hp: int = Hp
+
+@export var Speed: float = 800
+@export var Acceleration: float = 2400
+@export var Friction: float = Acceleration/Speed
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
+var input_direction = Vector2.ZERO
+
+@export var Keyboard: bool = true
+
 var dead: bool = false
+
 var ArrDirOrigin
 @onready var Left: Marker2D = $"Arrow_anchor/Attacks/Left Hook"
 var con: float = 0.0
