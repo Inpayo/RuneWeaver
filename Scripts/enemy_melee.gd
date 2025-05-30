@@ -36,7 +36,6 @@ func _physics_process(_delta):
 		
 	else:
 		$Player_detection/Detection.disabled = true
-	Knockback(Vector2.ZERO, 0, 0)
 	move_and_slide()
 
 func received_damage(damage: int):
@@ -51,12 +50,13 @@ func on_death():
 
 func Knockback(knockback_intensity, knockback_timer, KBDir):
 	$KBTimer.start(knockback_timer)
-	if $KBTimer.is_stopped() == false:
+	if $KBTimer.is_stopped():
 			velocity = KBDir * knockback_intensity * Delta
+			print(velocity)
 	else:
 		knockback = Vector2.ZERO
 			
-	if player_detected and $KBTimer.is_stopped() == false:
+	if player_detected and $KBTimer.is_stopped() == true:
 		direction = position.direction_to(player.position)
 		velocity = direction * speed * Delta * 50
 	else:

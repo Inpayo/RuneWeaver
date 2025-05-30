@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3fyek6ojims4"]
+
+[ext_resource type="Script" uid="uid://d3ulhcn50ehbn" path="res://boss_1.gd" id="1_bcsvb"]
+[ext_resource type="Texture2D" uid="uid://b7sh6bmxv1pen" path="res://Assets/Sprites/Swinged.png" id="2_ms1kr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8p7u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iwgie"]
+radius = 128.251
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y0rh1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1msb"]
+radius = 371.363
+
+[node name="Boss1" type="CharacterBody2D"]
+script = ExtResource("1_bcsvb")
+
+[node name="Existing" type="Sprite2D" parent="."]
+
+[node name="Swung" type="Sprite2D" parent="."]
+texture = ExtResource("2_ms1kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q8p7u")
+
+[node name="Detection" type="Area2D" parent="."]
+scale = Vector2(15, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_iwgie")
+
+[node name="Attackr" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attackr"]
+shape = SubResource("CircleShape2D_y0rh1")
+
+[node name="Hover" type="Area2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hover"]
+shape = SubResource("CircleShape2D_f1msb")
+
+[node name="AttackCD" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

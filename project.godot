@@ -30,6 +30,8 @@ Player_attacks=""
 Enemies=""
 Player=""
 Special_proj=""
+Earth=""
+Fire=""
 
 [input]
 

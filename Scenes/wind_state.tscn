@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2d0s1b8e5pql"]
+
+[ext_resource type="Script" uid="uid://c1bed54nqisgl" path="res://Scenes/wind_state.gd" id="1_4dn4i"]
+[ext_resource type="Texture2D" uid="uid://bghr5fxk1ippy" path="res://Assets/Sprites/FoxyS.jpg" id="1_vlrny"]
+[ext_resource type="Texture2D" uid="uid://dum8wvjorst35" path="res://Assets/Sprites/FoxyJ.jpg" id="2_4dn4i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_buojf"]
+radius = 131.98
+height = 542.811
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i713y"]
+radius = 346.988
+height = 1226.67
+
+[node name="WindState" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_4dn4i")
+
+[node name="MovingSpr" type="Sprite2D" parent="."]
+position = Vector2(51, 62)
+scale = Vector2(0.325806, 0.22844)
+texture = ExtResource("1_vlrny")
+
+[node name="MovingHBox" type="CollisionShape2D" parent="."]
+position = Vector2(51, 62)
+scale = Vector2(0.325806, 0.22844)
+shape = SubResource("CapsuleShape2D_buojf")
+
+[node name="AttackingSpr" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(96, 42.0001)
+scale = Vector2(0.15, 0.115278)
+texture = ExtResource("2_4dn4i")
+
+[node name="Area2D" type="Area2D" parent="AttackingSpr"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingSpr/Area2D"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_i713y")
+
+[node name="HoverDur" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="HoverDur" to="." method="_on_hover_dur_timeout"]
