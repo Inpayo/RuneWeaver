@@ -9,6 +9,7 @@
 y_sort_enabled = true
 
 [node name="WhisperingWoods_Map" parent="." instance=ExtResource("1_1l0tm")]
+position = Vector2(0, 1)
 collision_layer = 16
 collision_mask = 0
 
