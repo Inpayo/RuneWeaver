@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://vqic7rnw066y"]
+[gd_scene load_steps=16 format=3 uid="uid://vqic7rnw066y"]
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player.gd" id="1_i8wls"]
 [ext_resource type="PackedScene" uid="uid://ddrihm3x1otm6" path="res://Scenes/fist.tscn" id="2_fkybt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://waa0x4cohj2x" path="res://Assets/Sprites/Aim_pointy.png" id="3_was2g"]
 [ext_resource type="PackedScene" uid="uid://ca07pmnatshgf" path="res://Scenes/Spell1.tscn" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://dgs0acpo68tx5" path="res://Scripts/arrow.gd" id="4_6vxjc"]
+[ext_resource type="PackedScene" uid="uid://drygak3vip8i4" path="res://Scenes/Healthbar.tscn" id="7_3smsa"]
 
 [sub_resource type="Animation" id="Animation_vgqql"]
 resource_name = "Hit"
@@ -125,8 +126,6 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -42)
-limit_left = 0
-limit_bottom = 1102
 position_smoothing_enabled = true
 position_smoothing_speed = 60.0
 
@@ -156,4 +155,16 @@ texture = ExtResource("3_was2g")
 offset = Vector2(0, -77)
 script = ExtResource("4_6vxjc")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("7_3smsa")]
+offset_left = 17.0
+offset_top = 25.0
+offset_right = 477.0
+offset_bottom = 69.0
+
+[node name="RestartTime" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="RestartTime" to="." method="_on_restart_time_timeout"]
