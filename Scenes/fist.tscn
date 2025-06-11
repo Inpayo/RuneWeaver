@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddrihm3x1otm6"]
 
-[ext_resource type="Script" uid="uid://cehqug0vcccrm" path="res://Scripts/Fist.gd" id="1_4upvt"]
+[ext_resource type="Script" uid="uid://cehqug0vcccrm" path="res://Scripts/fist.gd" id="1_4upvt"]
 [ext_resource type="Texture2D" uid="uid://b8wub7twaxpr5" path="res://Assets/Sprites/Fisting.png" id="2_whwme"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whwme"]
@@ -19,11 +19,11 @@ wait_time = 0.2
 one_shot = true
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="." groups=["Player_attacks"]]
+[node name="Fist Collision" type="Area2D" parent="." groups=["Player_attacks"]]
 collision_layer = 8
 collision_mask = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fist Collision"]
 position = Vector2(8.33333, 6.66667)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_whwme")

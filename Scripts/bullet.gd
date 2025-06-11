@@ -4,18 +4,21 @@ extends Sprite2D
 @onready var player: CharacterBody2D = $"../Player"
 @onready var player_hitbox: Area2D = $"../Player/Hitbox"
 @onready var init_location = position
-var last_location
-var direction 
+@onready var direction: Vector2 = (player.position - init_location).normalized()
 var damage = 20
 var speed: float = 750
 var KBIntensity = 750
 var KBTime = 0.12
+signal hit
 
 
 func _physics_process(delta: float) -> void:
 	position += Vector2.RIGHT.rotated(rotation) * speed * delta
-	last_location = position
-	direction = (last_location - init_location).normalized()
+
 	
 	if $Sprite2D/AnimationPlayer.animation_finished:
 		$Sprite2D/AnimationPlayer.play("shoot")
+
+
+func _on_hit() -> void:
+	queue_free()# Replace with function body.

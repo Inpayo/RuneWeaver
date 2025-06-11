@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtsx4hd12iign"]
+
+[ext_resource type="Script" uid="uid://lmkgb65uejdh" path="res://Scripts/bullet.gd" id="1_3oagv"]
+[ext_resource type="Texture2D" uid="uid://c3o0ij4it8ojm" path="res://Assets/Sprites/blast_fire_ss.png" id="2_2nlfi"]
+
+[sub_resource type="Animation" id="Animation_2nlfi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3oagv"]
+resource_name = "shoot"
+length = 0.625
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0m0b8"]
+_data = {
+&"RESET": SubResource("Animation_2nlfi"),
+&"shoot": SubResource("Animation_3oagv")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
+radius = 24.0
+height = 96.0
+
+[node name="spit" type="Sprite2D"]
+visibility_layer = 128
+script = ExtResource("1_3oagv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -25)
+texture = ExtResource("2_2nlfi")
+flip_h = true
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_0m0b8")
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-65, -17)
+target_position = Vector2(118, 0)
+collision_mask = 144
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy_attacks"]]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12, -19)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_oduel")

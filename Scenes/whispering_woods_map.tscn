@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w2ahnqvfsj78"]
+[gd_scene load_steps=10 format=3 uid="uid://w2ahnqvfsj78"]
 
 [ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_b8rdd"]
 [ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_tb5s2"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunkB.tscn" id="7_2fb1b"]
 [ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rockB.tscn" id="8_lo0ed"]
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rockA.tscn" id="9_guy7b"]
-[ext_resource type="PackedScene" uid="uid://du0wca2y10sgs" path="res://Scenes/hawktuah.tscn" id="10_lo0ed"]
-[ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/enemy_melee.tscn" id="11_guy7b"]
 
 [node name="WhisperingWoods_Map" type="StaticBody2D"]
 light_mask = 0
@@ -111,35 +109,3 @@ position = Vector2(-560, -2172)
 
 [node name="StaticBody2D10" parent="Rocks" instance=ExtResource("9_guy7b")]
 position = Vector2(1563, -1585)
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="enemy_range" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(1527, 130)
-
-[node name="enemy_range2" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(5018, -1588)
-
-[node name="enemy_range3" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(5858, -2472)
-
-[node name="enemy_melee" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(1410, -2573)
-
-[node name="enemy_melee2" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(331, -2094)
-
-[node name="enemy_melee3" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(4585, -1833)
-
-[node name="enemy_range4" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(1199, -4691)
-
-[node name="enemy_range5" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(3223, -3935)
-
-[node name="enemy_melee4" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(1721, -3990)
-
-[node name="enemy_melee5" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(3000, -3573)

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var chance: float = 0.0
 @export var luck: float = 1.0
+var direction
 
 var Fisting: bool = true
 @export var Fist : PackedScene
@@ -106,6 +107,8 @@ func get_input(_delta):
 	
 	velocity += input_direction * Acceleration * _delta
 	
+
+	
 func Apply_friction(_delta):
 	if input_direction == Vector2.ZERO:
 		velocity -= velocity * Friction ** 2 * _delta
@@ -125,6 +128,8 @@ func _physics_process(_delta):
 			knockback_timer -= _delta
 			if knockback_timer <= 0.0:
 				knockback = Vector2.ZERO
+		
+		direction = input_direction
 		
 		move_and_slide()
 	
@@ -198,7 +203,11 @@ func _on_hitbox_area_entered(area):
 	print("Collided")
 	if area.is_in_group("Enemy_attacks") or area.is_in_group("Enemies"):
 		var Stats = area.get_parent()
+		print(area, area.get_parent(), area.get_parent().get_parent())
+		print(Stats.KBIntensity)
+		print(Stats.direction)
 		knockback = Stats.direction * Stats.KBIntensity
+		print(knockback)
 		knockback_timer = Stats.KBTime
 		Hp -= Stats.damage
 		Health_bar.health_change(Stats.damage*-1)

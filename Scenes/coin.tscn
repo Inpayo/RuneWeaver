@@ -116,7 +116,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath("Coin area:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -169,7 +169,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath("Coin area:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -209,7 +209,7 @@ autoplay = "default"
 frame = 1
 frame_progress = 0.76285
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Coin area" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ssuvv")
 
 [node name="Pick up SFX" type="AudioStreamPlayer2D" parent="."]
