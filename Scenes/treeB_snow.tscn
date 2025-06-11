@@ -8,6 +8,7 @@ size = Vector2(65, 76)
 [node name="treeB_snow_body" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(17, -218)
 texture = ExtResource("1_u8kjn")
 hframes = 4
@@ -15,5 +16,6 @@ vframes = 2
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(3.5, -30)
 shape = SubResource("RectangleShape2D_e6ayu")

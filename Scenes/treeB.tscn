@@ -6,14 +6,18 @@
 size = Vector2(65, 76)
 
 [node name="treeB_body" type="StaticBody2D"]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(10, -219)
+y_sort_enabled = true
+position = Vector2(10, -2)
 texture = ExtResource("1_t1ark")
+offset = Vector2(0, -220)
 hframes = 4
 vframes = 2
 frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(2, -28)
 shape = SubResource("RectangleShape2D_e6ayu")
