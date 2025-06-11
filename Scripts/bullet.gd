@@ -9,7 +9,7 @@ var damage = 20
 var speed: float = 750
 var KBIntensity = 750
 var KBTime = 0.12
-signal hit
+
 
 
 func _physics_process(delta: float) -> void:
@@ -18,7 +18,3 @@ func _physics_process(delta: float) -> void:
 	
 	if $Sprite2D/AnimationPlayer.animation_finished:
 		$Sprite2D/AnimationPlayer.play("shoot")
-
-
-func _on_hit() -> void:
-	queue_free()# Replace with function body.

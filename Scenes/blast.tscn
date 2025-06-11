@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtsx4hd12iign"]
 
-[ext_resource type="Script" uid="uid://lmkgb65uejdh" path="res://Scripts/bullet.gd" id="1_3oagv"]
-[ext_resource type="Texture2D" uid="uid://c3o0ij4it8ojm" path="res://Assets/Sprites/blast_fire_ss.png" id="2_2nlfi"]
+[ext_resource type="Script" uid="uid://lmkgb65uejdh" path="res://Scripts/bullet.gd" id="1_i0bvg"]
+[ext_resource type="Texture2D" uid="uid://c3o0ij4it8ojm" path="res://Assets/Sprites/blast_fire_ss.png" id="2_exac1"]
 
 [sub_resource type="Animation" id="Animation_2nlfi"]
 length = 0.001
@@ -45,13 +45,13 @@ _data = {
 radius = 24.0
 height = 96.0
 
-[node name="spit" type="Sprite2D"]
+[node name="Blast_fire" type="Sprite2D"]
 visibility_layer = 128
-script = ExtResource("1_3oagv")
+script = ExtResource("1_i0bvg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2, -25)
-texture = ExtResource("2_2nlfi")
+texture = ExtResource("2_exac1")
 flip_h = true
 hframes = 5
 

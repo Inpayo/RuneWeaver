@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbaul56nxjy32"]
+[gd_scene load_steps=7 format=3 uid="uid://dbaul56nxjy32"]
 
 [ext_resource type="PackedScene" uid="uid://w2ahnqvfsj78" path="res://Scenes/whispering_woods_map.tscn" id="1_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/enemy_melee.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://cq6ft3kn7h3iw" path="res://Scenes/CaveB.tscn" id="5_i6g32"]
+[ext_resource type="PackedScene" uid="uid://b47updswo8fdd" path="res://Scenes/CaveA.tscn" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://du0wca2y10sgs" path="res://Scenes/hawktuah.tscn" id="8_v158k"]
 
 [node name="Game" type="Node2D"]
@@ -23,3 +25,13 @@ position = Vector2(1283, 671)
 
 [node name="enemy_range2" parent="." instance=ExtResource("8_v158k")]
 position = Vector2(1711, -186)
+
+[node name="CaveB" parent="." instance=ExtResource("5_i6g32")]
+position = Vector2(7350, -2541)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CaveA" parent="." instance=ExtResource("6_1l0tm")]
+position = Vector2(7357, -2350)
+collision_layer = 16
+collision_mask = 0
