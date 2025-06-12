@@ -402,3 +402,5 @@ wait_time = 3.0
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="RestartTime" to="." method="_on_restart_time_timeout"]
+
+[editable path="CanvasLayer2/ProgressBar"]

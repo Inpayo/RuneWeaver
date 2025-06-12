@@ -131,18 +131,20 @@ func _on_shoot_cd_timeout() -> void:
 	
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Player") or area.is_in_group("Player_attacks"):
-		var Stats = area.get_parent()
-		if area.is_in_group("Special_proj"):
-			Stats = area.get_parent().SPC
-		received_damage(Stats.damage)
-		apply_knockback(Stats.direction, Stats.KBIntensity, Stats.KBTime )
-		Stats = area.get_parent()
-		if area.is_in_group("Special_proj"):
-			Stats.KYS()
-			pass
-		if area.is_in_group("Player_attacks"):
-			Stats.queue_free()
+	if not dead:
+		if area.is_in_group("Player") or area.is_in_group("Player_attacks"):
+			var Stats = area.get_parent()
+			if area.is_in_group("Special_proj"):
+				Stats = area.get_parent().SPC
+			received_damage(Stats.damage)
+			print(Stats)
+			apply_knockback(Stats.direction, Stats.KBIntensity, Stats.KBTime )
+			Stats = area.get_parent()
+			if area.is_in_group("Special_proj"):
+				Stats.KYS()
+				pass
+			if area.is_in_group("Player_attacks"):
+				Stats.queue_free()
 
 func _on_death_timer_timeout() -> void:
 	queue_free()

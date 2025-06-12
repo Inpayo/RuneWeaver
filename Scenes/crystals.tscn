@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4b3svhvp3ons"]
 
-[ext_resource type="Script" uid="uid://d3digiottokh" path="res://Scenes/crystals.gd" id="1_bafxm"]
+[ext_resource type="Script" uid="uid://d3digiottokh" path="res://Scripts/crystals.gd" id="1_bafxm"]
 [ext_resource type="Texture2D" uid="uid://blr2owe5f3guo" path="res://Assets/Sprites/crystals.png" id="1_qcjw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5muk"]
