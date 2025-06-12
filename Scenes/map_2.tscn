@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://damg756xr3o6h" path="res://Scenes/map_2b.tscn" id="1_4rrbq"]
 [ext_resource type="PackedScene" uid="uid://b2d0s1b8e5pql" path="res://Scenes/wind_state.tscn" id="2_wuwv3"]
-[ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/player.tscn" id="3_uuwls"]
+[ext_resource type="PackedScene" uid="uid://bdxdd5guevyi" path="res://Scenes/player.tscn" id="3_uuwls"]
 
 [node name="Map2" type="Node2D"]
 
@@ -13,3 +13,8 @@ position = Vector2(815, 546)
 
 [node name="Player" parent="." instance=ExtResource("3_uuwls")]
 position = Vector2(385, 482)
+luck = 1.0
+Hp = 100
+Speed = 800.0
+Acceleration = 2400.0
+Keyboard = true

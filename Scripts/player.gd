@@ -31,7 +31,7 @@ var input_direction = Vector2.ZERO
 var dead: bool = false
 
 var ArrDirOrigin
-@onready var Left: Marker2D = $"Arrow_anchor/Attacks/Left Hook"
+
 var con: float = 0.0
 
 var KBIntensity = 600
@@ -40,13 +40,7 @@ var damage = 10
 var Scaling = 0.0
 var ArrDir
 
-@onready var Health_bar = $CanvasLayer/ProgressBar
-@onready var Restart = $RestartTime
 
-func _ready() -> void:
-	$Hitbox/HurtyWurty.disabled = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	Health_bar.health_init(Hp)
 
 func Mode_toggle():
 	current_Hp = clamp(current_Hp, 0, Hp)
@@ -257,7 +251,6 @@ func _on_hitbox_area_entered(area):
 		knockback = Stats.direction * Stats.KBIntensity
 		knockback_timer = Stats.KBTime
 		Hp -= Stats.damage
-		Health_bar.health_change(Stats.damage*-1)
 		if Hp <= 0:
 			on_death()
 		if area.is_in_group("Enemy_attacks"):
