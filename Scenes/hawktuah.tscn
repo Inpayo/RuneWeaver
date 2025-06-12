@@ -78,7 +78,7 @@ _data = {
 size = Vector2(43, 37)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3oyg"]
-radius = 32.0156
+radius = 74.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdmi6"]
 radius = 311.0
@@ -119,12 +119,13 @@ collision_mask = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 18
 visibility_layer = 2
-position = Vector2(0, 1)
+position = Vector2(-7, -38)
 shape = SubResource("CircleShape2D_n3oyg")
 
 [node name="Player_detection" type="Area2D" parent="."]
 
 [node name="Detection" type="CollisionShape2D" parent="Player_detection"]
+visible = false
 light_mask = 18
 visibility_layer = 2
 shape = SubResource("CircleShape2D_tdmi6")

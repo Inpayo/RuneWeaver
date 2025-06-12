@@ -11,7 +11,7 @@ var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var Delta
 
-var KBIntensity = 200
+var KBIntensity = 600
 var KBTime = 0.12
 var damage = 10
 
@@ -34,6 +34,13 @@ func _physics_process(_delta):
 		elif direction.x < 0:
 			$Sprite2D.flip_h = false
 		
+		if player_detected and $KBTimer.is_stopped() == true:
+			direction = position.direction_to(player.position)
+			velocity = direction * speed * Delta * 50
+		else:
+			if last_location != null:
+				direction = (last_location - position).normalized()
+				velocity = direction * speed * Delta * 50
 	else:
 		$Player_detection/Detection.disabled = true
 	move_and_slide()
@@ -55,7 +62,7 @@ func Knockback(knockback_intensity, knockback_timer, KBDir):
 			print(velocity)
 	else:
 		knockback = Vector2.ZERO
-			
+	
 	if player_detected and $KBTimer.is_stopped() == true:
 		direction = position.direction_to(player.position)
 		velocity = direction * speed * Delta * 50
@@ -92,4 +99,3 @@ func _on_player_detection_body_exited(body) :
 	if body.is_in_group("Player"):
 		player_detected = false
 		last_location = player.position
-		player = body.get_parent()
