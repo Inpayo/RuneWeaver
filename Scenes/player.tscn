@@ -392,7 +392,7 @@ vertical = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("7_3smsa")]
+[node name="ProgressBar" parent="CanvasLayer" instance=ExtResource("7_3smsa") parent="."]
 offset_left = 17.0
 offset_top = 25.0
 offset_right = 477.0
