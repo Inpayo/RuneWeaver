@@ -119,6 +119,7 @@ func get_input(_delta):
 			
 	if !$SP1.is_stopped():
 		var Progress = $SP1.time_left/$SP1.wait_time * 100
+<<<<<<< Updated upstream
 		$CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = Progress
 	else: 
 		$CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = 0.0
@@ -140,6 +141,29 @@ func get_input(_delta):
 		$CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = Progress
 	else: 
 		$CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = 0.0
+=======
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = Progress
+	else: 
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = 0.0
+		
+	if !$SP2.is_stopped():
+		var Progress = $SP2.time_left/$SP2.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = Progress
+	else: 
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = 0.0
+	
+	if !$SP3.is_stopped():
+		var Progress = $SP3.time_left/$SP3.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = Progress
+	else: 
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = 0.0
+	
+	if !$SP4.is_stopped():
+		var Progress = $SP4.time_left/$SP1.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = Progress
+	else: 
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = 0.0
+>>>>>>> Stashed changes
 	
 	
 	velocity += input_direction * Acceleration * _delta
@@ -261,11 +285,14 @@ func _on_hitbox_area_entered(area):
 		knockback = ArrDir * Stats.KBIntensity * 5
 		knockback_timer = Stats.KBTime * 1.5
 		Stats.get_parent().queue_free()
+<<<<<<< Updated upstream
 
 
 func _on_button_pressed() -> void:
 	pass # Replace with function body.
 
+=======
+>>>>>>> Stashed changes
 
 
 func _on_restart_time_timeout() -> void:
