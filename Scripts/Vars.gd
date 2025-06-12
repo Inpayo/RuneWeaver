@@ -6,21 +6,29 @@ var KBIntensity = 0
 var KBTime = 0.16
 var Box
 var Mid
-var Vars = ["Fire", "Trap","SizeUp", "None"]
+var Vars = ["Wind", "Trap","SizeUp", "None"]
+var CD_Dur := 0.0
+var size
+
+var Air = false
+var Fire = false
+var Ice = false
+var Earth = false
+var Tire
+var PAugs = []
+
+var EffDur = 30
 
 func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd, Aug1CT, Aug1KB, AugS1, Aug2Dam, Aug2Spd, Aug2CT, Aug2KB, AugS2):
+	
 	var Mid = get_parent().get_node("Hurtbox/CollisionShape2D")
 	var Tempbox = Mid.shape                                       
 	Mid.shape = Tempbox.duplicate()                           
 	Box = Mid.shape  
 	var target_size = Vector2(64, 64)
 	
+	CD_Dur = 2.5 * (1 + Aug1CT + Aug2CT)
 	
-	if "Move" in Vars:
-		$Mana_req2.wait_time += Aug1CT + Aug2CT
-		$Mana_req2.start()
-		await $Mana_req2.timeout
-		
 	speed = Speed * (1 + Aug1Spd + Aug2Spd)
 	damage = Damage * (1 + Aug1Dam + Aug2Dam)
 	
@@ -37,6 +45,7 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	self.scale = scale_factor
 	Box.radius *= BScale.x
 	Box.height *= BScale.y
+
 	
 	
 	

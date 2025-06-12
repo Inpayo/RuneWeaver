@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch5heq00fdivm"
-path="res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"
+uid="uid://b8w0yxnoaqaxq"
+path="res://.godot/imported/MarkBook.png-4367015cc395e2a4576ee22416ad044b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"]
+source_file="res://Assets/Sprites/MarkBook.png"
+dest_files=["res://.godot/imported/MarkBook.png-4367015cc395e2a4576ee22416ad044b.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

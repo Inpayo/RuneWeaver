@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch5heq00fdivm"
-path="res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"
+uid="uid://c7k7wffbv0nh2"
+path="res://.godot/imported/Z_Key_Dark.png-fc5cc59e59be703de1572a178ef9fd9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"]
+source_file="res://Assets/Sprites/Z_Key_Dark.png"
+dest_files=["res://.godot/imported/Z_Key_Dark.png-fc5cc59e59be703de1572a178ef9fd9c.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

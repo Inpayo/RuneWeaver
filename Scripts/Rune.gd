@@ -8,6 +8,7 @@ var SSlot = 0
 var SPComp = []
 var BehaveDict = {"Blast": 500, "Trap": 0}
 signal Early_Freed
+
 var ElementDict = {
 				"Fire": [5, 0, 3, 5, 0, "res://Assets/Sprites/blast_fire.png"], 
 				"Wind": [3, 700, 0, 0, 0, "res://Assets/Sprites/blast_wind.png"],
@@ -23,6 +24,7 @@ var AugmentDict = {
 }
 
 func SetSpell(SPComp):
+	$Hurtbox.add_to_group(SPComp[0])
 	var SendDown = []
 	SendDown.append_array(ElementDict[SPComp[0]])
 	SendDown.append(BehaveDict[SPComp[1]])

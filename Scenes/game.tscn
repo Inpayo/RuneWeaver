@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbaul56nxjy32"]
 
 [ext_resource type="PackedScene" uid="uid://w2ahnqvfsj78" path="res://Scenes/whispering_woods_map.tscn" id="1_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/player.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bdxdd5guevyi" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/enemy_melee.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cq6ft3kn7h3iw" path="res://Scenes/CaveB.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://b47updswo8fdd" path="res://Scenes/CaveA.tscn" id="6_1l0tm"]
