@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vqic7rnw066y"]
+[gd_scene load_steps=23 format=3 uid="uid://bdxdd5guevyi"]
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player.gd" id="1_i8wls"]
 [ext_resource type="PackedScene" uid="uid://ddrihm3x1otm6" path="res://Scenes/fist.tscn" id="2_fkybt"]
@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ca07pmnatshgf" path="res://Scenes/Spell1.tscn" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://dgs0acpo68tx5" path="res://Scripts/arrow.gd" id="4_6vxjc"]
 [ext_resource type="Texture2D" uid="uid://cvvr4pkr0coru" path="res://Assets/Sprites/PS5_L1.png" id="7_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://h1go6yl0kg65" path="res://Assets/Sprites/BlackDot.png" id="7_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://b23bo03ijkjdf" path="res://Assets/Sprites/E_Key_Dark.png" id="8_gymyn"]
 [ext_resource type="Texture2D" uid="uid://cigfs8dq6ov5x" path="res://Assets/Sprites/PS5_R2.png" id="9_pu2lt"]
-[ext_resource type="Texture2D" uid="uid://bv648vqerm784" path="res://Assets/Sprites/BlackCircle.jpg" id="9_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://c7k7wffbv0nh2" path="res://Assets/Sprites/Z_Key_Dark.png" id="10_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://b8w0yxnoaqaxq" path="res://Assets/Sprites/MarkBook.png" id="12_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://bew6ruasm4m87" path="res://Assets/Sprites/OldParchTemp.jpeg" id="13_h4iuc"]
@@ -221,6 +221,7 @@ grow_horizontal = 2
 grow_vertical = 2
 step = 0.1
 fill_mode = 4
+texture_progress = ExtResource("7_ukyrk")
 tint_under = Color(1, 1, 1, 0.556863)
 tint_over = Color(0, 0, 0, 0.556863)
 tint_progress = Color(0, 0, 0, 0.556863)
@@ -236,10 +237,12 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 step = 0.1
 fill_mode = 4
+texture_progress = ExtResource("7_ukyrk")
 tint_under = Color(1, 1, 1, 0.556863)
 tint_over = Color(0, 0, 0, 0.556863)
 tint_progress = Color(0, 0, 0, 0.556863)
@@ -268,7 +271,7 @@ grow_horizontal = 2
 grow_vertical = 2
 step = 0.1
 fill_mode = 5
-texture_progress = ExtResource("9_ukyrk")
+texture_progress = ExtResource("7_ukyrk")
 tint_progress = Color(0, 0, 0, 0.905882)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1"]
@@ -290,6 +293,7 @@ grow_horizontal = 2
 grow_vertical = 2
 step = 0.1
 fill_mode = 4
+texture_progress = ExtResource("7_ukyrk")
 tint_under = Color(1, 1, 1, 0.556863)
 tint_over = Color(0, 0, 0, 0.556863)
 tint_progress = Color(0, 0, 0, 0.556863)

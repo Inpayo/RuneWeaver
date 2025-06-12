@@ -118,20 +118,20 @@ func get_input(_delta):
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = 0.0
 		
 	if !$SP2.is_stopped():
-		var Progress = $SP2.time_left/$SP2.wait_time
-		$CanvasLayer/Cooldowns/HBoxContainer/SP2/TextureProgressBar.value = Progress
+		var Progress = $SP2.time_left/$SP2.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = Progress
 	else: 
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = 0.0
 	
 	if !$SP3.is_stopped():
-		var Progress = $SP3.time_left/$SP3.wait_time
-		$CanvasLayer/Cooldowns/HBoxContainer/SP3/TextureProgressBar.value = Progress
+		var Progress = $SP3.time_left/$SP3.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = Progress
 	else: 
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = 0.0
 	
 	if !$SP4.is_stopped():
-		var Progress = $SP4.time_left/$SP1.wait_time
-		$CanvasLayer/Cooldowns/HBoxContainer/SP4/TextureProgressBar.value = Progress
+		var Progress = $SP4.time_left/$SP1.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = Progress
 	else: 
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = 0.0
 	
