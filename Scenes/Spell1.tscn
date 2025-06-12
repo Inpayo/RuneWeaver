@@ -3,10 +3,17 @@
 [ext_resource type="Script" uid="uid://b0wa21vxbxj" path="res://Scripts/Rune.gd" id="1_hxjea"]
 [ext_resource type="Script" uid="uid://bah0e54adop5y" path="res://Scripts/Vars.gd" id="1_qsuw6"]
 [ext_resource type="Texture2D" uid="uid://c22rdscaarfp2" path="res://Assets/Sprites/Magic_Circle_Temp.png" id="2_e3ypm"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://Scripts/Mana_script.gd" id="3_e3ypm"]
 [ext_resource type="Script" uid="uid://bxvji5mrmgcii" path="res://Scripts/Vars2.gd" id="3_k0fct"]
 [ext_resource type="Script" uid="uid://dgwfrpn6mltyb" path="res://Scripts/Vars3.gd" id="4_e3ypm"]
 [ext_resource type="Script" path="res://Vars4.gd" id="7_cnapn"]
+=======
+[ext_resource type="Script" path="res://Mana_script.gd" id="3_e3ypm"]
+[ext_resource type="Script" uid="uid://bxvji5mrmgcii" path="res://Scripts/Vars2.gd" id="3_k0fct"]
+[ext_resource type="Script" uid="uid://dgwfrpn6mltyb" path="res://Scripts/Vars3.gd" id="4_e3ypm"]
+[ext_resource type="Script" path="res://Scripts/Vars4.gd" id="7_cnapn"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cnapn"]
 radius = 11.0
