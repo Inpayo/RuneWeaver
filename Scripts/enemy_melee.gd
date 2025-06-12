@@ -24,23 +24,27 @@ func _physics_process(_delta):
 		Delta = _delta
 		$Player_detection/Detection.disabled = false
 		
-		if direction != Vector2.ZERO:
-			$Sprite2D/AnimationPlayer.play("Fly")
-		else:
+
+		
+		if not velocity:
 			$Sprite2D/AnimationPlayer.play("idle")
+		else:
+			$Sprite2D/AnimationPlayer.play("Fly")
 			
 		if direction.x > 0:
 			$Sprite2D.flip_h = true
+			$Sprite2D.offset.x = -48.0
 		elif direction.x < 0:
 			$Sprite2D.flip_h = false
+			$Sprite2D.offset.x = 0
 		
 		if player_detected and $KBTimer.is_stopped() == true:
 			direction = position.direction_to(player.position)
 			velocity = direction * speed * Delta * 50
 		else:
 			if last_location != null:
-				direction = (last_location - position).normalized()
-				velocity = direction * speed * Delta * 50
+				if not (last_location - position).x > 100 and not (last_location - position).x < -100 and not (last_location - position).y > 100 and not (last_location - position).y < -100:
+					velocity = Vector2.ZERO
 	else:
 		$Player_detection/Detection.disabled = true
 	move_and_slide()

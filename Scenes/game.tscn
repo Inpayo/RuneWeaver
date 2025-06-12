@@ -21,7 +21,7 @@ position = Vector2(-483, -196)
 
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
 y_sort_enabled = true
-position = Vector2(6673, -2485)
+position = Vector2(1841, 530)
 
 [node name="Node2D#enemies" type="Node" parent="."]
 
@@ -80,5 +80,6 @@ shape = SubResource("RectangleShape2D_ldgsr")
 [connection signal="body_entered" from="Caverns_scene_change" to="Caverns_scene_change" method="_on_body_entered"]
 [connection signal="body_entered" from="Caverns_scene_change2" to="Caverns_scene_change2" method="_on_body_entered"]
 
+[editable path="Node2D_enemies#Punishing Bird2"]
 [editable path="crystalsB"]
 [editable path="crystalsR"]
