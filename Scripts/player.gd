@@ -4,6 +4,8 @@ var chance: float = 0.0
 @export var luck: float = 1.0
 var direction
 
+@export var test: NodePath
+
 var Fisting: bool = true
 @export var Fist : PackedScene
 @export var Spell: PackedScene
