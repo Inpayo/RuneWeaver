@@ -22,6 +22,7 @@ window/size/viewport_height=1080
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [global_group]
 
@@ -32,6 +33,8 @@ Player=""
 Special_proj=""
 Earth=""
 Fire=""
+Wind=""
+Ice=""
 
 [input]
 
