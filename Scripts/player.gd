@@ -258,8 +258,8 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("Wind") and area.is_in_group("Player_attacks"):
 		var Stats = area.get_parent()
 		Stats = area.get_parent().SPC
-		knockback = ArrDir * Stats.KBIntensity * 3
-		knockback_timer = Stats.KBTime
+		knockback = ArrDir * Stats.KBIntensity * 5
+		knockback_timer = Stats.KBTime * 1.5
 		Stats.get_parent().queue_free()
 
 
