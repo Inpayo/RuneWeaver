@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://w2ahnqvfsj78"]
+[gd_scene load_steps=15 format=3 uid="uid://w2ahnqvfsj78"]
 
 [ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_b8rdd"]
 [ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_tb5s2"]
 [ext_resource type="Texture2D" uid="uid://bdlhotou1xinf" path="res://Assets/Sprites/Whispering_WoodsC.png" id="3_3bflq"]
 [ext_resource type="Texture2D" uid="uid://b7yxycqub7rbn" path="res://Assets/Sprites/Whispering_WoodsD.png" id="4_3bflq"]
 [ext_resource type="Texture2D" uid="uid://51l5vntyp3nf" path="res://Assets/Sprites/Whispering_WoodsE.png" id="5_if138"]
+[ext_resource type="Texture2D" uid="uid://d2kxdr7hxm0bo" path="res://Assets/Sprites/Whispering_WoodsF.png" id="6_3a7kw"]
 [ext_resource type="PackedScene" uid="uid://ccghc4kluicvv" path="res://Scenes/rockE.tscn" id="6_guy7b"]
 [ext_resource type="PackedScene" uid="uid://cr0pvreqo2hyc" path="res://Scenes/rockD.tscn" id="7_3a7kw"]
+[ext_resource type="Texture2D" uid="uid://c5ayt3sqc537v" path="res://Assets/Sprites/Whispering_WoodsG.png" id="7_d6x1x"]
 [ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rockB.tscn" id="8_lo0ed"]
 [ext_resource type="PackedScene" uid="uid://drccaoobi3ett" path="res://Scenes/rockC.tscn" id="9_d6x1x"]
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rockA.tscn" id="9_guy7b"]
@@ -43,6 +45,17 @@ texture = ExtResource("4_3bflq")
 z_index = -1
 position = Vector2(2622, -7285)
 texture = ExtResource("5_if138")
+
+[node name="PartF" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(-1929, -4413)
+texture = ExtResource("6_3a7kw")
+
+[node name="partG" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(19290, -2380)
+texture = ExtResource("7_d6x1x")
 
 [node name="Trees" type="Node2D" parent="."]
 y_sort_enabled = true

@@ -1,10 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b47updswo8fdd"]
+[gd_scene load_steps=2 format=3 uid="uid://b47updswo8fdd"]
 
 [ext_resource type="Texture2D" uid="uid://dm8eyl8x8k74b" path="res://Assets/Sprites/CaveA.png" id="1_kgsgc"]
-[ext_resource type="Script" uid="uid://j7ojxqgvnpay" path="res://Scripts/caverns_scene_change.gd" id="2_te8ut"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgsgc"]
-size = Vector2(228, 343)
 
 [node name="CaveA" type="StaticBody2D"]
 
@@ -15,13 +11,3 @@ texture = ExtResource("1_kgsgc")
 [node name="CaveA_collision" type="CollisionPolygon2D" parent="."]
 position = Vector2(-14.1, -187.4)
 polygon = PackedVector2Array(-242, 163, -280, 194, -290, 227, -275, 260, -189, 272, -137, 258, -66, 268, 12, 292, 70, 260, 110, 226, 158, 227, 207, 214, 257, 166, 289, 136, 293, 87, 272, 53, 206.1, -69, 165.1, -126, 127.1, -210, 105.1, -99.6, 117.1, 31.4, 135, 126, 8, 162, -141, 171)
-
-[node name="Caverns_scene_change" type="Area2D" parent="."]
-collision_mask = 2
-script = ExtResource("2_te8ut")
-
-[node name="Caverns_collsiions" type="CollisionShape2D" parent="Caverns_scene_change"]
-position = Vector2(21, -192.5)
-shape = SubResource("RectangleShape2D_kgsgc")
-
-[connection signal="body_entered" from="Caverns_scene_change" to="Caverns_scene_change" method="_on_body_entered"]

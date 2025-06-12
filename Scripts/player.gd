@@ -39,6 +39,7 @@ func _ready() -> void:
 	$Hitbox/HurtyWurty.disabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Health_bar.health_init(Hp)
+	print(position)
 
 func Mode_toggle():
 	current_Hp = clamp(current_Hp, 0, Hp)

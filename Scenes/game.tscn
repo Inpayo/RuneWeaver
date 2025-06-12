@@ -1,23 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbaul56nxjy32"]
+[gd_scene load_steps=10 format=3 uid="uid://dbaul56nxjy32"]
 
 [ext_resource type="PackedScene" uid="uid://w2ahnqvfsj78" path="res://Scenes/whispering_woods_map.tscn" id="1_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://vqic7rnw066y" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/enemy_melee.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cq6ft3kn7h3iw" path="res://Scenes/CaveB.tscn" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://b47updswo8fdd" path="res://Scenes/CaveA.tscn" id="6_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://bappm3xkbtsn" path="res://Scenes/treeA.tscn" id="7_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://c38iuyp2p8a17" path="res://Scenes/treeB.tscn" id="8_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://c4b3svhvp3ons" path="res://Scenes/crystals.tscn" id="7_1l0tm"]
+[ext_resource type="Script" uid="uid://j7ojxqgvnpay" path="res://Scripts/caverns_scene_change.gd" id="8_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://du0wca2y10sgs" path="res://Scenes/hawktuah.tscn" id="8_v158k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldgsr"]
+size = Vector2(228, 343)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
 [node name="WhisperingWoods_Map" parent="." instance=ExtResource("1_1l0tm")]
 z_index = 0
+position = Vector2(-483, -196)
 
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
 y_sort_enabled = true
-position = Vector2(2900, -29)
+position = Vector2(6673, -2485)
 
 [node name="Node2D#enemies" type="Node" parent="."]
 
@@ -30,17 +34,51 @@ position = Vector2(1283, 671)
 position = Vector2(1711, -186)
 
 [node name="CaveB" parent="." instance=ExtResource("5_i6g32")]
-position = Vector2(7350, -2541)
+position = Vector2(6907, -2569)
 collision_layer = 16
 collision_mask = 0
 
 [node name="CaveA" parent="." instance=ExtResource("6_1l0tm")]
-position = Vector2(7357, -2350)
+position = Vector2(6894, -2366)
 collision_layer = 16
 collision_mask = 0
 
-[node name="treeA_body" parent="." instance=ExtResource("7_1l0tm")]
-position = Vector2(3156, -6)
+[node name="crystalsB" parent="." instance=ExtResource("7_1l0tm")]
+position = Vector2(-3811, -4489)
 
-[node name="treeB_body" parent="." instance=ExtResource("8_h4fw4")]
-position = Vector2(2662, -40)
+[node name="Hitbox" parent="crystalsB" index="2"]
+collision_mask = 10
+
+[node name="crystalsR" parent="." instance=ExtResource("7_1l0tm")]
+position = Vector2(20075, -2423)
+
+[node name="crystal_sprite" parent="crystalsR" index="0"]
+frame = 1
+
+[node name="Hitbox" parent="crystalsR" index="2"]
+collision_mask = 10
+
+[node name="Caverns_scene_change" type="Area2D" parent="."]
+position = Vector2(6894, -2343)
+collision_mask = 2
+script = ExtResource("8_h4fw4")
+
+[node name="Caverns_collsiions" type="CollisionShape2D" parent="Caverns_scene_change"]
+position = Vector2(21, -192.5)
+shape = SubResource("RectangleShape2D_ldgsr")
+
+[node name="Caverns_scene_change2" type="Area2D" parent="."]
+position = Vector2(16762, -2306)
+collision_mask = 2
+script = ExtResource("8_h4fw4")
+location = Vector2(6673, -2485)
+
+[node name="Caverns_collsiions" type="CollisionShape2D" parent="Caverns_scene_change2"]
+position = Vector2(21, -192.5)
+shape = SubResource("RectangleShape2D_ldgsr")
+
+[connection signal="body_entered" from="Caverns_scene_change" to="Caverns_scene_change" method="_on_body_entered"]
+[connection signal="body_entered" from="Caverns_scene_change2" to="Caverns_scene_change2" method="_on_body_entered"]
+
+[editable path="crystalsB"]
+[editable path="crystalsR"]
