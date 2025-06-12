@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch5heq00fdivm"
-path="res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"
+uid="uid://b1rqutyxmqa22"
+path="res://.godot/imported/PS5_R1.png-35093528ea97fc836d31bbeaf89406e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-937281dbc6e7ba0435124e30fe85aebc.ctex"]
+source_file="res://Assets/Sprites/PS5_R1.png"
+dest_files=["res://.godot/imported/PS5_R1.png-35093528ea97fc836d31bbeaf89406e2.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
