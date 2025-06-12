@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vqic7rnw066y"]
+[gd_scene load_steps=23 format=3 uid="uid://bdxdd5guevyi"]
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player.gd" id="1_i8wls"]
 [ext_resource type="PackedScene" uid="uid://ddrihm3x1otm6" path="res://Scenes/fist.tscn" id="2_fkybt"]
@@ -116,8 +116,13 @@ size = Vector2(53, 174)
 collision_layer = 3
 collision_mask = 16
 script = ExtResource("1_i8wls")
+luck = null
 Fist = ExtResource("2_fkybt")
 Spell = ExtResource("3_x3wgy")
+Hp = null
+Speed = null
+Acceleration = null
+Keyboard = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -180,9 +185,9 @@ one_shot = true
 [node name="SP4" type="Timer" parent="."]
 one_shot = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="Cooldowns" type="PanelContainer" parent="CanvasLayer"]
+[node name="Cooldowns" type="PanelContainer" parent="CanvasLayer2"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -196,23 +201,23 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_tx1dd")
 
-[node name="Cooldowns" type="MarginContainer" parent="CanvasLayer/Cooldowns"]
+[node name="Cooldowns" type="MarginContainer" parent="CanvasLayer2/Cooldowns"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Cooldowns/Cooldowns"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/Cooldowns/Cooldowns"]
 layout_mode = 2
 alignment = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="SP2" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2"]
+[node name="SP2" type="Control" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -225,17 +230,17 @@ tint_under = Color(1, 1, 1, 0.556863)
 tint_over = Color(0, 0, 0, 0.556863)
 tint_progress = Color(0, 0, 0, 0.556863)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("8_gymyn")
 
-[node name="SP3" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2"]
+[node name="SP3" type="Control" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3"]
 offset_right = 40.0
 offset_bottom = 40.0
 step = 0.1
@@ -244,22 +249,22 @@ tint_under = Color(1, 1, 1, 0.556863)
 tint_over = Color(0, 0, 0, 0.556863)
 tint_progress = Color(0, 0, 0, 0.556863)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_pu2lt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="SP1" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer"]
+[node name="SP1" type="Control" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -271,17 +276,17 @@ fill_mode = 5
 texture_progress = ExtResource("9_ukyrk")
 tint_progress = Color(0, 0, 0, 0.905882)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1"]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 texture = ExtResource("7_tx1dd")
 
-[node name="SP4" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer"]
+[node name="SP4" type="Control" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -294,13 +299,13 @@ tint_under = Color(1, 1, 1, 0.556863)
 tint_over = Color(0, 0, 0, 0.556863)
 tint_progress = Color(0, 0, 0, 0.556863)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4"]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 texture = ExtResource("10_ukyrk")
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button" type="Button" parent="CanvasLayer2"]
 visible = false
 anchors_preset = 2
 anchor_top = 1.0
@@ -315,7 +320,7 @@ scale = Vector2(0.55, 0.55)
 icon = ExtResource("12_7dp3o")
 flat = true
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -327,48 +332,48 @@ offset_bottom = -292.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/PanelContainer"]
 layout_mode = 2
 
-[node name="SpellMaking" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+[node name="SpellMaking" type="TextureRect" parent="CanvasLayer2/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("13_h4iuc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking"]
 layout_mode = 2
 offset_left = 4.0
 offset_right = 547.0
 offset_bottom = 711.0
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
+[node name="Control2" type="Control" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+[node name="Control3" type="HBoxContainer" parent="CanvasLayer2/PanelContainer/HBoxContainer/SpellMaking/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/PanelContainer/HBoxContainer"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
@@ -376,7 +381,7 @@ size_flags_vertical = 3
 texture = ExtResource("13_h4iuc")
 flip_h = true
 
-[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/TextureRect"]
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer2/PanelContainer/HBoxContainer/TextureRect"]
 layout_mode = 2
 offset_left = -4.0
 offset_right = -4.0
@@ -385,4 +390,4 @@ alignment = 2
 vertical = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Button" to="." method="_on_button_pressed"]
