@@ -7,6 +7,9 @@ var SPC = ""
 var SSlot = 0
 var SPComp = []
 var BehaveDict = {"Blast": 500, "Trap": 0}
+
+@onready var Player = get_node("Player")
+
 signal Early_Freed
 
 var ElementDict = {

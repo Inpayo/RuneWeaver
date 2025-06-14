@@ -17,6 +17,7 @@ var current_Hp: int = Hp
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var input_direction = Vector2.ZERO
+@onready var direction = input_direction
 
 @export var Keyboard: bool = true
 
@@ -154,6 +155,7 @@ func _physics_process(_delta):
 		Mode_toggle()
 		get_input(_delta)
 		Apply_friction(_delta)
+		direction = input_direction
 		
 		if knockback_timer > 0.0:
 			$Sprite2D/AnimationPlayer.play("Hit")

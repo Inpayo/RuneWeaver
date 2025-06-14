@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2d0s1b8e5pql"]
+
+[ext_resource type="Script" uid="uid://bdnrifawjngec" path="res://Scripts/enemy_boss.gd" id="1_03pj2"]
+[ext_resource type="Texture2D" uid="uid://bghr5fxk1ippy" path="res://Assets/Sprites/FoxyS.jpg" id="1_vlrny"]
+[ext_resource type="Texture2D" uid="uid://dum8wvjorst35" path="res://Assets/Sprites/FoxyJ.jpg" id="2_4dn4i"]
+[ext_resource type="PackedScene" uid="uid://b1bcrodrwqd7" path="res://Scenes/wind_state.tscn" id="4_03pj2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03pj2"]
+size = Vector2(177.789, 131.111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5ahq"]
+size = Vector2(65, 126)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i713y"]
+radius = 346.988
+height = 1226.67
+
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("wind")]
+scale = Vector2(3, 3)
+script = ExtResource("1_03pj2")
+wind = NodePath("Wind_state")
+
+[node name="MovingSpr" type="Sprite2D" parent="."]
+position = Vector2(51, 62)
+scale = Vector2(0.325806, 0.22844)
+texture = ExtResource("1_vlrny")
+
+[node name="MovingHBox" type="CollisionShape2D" parent="."]
+position = Vector2(41, 107)
+scale = Vector2(0.325806, 0.22844)
+shape = SubResource("RectangleShape2D_03pj2")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(42.1667, 60.3333)
+shape = SubResource("RectangleShape2D_w5ahq")
+
+[node name="AttackingSpr" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(96, 42.0001)
+scale = Vector2(0.15, 0.115278)
+texture = ExtResource("2_4dn4i")
+
+[node name="Area2D" type="Area2D" parent="AttackingSpr"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingSpr/Area2D"]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_i713y")
+
+[node name="Wind_state" parent="." instance=ExtResource("4_03pj2")]
+
+[node name="HoverDur" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="HoverDur" to="." method="_on_hover_dur_timeout"]

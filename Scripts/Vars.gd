@@ -9,6 +9,7 @@ var Mid
 var Vars = ["Wind", "Trap","SizeUp", "None"]
 var CD_Dur := 0.0
 var size
+@onready var direction = Vector2.from_angle(get_parent().rotation)
 
 var Air = false
 var Fire = false
