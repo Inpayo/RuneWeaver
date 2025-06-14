@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdxdd5guevyi"]
+[gd_scene load_steps=36 format=3 uid="uid://bdxdd5guevyi"]
 
 [ext_resource type="Script" uid="uid://bx17yvxqct6qv" path="res://Scripts/player.gd" id="1_i8wls"]
 [ext_resource type="PackedScene" uid="uid://ddrihm3x1otm6" path="res://Scenes/fist.tscn" id="2_fkybt"]
@@ -14,6 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://c7k7wffbv0nh2" path="res://Assets/Sprites/Z_Key_Dark.png" id="10_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://b8w0yxnoaqaxq" path="res://Assets/Sprites/MarkBook.png" id="12_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://bew6ruasm4m87" path="res://Assets/Sprites/OldParchTemp.jpeg" id="13_h4iuc"]
+[ext_resource type="Script" uid="uid://dr3avsir6ldeh" path="res://Scenes/SpellmakingUI.gd" id="15_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://clq7kil3crf8a" path="res://Assets/Sprites/blast_fire.png" id="16_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://dabdhtkyfaemc" path="res://Assets/Sprites/Trap.png" id="16_p1odr"]
+[ext_resource type="Texture2D" uid="uid://c66t4yt7wsdst" path="res://Assets/Sprites/Blast.png" id="17_0gysh"]
+[ext_resource type="Texture2D" uid="uid://bpxqpb058y1n2" path="res://Assets/Sprites/blast_wind.png" id="18_olqyp"]
+[ext_resource type="Texture2D" uid="uid://dlnvcqdq5ytyx" path="res://Assets/Sprites/Earth.png" id="20_vfarp"]
+[ext_resource type="Texture2D" uid="uid://bw0r70iue3gui" path="res://Assets/Sprites/Ice.png" id="21_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://2ruot3miy8oi" path="res://Assets/Sprites/SizeUp.png" id="22_83xs0"]
+[ext_resource type="Texture2D" uid="uid://b4781ovjdklfk" path="res://Assets/Sprites/Knockback.png" id="23_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://bsu0ulk81ynr2" path="res://Assets/Sprites/Power.png" id="24_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://doq07qpunnlb7" path="res://Assets/Sprites/Speed.png" id="25_wohnl"]
 
 [sub_resource type="Animation" id="Animation_vgqql"]
 resource_name = "Hit"
@@ -112,6 +123,8 @@ size = Vector2(41, 20.875)
 size = Vector2(53, 174)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tx1dd"]
+
+[sub_resource type="Shortcut" id="Shortcut_fs7ks"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
@@ -230,26 +243,27 @@ offset_right = 100.0
 offset_bottom = 100.0
 texture = ExtResource("7_tx1dd")
 
-[node name="SP3" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer"]
+[node name="SP4" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 step = 0.1
-fill_mode = 4
+fill_mode = 5
 texture_progress = ExtResource("7_ukyrk")
-tint_under = Color(1, 1, 1, 0.556863)
-tint_over = Color(0, 0, 0, 0.556863)
-tint_progress = Color(0, 0, 0, 0.556863)
+tint_progress = Color(0, 0, 0, 0.905882)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("9_pu2lt")
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("10_ukyrk")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer"]
 layout_mode = 2
@@ -268,11 +282,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 step = 0.1
-fill_mode = 4
+fill_mode = 5
 texture_progress = ExtResource("7_ukyrk")
-tint_under = Color(1, 1, 1, 0.556863)
-tint_over = Color(0, 0, 0, 0.556863)
-tint_progress = Color(0, 0, 0, 0.556863)
+tint_progress = Color(0, 0, 0, 0.905882)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2"]
 layout_mode = 0
@@ -280,11 +292,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("8_gymyn")
 
-[node name="SP4" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2"]
+[node name="SP3" type="Control" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -292,17 +304,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 step = 0.1
-fill_mode = 4
+fill_mode = 5
 texture_progress = ExtResource("7_ukyrk")
-tint_under = Color(1, 1, 1, 0.556863)
-tint_over = Color(0, 0, 0, 0.556863)
-tint_progress = Color(0, 0, 0, 0.556863)
+tint_progress = Color(0, 0, 0, 0.905882)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3"]
 layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
-texture = ExtResource("10_ukyrk")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_pu2lt")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 visible = false
@@ -396,11 +406,251 @@ offset_top = 25.0
 offset_right = 477.0
 offset_bottom = 69.0
 
+[node name="Control2" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="CanvasLayer2/Control2"]
+layout_mode = 0
+offset_left = -46.0
+offset_top = 17.0
+offset_right = 474.0
+offset_bottom = 537.0
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
+shortcut = SubResource("Shortcut_fs7ks")
+icon = ExtResource("12_7dp3o")
+
 [node name="RestartTime" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer3"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.5
+offset_top = -343.5
+offset_right = 640.5
+offset_bottom = 343.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer3/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("15_h4iuc")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer3/Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_h4iuc")
+expand_mode = 3
+
+[node name="Control" type="Control" parent="CanvasLayer3/Control/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="In1" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 243.5
+offset_top = 81.5
+offset_right = -264.376
+offset_bottom = -476.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="In2" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 417.5
+offset_top = 247.5
+offset_right = -90.3755
+offset_bottom = -310.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="In3" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 265.5
+offset_top = 406.5
+offset_right = -242.376
+offset_bottom = -151.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="In4" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 91.5
+offset_top = 242.5
+offset_right = -416.376
+offset_bottom = -315.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MD" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 141.5
+offset_top = -26.5
+offset_right = 509.5
+offset_bottom = 341.5
+grow_vertical = 0
+rotation = 3.14159
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("3_was2g")
+
+[node name="MU" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.376
+offset_top = -129.5
+offset_right = 214.624
+offset_bottom = 238.5
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("3_was2g")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer3/Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_h4iuc")
+expand_mode = 3
+flip_h = true
+
+[node name="Control" type="Control" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MOrN" type="GridContainer" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control"]
+visible = false
+layout_mode = 2
+offset_left = 63.0
+offset_top = 69.0
+offset_right = 446.0
+offset_bottom = 260.0
+columns = 2
+
+[node name="Trap" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/MOrN"]
+layout_mode = 2
+icon = ExtResource("16_p1odr")
+
+[node name="Blast" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/MOrN"]
+layout_mode = 2
+icon = ExtResource("17_0gysh")
+
+[node name="Elem" type="GridContainer" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control"]
+layout_mode = 2
+offset_left = 63.0
+offset_top = 69.0
+offset_right = 63.0
+offset_bottom = 69.0
+columns = 2
+
+[node name="Fire" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem"]
+layout_mode = 2
+icon = ExtResource("16_fs7ks")
+
+[node name="Wind" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem"]
+layout_mode = 2
+icon = ExtResource("18_olqyp")
+
+[node name="Earth" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem"]
+layout_mode = 2
+icon = ExtResource("20_vfarp")
+
+[node name="Ice" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem"]
+layout_mode = 2
+icon = ExtResource("21_y6uwr")
+
+[node name="Augs" type="GridContainer" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control"]
+visible = false
+layout_mode = 0
+offset_left = 63.0
+offset_top = 69.0
+offset_right = 365.0
+offset_bottom = 185.0
+columns = 2
+
+[node name="SizeUp" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs"]
+layout_mode = 2
+icon = ExtResource("22_83xs0")
+
+[node name="Knockback" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs"]
+layout_mode = 2
+icon = ExtResource("23_ypfnu")
+
+[node name="Power" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs"]
+layout_mode = 2
+icon = ExtResource("24_xuaoq")
+
+[node name="Speed" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs"]
+layout_mode = 2
+icon = ExtResource("25_wohnl")
+
+[node name="FistCD" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control2/Button" to="CanvasLayer3/Control/HBoxContainer" method="_on_button_pressed"]
 [connection signal="timeout" from="RestartTime" to="." method="_on_restart_time_timeout"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/In1" to="CanvasLayer3/Control/HBoxContainer" method="_on_in_1_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/In2" to="CanvasLayer3/Control/HBoxContainer" method="_on_in_2_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/In3" to="CanvasLayer3/Control/HBoxContainer" method="_on_in_3_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/In4" to="CanvasLayer3/Control/HBoxContainer" method="_on_in_4_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/MD" to="CanvasLayer3/Control/HBoxContainer" method="_on_md_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/MU" to="CanvasLayer3/Control/HBoxContainer" method="_on_mu_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/MOrN/Trap" to="CanvasLayer3/Control/HBoxContainer" method="_on_trap_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/MOrN/Blast" to="CanvasLayer3/Control/HBoxContainer" method="_on_blast_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem/Fire" to="CanvasLayer3/Control/HBoxContainer" method="_on_fire_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem/Wind" to="CanvasLayer3/Control/HBoxContainer" method="_on_wind_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem/Earth" to="CanvasLayer3/Control/HBoxContainer" method="_on_earth_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem/Ice" to="CanvasLayer3/Control/HBoxContainer" method="_on_ice_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/SizeUp" to="CanvasLayer3/Control/HBoxContainer" method="_on_size_up_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Knockback" to="CanvasLayer3/Control/HBoxContainer" method="_on_knockback_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Power" to="CanvasLayer3/Control/HBoxContainer" method="_on_power_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Speed" to="CanvasLayer3/Control/HBoxContainer" method="_on_speed_pressed"]
 
 [editable path="CanvasLayer2/ProgressBar"]
