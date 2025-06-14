@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+var Pausing = false
 var chance: float = 0.0
 @export var luck: float = 1.0
 
@@ -52,6 +52,10 @@ func _ready() -> void:
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureRect.texture = preload("res://Assets/Sprites/Z_Key_Dark.png")
 
 func Mode_toggle():
+	
+	if Input.is_action_just_pressed("Pause"):
+		pause()
+	
 	current_Hp = clamp(current_Hp, 0, Hp)
 	if Input.is_action_just_pressed("Swap_mode") and !Severed_universe:
 		Keyboard = not Keyboard
@@ -317,3 +321,20 @@ func _on_button_pressed() -> void:
 		Engine.time_scale = 1.0
 		Severed_universe = false
 	
+func pause():
+	Pausing = not Pausing
+	if Pausing == true:
+		Engine.time_scale = 0.0
+		$CanvasLayer4.visible = true
+	elif Pausing == false:
+		$CanvasLayer4/Control/Control/Control.visible = false
+		Engine.time_scale = 1.0
+		$CanvasLayer4.visible = false
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_controls_pressed() -> void:
+	$CanvasLayer4/Control/Control/Control.visible = not $CanvasLayer4/Control/Control/Control
