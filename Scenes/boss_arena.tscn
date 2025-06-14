@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp6cmyccwhgm8"]
+
+[ext_resource type="PackedScene" uid="uid://damg756xr3o6h" path="res://Scenes/map_2b.tscn" id="1_ycwjk"]
+[ext_resource type="PackedScene" uid="uid://b6hkoguuy0d14" path="res://Scenes/enemy_boss.tscn" id="2_nisv6"]
+[ext_resource type="PackedScene" uid="uid://bdxdd5guevyi" path="res://Scenes/player.tscn" id="3_mewru"]
+
+[node name="Boss_arena" type="Node2D"]
+
+[node name="Map2B" parent="." instance=ExtResource("1_ycwjk")]
+
+[node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_nisv6")]
+position = Vector2(1814, 920)
+player = NodePath("../Player")
+
+[node name="Wind" parent="Boss/ElementState" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Rock" parent="Boss/ElementState" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_mewru")]
+position = Vector2(1926, 2304)
+
+[editable path="Boss"]
+[editable path="Boss/ElementState"]

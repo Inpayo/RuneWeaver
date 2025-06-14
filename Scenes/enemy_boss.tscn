@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2d0s1b8e5pql"]
+[gd_scene load_steps=8 format=3 uid="uid://b6hkoguuy0d14"]
 
 [ext_resource type="Script" uid="uid://bdnrifawjngec" path="res://Scripts/enemy_boss.gd" id="1_03pj2"]
 [ext_resource type="Texture2D" uid="uid://bghr5fxk1ippy" path="res://Assets/Sprites/FoxyS.jpg" id="1_vlrny"]
 [ext_resource type="Texture2D" uid="uid://dum8wvjorst35" path="res://Assets/Sprites/FoxyJ.jpg" id="2_4dn4i"]
-[ext_resource type="PackedScene" uid="uid://b1bcrodrwqd7" path="res://Scenes/wind_state.tscn" id="4_03pj2"]
+[ext_resource type="PackedScene" uid="uid://b2d0s1b8e5pql" path="res://Scenes/ElementState.tscn" id="4_03pj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03pj2"]
 size = Vector2(177.789, 131.111)
@@ -15,10 +15,13 @@ size = Vector2(65, 126)
 radius = 346.988
 height = 1226.67
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("wind")]
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("wind", "fire", "rock", "ice")]
 scale = Vector2(3, 3)
 script = ExtResource("1_03pj2")
-wind = NodePath("Wind_state")
+wind = NodePath("ElementState/Wind")
+fire = NodePath("ElementState/Fire")
+rock = NodePath("ElementState/Rock")
+ice = NodePath("ElementState/Ice")
 
 [node name="MovingSpr" type="Sprite2D" parent="."]
 position = Vector2(51, 62)
@@ -50,11 +53,19 @@ texture = ExtResource("2_4dn4i")
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_i713y")
 
-[node name="Wind_state" parent="." instance=ExtResource("4_03pj2")]
-
 [node name="HoverDur" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="ElementState" parent="." instance=ExtResource("4_03pj2")]
+
+[node name="Wind" parent="ElementState" index="0" node_paths=PackedStringArray("boss")]
+boss = NodePath("../..")
+
+[node name="Rock" parent="ElementState" index="2" node_paths=PackedStringArray("boss")]
+boss = NodePath("../..")
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="HoverDur" to="." method="_on_hover_dur_timeout"]
+
+[editable path="ElementState"]

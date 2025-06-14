@@ -8,11 +8,16 @@ var player_detected: bool = false
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 
+var hurt = 0
+
 @export var player: Node
 @export var wind: Node
 @export var fire: Node
 @export var rock: Node
 @export var ice: Node
+
+@onready var elemental_array = [wind,rock]
+
 
 @onready var Element = wind
 @onready var Dashing = false
@@ -54,9 +59,13 @@ func Knockback(knockback_intensity, time, KBDir):
 	knockback = KBDir * knockback_intensity / 30
 	knockback_timer = time
 
+func element_change(number) -> void:
+	@warning_ignore("integer_division") var x: int = number/30
+	Element = elemental_array[x]
 	
 func received_damage(damage: int):
-	pass
+	hurt += damage
+	element_change(hurt)
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_attacks"):
