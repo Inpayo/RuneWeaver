@@ -22,11 +22,11 @@ var hurt = 0
 @onready var Element = wind
 @onready var Dashing = false
 
+func _ready() -> void:
+	$DashDur.stop()
 
 func _physics_process(delta: float) -> void:
-
 	if knockback_timer > 0.0:
-		print(knockback)
 		global_position += knockback 
 		knockback_timer -= delta
 		if knockback_timer <= 0.0:
@@ -54,18 +54,27 @@ func _physics_process(delta: float) -> void:
 func _on_hover_dur_timeout() -> void:
 	Element.StartDashing()
 	state = States.Dash
+	$DashDur.start()
 
 func Knockback(knockback_intensity, time, KBDir):
 	knockback = KBDir * knockback_intensity / 30
 	knockback_timer = time
 
 func element_change(number) -> void:
-	@warning_ignore("integer_division") var x: int = number/30
-	Element = elemental_array[x]
-	
+	if (number%30 == 0):
+		var x: int = number/30
+		x = clamp(x, 0, 1)
+		Element = elemental_array[x]
+		Element.Dashing = false
+		state = States.Hover
+
+		
 func received_damage(damage: int):
 	hurt += damage
 	element_change(hurt)
+	if Element == wind:
+		Element.Dashing = false
+		state = States.Hover
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_attacks"):
@@ -74,7 +83,6 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			Stats = area.get_parent().SPC
 		received_damage(Stats.damage)
 		var KBDir = Stats.direction
-		print(KBDir)
 		Knockback(Stats.KBIntensity, Stats.KBTime, KBDir)
 		Stats = area.get_parent()
 		if area.is_in_group("Special_proj"):
@@ -82,3 +90,10 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			pass
 		if area.is_in_group("Player_attacks"):
 			Stats.queue_free()
+
+
+func _on_dash_dur_timeout() -> void:
+	if Element.Dashing:
+		print("activate")
+		Element.Dashing = false
+		state = States.Hover

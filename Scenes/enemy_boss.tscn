@@ -57,6 +57,9 @@ shape = SubResource("CapsuleShape2D_i713y")
 wait_time = 2.0
 one_shot = true
 
+[node name="DashDur" type="Timer" parent="."]
+wait_time = 5.0
+
 [node name="ElementState" parent="." instance=ExtResource("4_03pj2")]
 
 [node name="Wind" parent="ElementState" index="0" node_paths=PackedStringArray("boss")]
@@ -67,5 +70,6 @@ boss = NodePath("../..")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="HoverDur" to="." method="_on_hover_dur_timeout"]
+[connection signal="timeout" from="DashDur" to="." method="_on_dash_dur_timeout"]
 
 [editable path="ElementState"]

@@ -12,6 +12,9 @@
 position = Vector2(1814, 920)
 player = NodePath("../Player")
 
+[node name="DashDur" parent="Boss" index="5"]
+wait_time = 2.0
+
 [node name="Wind" parent="Boss/ElementState" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../../Player")
 

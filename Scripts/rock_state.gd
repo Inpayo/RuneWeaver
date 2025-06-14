@@ -3,8 +3,8 @@ extends Node2D
 enum States {Dash, Hover}
 var state = States.Hover
 
-var HoverSep := 20
-var HoverSepV := 10
+var HoverSep := 50
+var HoverSepV := 50
 var HoverSp := 1.0
 var HoverAmp := 10
 var HoverAng := 0.0
@@ -15,7 +15,7 @@ var HoverAng := 0.0
 var Dash_points = []
 var num_points = 0
 var CurrentDashTarget := 0
-var DashSpeed := 500
+var DashSpeed := 2000
 var Dashing := false
 
 	
@@ -35,7 +35,7 @@ func HoverNearPlayer(delta):
 func StartDashing():
 	print("Rock & Roll")
 	Dash_points.clear()
-	num_points = randi_range(1,1)
+	num_points = 1
 	CurrentDashTarget = 0
 	Dashing = true
 	
