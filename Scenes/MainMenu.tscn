@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhrehduo5is7b"]
+[gd_scene load_steps=2 format=3 uid="uid://cj2b40ir5f7hn"]
 
-[ext_resource type="Script" uid="uid://bqu1d1ldj08ek" path="res://MainMenu.gd" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://bqu1d1ldj08ek" path="res://Scripts/MainMenu.gd" id="1_tt5f1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0fbet")
+script = ExtResource("1_tt5f1")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -34,6 +34,7 @@ offset_bottom = 495.0
 text = "Start Game "
 
 [node name="Controls" type="Button" parent="."]
+layout_mode = 0
 offset_left = 362.0
 offset_top = 550.0
 offset_right = 596.0
