@@ -2,7 +2,7 @@ extends Node
 
 var speed: float = 0
 var damage: float = 0
-var knockback: float = 0
+var knockback: float = 750
 var SPC = ""
 var SSlot = 0
 var SPComp = []
@@ -11,7 +11,7 @@ signal Early_Freed
 
 var ElementDict = {
 				"Fire": [5, 0, 3, 5, 0, "res://Assets/Sprites/blast_fire.png"], 
-				"Wind": [3, 400, 0, 0, 0, "res://Assets/Sprites/blast_wind.png"],
+				"Wind": [3, 700, 0, 0, 0, "res://Assets/Sprites/blast_wind.png"],
 				"Earth":[10, 0, 0, 0, 0, "res://Assets/Sprites/blast_rock.png"],
 				"Ice": [3, 0, 0, 7, -0.2, "res://Assets/Sprites/blast_ice.png"]
 					}

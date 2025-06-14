@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdd17dpd33q6s"]
+
+[ext_resource type="Texture2D" uid="uid://bbro3t2mchlq3" path="res://Assets/Sprites/objects_forest_TreesAndRocks.png" id="1_xfkdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6ayu"]
+size = Vector2(65, 76)
+
+[node name="treeA_snow_body" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -218)
+texture = ExtResource("1_xfkdt")
+hframes = 4
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, -30)
+shape = SubResource("RectangleShape2D_e6ayu")

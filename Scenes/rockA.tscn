@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5muk"]
 size = Vector2(91.25, 35.1094)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="rockA_body" type="StaticBody2D"]
 collision_layer = 16
 collision_mask = 0
 
@@ -15,7 +15,7 @@ position = Vector2(3, -43)
 texture = ExtResource("1_hta28")
 hframes = 16
 vframes = 9
-frame = 112
+frame = 131
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.625, -24)

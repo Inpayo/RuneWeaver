@@ -47,7 +47,11 @@ func _physics_process(_delta):
 				$shoot_cd.start()
 
 		if knockback_timer > 0.0:
-			velocity = knockback
+			velocity = knockback 
+			if direction == Vector2.ZERO:
+				velocity -= velocity * 3 ** 2 * _delta
+			else:
+				velocity -= velocity * 3 * _delta
 			knockback_timer -= _delta
 			if knockback_timer <= 0.0:
 				knockback = Vector2.ZERO
@@ -69,13 +73,16 @@ func received_damage(damage):
 		on_death()
 
 func on_death():
-	dead = true
-	loot()
 
-	$Sprite2D/AnimationPlayer.play("death")
-	await $Sprite2D/AnimationPlayer.animation_finished
-	velocity = Vector2.ZERO
-	$Hitbox/CollisionShape2D.disabled = true
+	if not dead:
+		dead = true
+		loot()
+		
+		$Hitbox/CollisionShape2D.disabled = true
+		$Sprite2D/AnimationPlayer.play("death")
+		if $Sprite2D/AnimationPlayer.animation_finished:
+			velocity = Vector2.ZERO
+
 	$death_timer.start()
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
@@ -124,19 +131,20 @@ func _on_shoot_cd_timeout() -> void:
 	
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Player") or area.is_in_group("Player_attacks"):
-		var Stats = area.get_parent()
-		if area.is_in_group("Special_proj"):
-			Stats = area.get_parent().SPC
-		received_damage(Stats.damage)
-		var KBDir = (area.position - position).normalized()
-		apply_knockback(KBDir, Stats.KBIntensity, Stats.KBTime )
-		Stats = area.get_parent()
-		if area.is_in_group("Special_proj"):
-			Stats.KYS()
-			pass
-		if area.is_in_group("Player_attacks"):
-			Stats.queue_free()
+	if not dead:
+		if area.is_in_group("Player") or area.is_in_group("Player_attacks"):
+			var Stats = area.get_parent()
+			if area.is_in_group("Special_proj"):
+				Stats = area.get_parent().SPC
+			received_damage(Stats.damage)
+			print(Stats)
+			apply_knockback(Stats.direction, Stats.KBIntensity, Stats.KBTime )
+			Stats = area.get_parent()
+			if area.is_in_group("Special_proj"):
+				Stats.KYS()
+				pass
+			if area.is_in_group("Player_attacks"):
+				Stats.queue_free()
 
 func _on_death_timer_timeout() -> void:
 	queue_free()

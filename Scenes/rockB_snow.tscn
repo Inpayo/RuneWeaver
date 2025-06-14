@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmbi1lwe71kfj"]
+
+[ext_resource type="Texture2D" uid="uid://bbro3t2mchlq3" path="res://Assets/Sprites/objects_forest_TreesAndRocks.png" id="1_va3iq"]
+
+[node name="rockB_snow_body" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -24)
+texture = ExtResource("1_va3iq")
+hframes = 16
+vframes = 18
+frame = 113
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 19)
+polygon = PackedVector2Array(-47, -37, -41, -44, -32, -49, -18, -53, 8, -53, 16, -59, 31, -54, 40, -53, 48, -45, 53, -33, 35, -25, 21, -31, 9, -33, -1, -33, -23, -26, -36, -31, -44, -30)
