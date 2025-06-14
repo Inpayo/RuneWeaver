@@ -161,6 +161,7 @@ collision_layer = 2
 collision_mask = 28
 
 [node name="HurtyWurty" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 position = Vector2(4.5, -77)
 shape = SubResource("RectangleShape2D_i8wls")
 
@@ -647,3 +648,6 @@ icon = ExtResource("25_wohnl")
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Knockback" to="CanvasLayer3/Control/HBoxContainer" method="_on_knockback_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Power" to="CanvasLayer3/Control/HBoxContainer" method="_on_power_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Speed" to="CanvasLayer3/Control/HBoxContainer" method="_on_speed_pressed"]
+
+
+[editable path="CanvasLayer2/ProgressBar"]
