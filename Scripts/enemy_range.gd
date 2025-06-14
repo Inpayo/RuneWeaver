@@ -47,6 +47,7 @@ func _physics_process(_delta):
 				$shoot_cd.start()
 
 		if knockback_timer > 0.0:
+			print(knockback)
 			velocity = knockback 
 			if direction == Vector2.ZERO:
 				velocity -= velocity * 3 ** 2 * _delta

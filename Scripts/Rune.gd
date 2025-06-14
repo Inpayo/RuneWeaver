@@ -1,5 +1,6 @@
 extends Node
 
+var element 
 var speed: float = 0
 var damage: float = 0
 var knockback: float = 750
@@ -7,6 +8,9 @@ var SPC = ""
 var SSlot = 0
 var SPComp = []
 var BehaveDict = {"Blast": 500, "Trap": 0}
+
+@onready var Player = get_node("Player")
+
 signal Early_Freed
 
 var direction
@@ -43,7 +47,6 @@ func SetSpell(SPComp):
 func GetVars(SpellCasted):
 	SPC = get_node(SpellCasted)
 	SPC.visible = true
-	print(SPC.Vars)
 	SPComp = SPC.Vars
 	SetSpell(SPComp)
 	

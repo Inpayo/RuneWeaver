@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2d0s1b8e5pql"]
+
+[ext_resource type="Script" uid="uid://c1bed54nqisgl" path="res://Scripts/wind_state.gd" id="1_yfi04"]
+[ext_resource type="Script" uid="uid://dnjamnc2jxmti" path="res://Scripts/fire_state.gd" id="2_820bn"]
+[ext_resource type="Script" uid="uid://dwwc0s7h2g8lj" path="res://Scripts/rock_state.gd" id="3_yydwu"]
+[ext_resource type="Script" uid="uid://bkax1eu68n2hh" path="res://Scripts/ice_state.gd" id="4_r1710"]
+
+[node name="ElementState" type="Node2D"]
+
+[node name="Wind" type="Node2D" parent="."]
+script = ExtResource("1_yfi04")
+
+[node name="Fire" type="Node2D" parent="."]
+script = ExtResource("2_820bn")
+
+[node name="Rock" type="Node2D" parent="."]
+script = ExtResource("3_yydwu")
+
+[node name="Ice" type="Node2D" parent="."]
+script = ExtResource("4_r1710")

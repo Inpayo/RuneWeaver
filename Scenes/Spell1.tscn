@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dgwfrpn6mltyb" path="res://Scripts/Vars3.gd" id="4_e3ypm"]
 [ext_resource type="Script" uid="uid://bn4up5qvlbhsu" path="res://Scripts/Vars4.gd" id="7_cnapn"]
 
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cnapn"]
 radius = 11.0
 height = 40.0
