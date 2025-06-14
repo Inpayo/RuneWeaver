@@ -16,14 +16,18 @@ var ElementDict = {
 				"Ice": [3, 0, 0, 7, -0.2, "res://Assets/Sprites/blast_ice.png"]
 					}
 var AugmentDict = {
-				"SizeUp" = [-0.2, -0.1, 0, 0, 0.5],
-				"Knockback" = [- 0.4, 0.2, 0, 0.25, 0],
-				"Power" = [0.3, 0, 0.5, 0, 0],
-				"Speed" = [-0.2, 0.5, 0, 0, 0],
-				"None" = [0 ,0 , 0, 0, 0]
+				"SizeUp": [-0.2, -0.1, 0, 0, 0.5],
+				"Knockback": [- 0.4, 0.2, 0, 0.25, 0],
+				"Power": [0.3, 0, 0.5, 0, 0],
+				"Speed":[-0.2, 0.5, 0, 0, 0],
+				null: [0,0,0,0,0]
 }
 
 func SetSpell(SPComp):
+	print(SPComp)
+	if SPComp[0] == null or SPComp [1] == null:
+		queue_free()
+		return
 	$Hurtbox.add_to_group(SPComp[0])
 	var SendDown = []
 	SendDown.append_array(ElementDict[SPComp[0]])
@@ -36,6 +40,7 @@ func SetSpell(SPComp):
 func GetVars(SpellCasted):
 	SPC = get_node(SpellCasted)
 	SPC.visible = true
+	print(SPC.Vars)
 	SPComp = SPC.Vars
 	SetSpell(SPComp)
 	

@@ -9,7 +9,7 @@ var Mid
 var StartP = get_parent()
 var CD_Dur
 
-var Vars =  ["Earth", "Trap", "None", "None"]
+var Vars =  [null, null, null, null]
 
 func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd, Aug1CT, Aug1KB, AugS1, Aug2Dam, Aug2Spd, Aug2CT, Aug2KB, AugS2):
 	var Mid = get_parent().get_node("Hurtbox/CollisionShape2D")

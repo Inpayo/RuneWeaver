@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var chance: float = 0.0
 @export var luck: float = 1.0
 
@@ -32,7 +33,15 @@ var damage = 10
 var Scaling = 0.0
 var ArrDir
 
+var Thingy1 = [null,null,null,null]
+var Thingy2 = [null,null,null,null]
+var Thingy3 = [null,null,null,null]
+var Thingy4 = [null,null,null,null]
+
+var Severed_universe = false
+
 func _ready() -> void:
+	$CanvasLayer3/Control/HBoxContainer.connect("set_vars", Callable(self, "on_set_vars"))
 	$Hitbox/HurtyWurty.disabled = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Health_bar.health_init(Hp)
@@ -52,10 +61,10 @@ func Mode_toggle():
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureRect.texture = preload("res://Assets/Sprites/C_Key_Dark.png")
 		else:
 			Input.mouse_mode = (Input.MOUSE_MODE_CAPTURED)
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1.texture = preload("res://Assets/Sprites/PS5_L1.png")
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2.texture = preload("res://Assets/Sprites/PS5_R1.png")
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3.texture = preload("res://Assets/Sprites/PS5_R2.png")
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4.texture = preload("res://Assets/Sprites/PS5_L2.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureRect.texture = preload("res://Assets/Sprites/PS5_L1.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureRect.texture = preload("res://Assets/Sprites/PS5_R1.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureRect.texture = preload("res://Assets/Sprites/PS5_R2.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureRect.texture = preload("res://Assets/Sprites/PS5_L2.png")
 
 func get_input(_delta):
 	if Keyboard:
@@ -74,9 +83,9 @@ func get_input(_delta):
 	ArrDirOrigin = get_node("Arrow_anchor/Arrow")
 	ArrDir = ArrDirOrigin.TDir
 
-	if Keyboard:
+	if Keyboard and !Severed_universe:
 		input_direction = Input.get_vector("Move_left_keyboard", "Move_right_keyboard", "Move_up_keyboard", "Move_down_keyboard")
-	else:
+	elif !Keyboard and !Severed_universe:
 		input_direction = Input.get_vector("Move_left_controller", "Move_right_controller", "Move_up_controller", "Move_down_controller")
 	
 	if knockback_timer <= 0.0:
@@ -139,7 +148,10 @@ func get_input(_delta):
 	else: 
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureProgressBar.value = 0.0
 	
-	
+	if !Severed_universe:
+		Acceleration = 2400
+	elif Severed_universe:
+		Acceleration = 0
 	velocity += input_direction * Acceleration * _delta
 	
 func Apply_friction(_delta):
@@ -196,34 +208,40 @@ func Fight():
 	var CD_dur
 	var RELEASE := false
 	
-	if $SP1.is_stopped():
-		print("I can shoot!")
-		
-	if Fisting == true:
+	if Fisting == true and !Severed_universe:
 		punching = Fist.instantiate()
 		RELEASE = true
 		
-	elif Fisting == false and $Gen_CD.is_stopped():
+	elif Fisting == false and $Gen_CD.is_stopped() and !Severed_universe:
 		punching = Spell.instantiate()
 		if (Input.is_action_just_pressed("SP1_Key") or Input.is_action_just_pressed("SP1_Con")) and $SP1.is_stopped():
 			SPC = "SP1"
 			TTF = punching.get_node("SP1")
-			RELEASE = true
+			print(Thingy1)
+			TTF.Vars = Thingy1
+			if Thingy1[0] != null or Thingy1[1] != null:
+				RELEASE = true
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = 1.0
 		elif (Input.is_action_just_pressed("SP2_Key") or Input.is_action_just_pressed("SP2_Con")) and $SP2.is_stopped():
 			SPC = "SP2"
 			TTF = punching.get_node("SP2")
-			RELEASE = true
+			TTF.Vars = Thingy2
+			if Thingy2[0] != null or Thingy2[1] != null:
+				RELEASE = true
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = 1.0
 		elif (Input.is_action_just_pressed("SP3_Key") or Input.is_action_just_pressed("SP3_Con"))and $SP3.is_stopped():
 			SPC = "SP3"
 			TTF = punching.get_node("SP3")
-			RELEASE = true
+			TTF.Vars = Thingy3
+			if Thingy3[0] != null or Thingy3[1] != null:
+				RELEASE = true
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureProgressBar.value = 1.0
 		elif (Input.is_action_just_pressed("SP4_Key") or Input.is_action_just_pressed("SP4_Con")) and $SP4.is_stopped():
 			SPC = "SP4"
 			TTF = punching.get_node("SP4")
-			RELEASE = true
+			TTF.Vars = Thingy4
+			if Thingy4[0] != null or Thingy4[1] != null:
+				RELEASE = true
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureProgressBar.value = 1.0
 		if RELEASE == true:
 			punching.GetVars(SPC)
@@ -261,10 +279,25 @@ func _on_hitbox_area_entered(area):
 		Stats.get_parent().queue_free()
 
 
-func _on_button_pressed() -> void:
-	pass # Replace with function body.
-
+func on_set_vars() -> void:
+	var Thing = $CanvasLayer3/Control/HBoxContainer
+	print(Thing.SPs)
+	Thingy1 = Thing.SPs[0]
+	Thingy2 = Thing.SPs[1]
+	Thingy3 = Thing.SPs[2]
+	Thingy4 = Thing.SPs[3]
 
 
 func _on_restart_time_timeout() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_button_pressed() -> void:
+	$CanvasLayer3.visible = not $CanvasLayer3.visible
+	if $CanvasLayer3.visible == true:
+		Engine.time_scale = 0.2
+		Severed_universe = true
+	elif $CanvasLayer3.visible == false:
+		Engine.time_scale = 1.0
+		Severed_universe = false
+	

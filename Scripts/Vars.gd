@@ -6,7 +6,7 @@ var KBIntensity = 0
 var KBTime = 0.16
 var Box
 var Mid
-var Vars = ["Wind", "Trap","SizeUp", "None"]
+var Vars = [null, null, null, null]
 var CD_Dur := 0.0
 var size
 
