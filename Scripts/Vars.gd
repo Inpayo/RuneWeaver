@@ -6,10 +6,14 @@ var KBIntensity = 0
 var KBTime = 0.16
 var Box
 var Mid
-var Vars = ["Wind", "Trap","SizeUp", "None"]
+var Vars = [null, null, null, null]
 var CD_Dur := 0.0
 var size
 @onready var direction = Vector2.from_angle(get_parent().rotation)
+
+@onready var init_location = global_position
+var last_location
+var direction
 
 var Air = false
 var Fire = false
@@ -53,3 +57,5 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	
 func _physics_process(delta: float) -> void:
 	get_parent().position += Vector2.RIGHT.rotated(get_parent().rotation) * speed * delta
+	last_location = get_parent().position
+	direction = (last_location - init_location).normalized()
