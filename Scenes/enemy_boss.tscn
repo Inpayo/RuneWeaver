@@ -15,7 +15,7 @@ size = Vector2(65, 126)
 radius = 346.988
 height = 1226.67
 
-[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("wind", "fire", "rock", "ice")]
+[node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("wind", "fire", "rock", "ice") groups=["Enemies"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_03pj2")
 wind = NodePath("ElementState/Wind")
@@ -34,7 +34,7 @@ scale = Vector2(0.325806, 0.22844)
 shape = SubResource("RectangleShape2D_03pj2")
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 5
+collision_layer = 4
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
@@ -48,6 +48,8 @@ scale = Vector2(0.15, 0.115278)
 texture = ExtResource("2_4dn4i")
 
 [node name="Area2D" type="Area2D" parent="AttackingSpr"]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingSpr/Area2D"]
 rotation = -1.5708
@@ -65,7 +67,13 @@ wait_time = 5.0
 [node name="Wind" parent="ElementState" index="0" node_paths=PackedStringArray("boss")]
 boss = NodePath("../..")
 
+[node name="Fire" parent="ElementState" index="1" node_paths=PackedStringArray("boss")]
+boss = NodePath("../..")
+
 [node name="Rock" parent="ElementState" index="2" node_paths=PackedStringArray("boss")]
+boss = NodePath("../..")
+
+[node name="Ice" parent="ElementState" index="3" node_paths=PackedStringArray("boss")]
 boss = NodePath("../..")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

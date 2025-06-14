@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var element = Vars[0]
 var speed = 0
 var damage = 0
 var KBIntensity = 0
@@ -47,6 +48,7 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	self.scale = scale_factor
 	Box.radius *= BScale.x
 	Box.height *= BScale.y
+	get_parent().element = Vars[0]
 
 	
 	

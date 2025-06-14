@@ -1,5 +1,6 @@
 extends Node
 
+var element 
 var speed: float = 0
 var damage: float = 0
 var knockback: float = 750
@@ -46,7 +47,6 @@ func SetSpell(SPComp):
 func GetVars(SpellCasted):
 	SPC = get_node(SpellCasted)
 	SPC.visible = true
-	print(SPC.Vars)
 	SPComp = SPC.Vars
 	SetSpell(SPComp)
 	

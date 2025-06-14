@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var element = Vars[0]
 var speed = 0
 var damage = 0
 var KBIntensity = 0
@@ -43,3 +44,4 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	
 func _physics_process(delta: float) -> void:
 	get_parent().position += Vector2.RIGHT.rotated(get_parent().rotation) * speed * delta
+	

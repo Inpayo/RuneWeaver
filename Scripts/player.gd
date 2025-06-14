@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var Pausing = false
+@onready var Pausing = false
+
 var chance: float = 0.0
 @export var luck: float = 1.0
 
@@ -50,6 +51,7 @@ func _ready() -> void:
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureRect.texture = preload("res://Assets/Sprites/E_Key_Dark.png")
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureRect.texture = preload("res://Assets/Sprites/C_Key_Dark.png")
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureRect.texture = preload("res://Assets/Sprites/Z_Key_Dark.png")
+	$CanvasLayer4.visible = false
 
 func Mode_toggle():
 	
@@ -237,7 +239,6 @@ func Fight():
 		if (Input.is_action_just_pressed("SP1_Key") or Input.is_action_just_pressed("SP1_Con")) and $SP1.is_stopped():
 			SPC = "SP1"
 			TTF = punching.get_node("SP1")
-			print(Thingy1)
 			TTF.Vars = Thingy1
 			if Thingy1[0] != null or Thingy1[1] != null:
 				RELEASE = true

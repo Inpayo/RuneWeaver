@@ -3,6 +3,8 @@ extends Node2D
 enum States {Dash, Hover}
 var state = States.Hover
 
+var time = 3.0
+var Melee = true
 var HoverSep := 50
 var HoverSepV := 50
 var HoverSp := 1.0
@@ -18,6 +20,11 @@ var CurrentDashTarget := 0
 var DashSpeed := 2000
 var Dashing := false
 
+func multiplier(type):
+	if type == "Ice":
+		return 2
+	else:
+		return 1
 	
 func GetHoverPos(delta: float) -> Vector2:
 	HoverAng += HoverSp * delta

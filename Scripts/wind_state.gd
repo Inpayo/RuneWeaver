@@ -3,6 +3,14 @@ extends Node2D
 enum States {Dash, Hover}
 var state = States.Hover
 
+func multiplier(type):
+	if type == "Rock":
+		return 2
+	else:
+		return 1
+		
+var time = 2.0
+var Melee = true
 var HoverSep := 100
 var HoverSepV := 50
 var HoverSp := 2.0

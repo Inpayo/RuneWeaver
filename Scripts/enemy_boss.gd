@@ -7,8 +7,9 @@ var player_detected: bool = false
 @onready var direction: Vector2 = position.direction_to(player.position)
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
+var weakness = "Physical"
 
-var hurt = 0
+var Hp = 200
 
 @export var player: Node
 @export var wind: Node
@@ -16,16 +17,17 @@ var hurt = 0
 @export var rock: Node
 @export var ice: Node
 
-@onready var elemental_array = [wind,rock]
+@onready var elemental_array = [wind,fire,rock,ice]
 
 
-@onready var Element = wind
+@onready var Element = ice
 @onready var Dashing = false
 
 func _ready() -> void:
 	$DashDur.stop()
 
 func _physics_process(delta: float) -> void:
+
 	if knockback_timer > 0.0:
 		global_position += knockback 
 		knockback_timer -= delta
@@ -42,7 +44,7 @@ func _physics_process(delta: float) -> void:
 				$AttackingSpr/Area2D/CollisionShape2D.disabled = true
 				Element.HoverNearPlayer(delta)
 				if $HoverDur.is_stopped() and not Element.Dashing:
-					$HoverDur.start()
+					$HoverDur.start(Element.time)
 					
 			States.Dash:
 				$MovingSpr.visible = false
@@ -61,20 +63,24 @@ func Knockback(knockback_intensity, time, KBDir):
 	knockback_timer = time
 
 func element_change(number) -> void:
-	if (number%30 == 0):
-		var x: int = number/30
-		x = clamp(x, 0, 1)
-		Element = elemental_array[x]
+		var x: int = number/40
+		x = clamp(x, 1, 4)
+		Element = elemental_array[x-1]
 		Element.Dashing = false
 		state = States.Hover
 
 		
 func received_damage(damage: int):
-	hurt += damage
-	element_change(hurt)
+	Hp -= damage * Element.multiplier(weakness)
+	element_change(Hp)
+	if Hp <= 0:
+			on_death()
 	if Element == wind:
 		Element.Dashing = false
 		state = States.Hover
+		
+func on_death():
+	queue_free()
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_attacks"):
@@ -90,10 +96,12 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 			pass
 		if area.is_in_group("Player_attacks"):
 			Stats.queue_free()
+		weakness = Stats.element
+		
 
 
 func _on_dash_dur_timeout() -> void:
-	if Element.Dashing:
+	if Element.Dashing and Element.Melee:
 		print("activate")
 		Element.Dashing = false
 		state = States.Hover

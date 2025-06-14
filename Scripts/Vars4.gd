@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var element = Vars[0]
 var speed = 0
 var damage = 0
 var KBIntensity = 0
