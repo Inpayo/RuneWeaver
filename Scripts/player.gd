@@ -249,6 +249,7 @@ func _on_hitbox_area_entered(area):
 		knockback = Stats.direction * Stats.KBIntensity
 		knockback_timer = Stats.KBTime
 		Hp -= Stats.damage
+		Health_bar.health_change(-Stats.damage)
 		if Hp <= 0:
 			on_death()
 		if area.is_in_group("Enemy_attacks"):

@@ -1,16 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://w2ahnqvfsj78"]
+[gd_scene load_steps=15 format=3 uid="uid://w2ahnqvfsj78"]
 
 [ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_b8rdd"]
 [ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_tb5s2"]
 [ext_resource type="Texture2D" uid="uid://bdlhotou1xinf" path="res://Assets/Sprites/Whispering_WoodsC.png" id="3_3bflq"]
 [ext_resource type="Texture2D" uid="uid://b7yxycqub7rbn" path="res://Assets/Sprites/Whispering_WoodsD.png" id="4_3bflq"]
 [ext_resource type="Texture2D" uid="uid://51l5vntyp3nf" path="res://Assets/Sprites/Whispering_WoodsE.png" id="5_if138"]
-[ext_resource type="PackedScene" uid="uid://dfiwkot5wm0uc" path="res://Scenes/trunkA.tscn" id="6_fe1bg"]
-[ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunkB.tscn" id="7_2fb1b"]
+[ext_resource type="Texture2D" uid="uid://d2kxdr7hxm0bo" path="res://Assets/Sprites/Whispering_WoodsF.png" id="6_3a7kw"]
+[ext_resource type="PackedScene" uid="uid://ccghc4kluicvv" path="res://Scenes/rockE.tscn" id="6_guy7b"]
+[ext_resource type="PackedScene" uid="uid://cr0pvreqo2hyc" path="res://Scenes/rockD.tscn" id="7_3a7kw"]
+[ext_resource type="Texture2D" uid="uid://c5ayt3sqc537v" path="res://Assets/Sprites/Whispering_WoodsG.png" id="7_d6x1x"]
 [ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rockB.tscn" id="8_lo0ed"]
+[ext_resource type="PackedScene" uid="uid://drccaoobi3ett" path="res://Scenes/rockC.tscn" id="9_d6x1x"]
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rockA.tscn" id="9_guy7b"]
-[ext_resource type="PackedScene" uid="uid://du0wca2y10sgs" path="res://Scenes/hawktuah.tscn" id="10_lo0ed"]
-[ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/enemy_melee.tscn" id="11_guy7b"]
+[ext_resource type="PackedScene" uid="uid://bappm3xkbtsn" path="res://Scenes/treeA.tscn" id="11_j11sv"]
+[ext_resource type="PackedScene" uid="uid://c38iuyp2p8a17" path="res://Scenes/treeB.tscn" id="12_yo4lt"]
 
 [node name="WhisperingWoods_Map" type="StaticBody2D"]
 light_mask = 0
@@ -43,103 +46,144 @@ z_index = -1
 position = Vector2(2622, -7285)
 texture = ExtResource("5_if138")
 
+[node name="PartF" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(-1929, -4413)
+texture = ExtResource("6_3a7kw")
+
+[node name="partG" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(19290, -2380)
+texture = ExtResource("7_d6x1x")
+
 [node name="Trees" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(3488, -3824)
 
-[node name="StaticBody2D3" parent="Trees" instance=ExtResource("6_fe1bg")]
-position = Vector2(-1744, 1912)
+[node name="treeA_body" parent="Trees" instance=ExtResource("11_j11sv")]
+position = Vector2(368, 2799)
 
-[node name="StaticBody2D4" parent="Trees" instance=ExtResource("7_2fb1b")]
-position = Vector2(-1372, 1464)
+[node name="treeA_body2" parent="Trees" instance=ExtResource("11_j11sv")]
+position = Vector2(723, 2787)
 
-[node name="StaticBody2D" parent="Trees" instance=ExtResource("7_2fb1b")]
-position = Vector2(974, 2274)
+[node name="treeB_body" parent="Trees" instance=ExtResource("12_yo4lt")]
+position = Vector2(533, 2811)
 
-[node name="StaticBody2D2" parent="Trees" instance=ExtResource("6_fe1bg")]
-position = Vector2(2084, 2023)
+[node name="treeB_body2" parent="Trees" instance=ExtResource("12_yo4lt")]
+position = Vector2(896, 2818)
 
-[node name="StaticBody2D5" parent="Trees" instance=ExtResource("6_fe1bg")]
-position = Vector2(-1727, 395)
+[node name="treeA_body3" parent="Trees" instance=ExtResource("11_j11sv")]
+position = Vector2(355, 2963)
 
-[node name="StaticBody2D6" parent="Trees" instance=ExtResource("7_2fb1b")]
-position = Vector2(-2948, -1107)
+[node name="treeB_body3" parent="Trees" instance=ExtResource("12_yo4lt")]
+position = Vector2(349, 3157)
 
-[node name="StaticBody2D7" parent="Trees" instance=ExtResource("6_fe1bg")]
-position = Vector2(-1394, -145)
+[node name="treeB_body4" parent="Trees" instance=ExtResource("12_yo4lt")]
+position = Vector2(346, 3664)
 
-[node name="StaticBody2D8" parent="Trees" instance=ExtResource("6_fe1bg")]
-position = Vector2(-1453, -1433)
+[node name="treeA_body4" parent="Trees" instance=ExtResource("11_j11sv")]
+position = Vector2(352, 3373)
 
-[node name="StaticBody2D9" parent="Trees" instance=ExtResource("7_2fb1b")]
-position = Vector2(-143, -1403)
+[node name="treeB_body5" parent="Trees" instance=ExtResource("12_yo4lt")]
+position = Vector2(346, 3850)
 
-[node name="StaticBody2D10" parent="Trees" instance=ExtResource("6_fe1bg")]
-position = Vector2(-2223, -1285)
+[node name="treeA_body5" parent="Trees" instance=ExtResource("11_j11sv")]
+position = Vector2(335, 4118)
 
-[node name="StaticBody2D11" parent="Trees" instance=ExtResource("7_2fb1b")]
-position = Vector2(-2600, -893)
+[node name="treeB_body6" parent="Trees" instance=ExtResource("12_yo4lt")]
+position = Vector2(329, 4315)
+
+[node name="treeA_body6" parent="Trees" instance=ExtResource("11_j11sv")]
+position = Vector2(361, 3539)
 
 [node name="Rocks" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1744, -1912)
 
-[node name="StaticBody2D2" parent="Rocks" instance=ExtResource("8_lo0ed")]
-position = Vector2(1709, -265)
+[node name="rockE_body" parent="Rocks" instance=ExtResource("6_guy7b")]
+position = Vector2(-891, 2566)
 
-[node name="StaticBody2D" parent="Rocks" instance=ExtResource("9_guy7b")]
-position = Vector2(-3, 477)
+[node name="rockD_body" parent="Rocks" instance=ExtResource("7_3a7kw")]
+position = Vector2(590, 2409)
 
-[node name="StaticBody2D3" parent="Rocks" instance=ExtResource("8_lo0ed")]
-position = Vector2(1991, 226)
+[node name="rockB_body" parent="Rocks" instance=ExtResource("8_lo0ed")]
+position = Vector2(-446, 1752)
 
-[node name="StaticBody2D4" parent="Rocks" instance=ExtResource("9_guy7b")]
-position = Vector2(4125, 421)
+[node name="rockC_body" parent="Rocks" instance=ExtResource("9_d6x1x")]
+position = Vector2(1666, 1985)
 
-[node name="StaticBody2D5" parent="Rocks" instance=ExtResource("8_lo0ed")]
-position = Vector2(4413, -245)
+[node name="rockA_body" parent="Rocks" instance=ExtResource("9_guy7b")]
+position = Vector2(-7, 2126)
 
-[node name="StaticBody2D6" parent="Rocks" instance=ExtResource("9_guy7b")]
-position = Vector2(4939, -992)
+[node name="rockA_body2" parent="Rocks" instance=ExtResource("9_guy7b")]
+position = Vector2(-654, 1080)
 
-[node name="StaticBody2D7" parent="Rocks" instance=ExtResource("8_lo0ed")]
-position = Vector2(-1324, -735)
+[node name="rockB_body2" parent="Rocks" instance=ExtResource("8_lo0ed")]
+position = Vector2(-901, 1449)
 
-[node name="StaticBody2D8" parent="Rocks" instance=ExtResource("9_guy7b")]
-position = Vector2(-382, -2900)
+[node name="rockE_body2" parent="Rocks" instance=ExtResource("6_guy7b")]
+position = Vector2(1752, 741)
 
-[node name="StaticBody2D9" parent="Rocks" instance=ExtResource("8_lo0ed")]
-position = Vector2(-560, -2172)
+[node name="rockD_body2" parent="Rocks" instance=ExtResource("7_3a7kw")]
+position = Vector2(3456, 296)
 
-[node name="StaticBody2D10" parent="Rocks" instance=ExtResource("9_guy7b")]
-position = Vector2(1563, -1585)
+[node name="rockB_body3" parent="Rocks" instance=ExtResource("8_lo0ed")]
+position = Vector2(2571, 150)
 
-[node name="Enemies" type="Node" parent="."]
+[node name="rockA_body3" parent="Rocks" instance=ExtResource("9_guy7b")]
+position = Vector2(4618, 104)
 
-[node name="enemy_range" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(1527, 130)
+[node name="rockC_body2" parent="Rocks" instance=ExtResource("9_d6x1x")]
+position = Vector2(3830, 554)
 
-[node name="enemy_range2" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(5018, -1588)
+[node name="rockA_body4" parent="Rocks" instance=ExtResource("9_guy7b")]
+position = Vector2(4411, -841)
 
-[node name="enemy_range3" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(5858, -2472)
+[node name="rockB_body4" parent="Rocks" instance=ExtResource("8_lo0ed")]
+position = Vector2(5447, 256)
 
-[node name="enemy_melee" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(1410, -2573)
+[node name="rockD_body3" parent="Rocks" instance=ExtResource("7_3a7kw")]
+position = Vector2(5023, -1104)
 
-[node name="enemy_melee2" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(331, -2094)
+[node name="rockB_body5" parent="Rocks" instance=ExtResource("8_lo0ed")]
+position = Vector2(-158, -224)
 
-[node name="enemy_melee3" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(4585, -1833)
+[node name="rockC_body3" parent="Rocks" instance=ExtResource("9_d6x1x")]
+position = Vector2(-7, -785)
 
-[node name="enemy_range4" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(1199, -4691)
+[node name="rockD_body4" parent="Rocks" instance=ExtResource("7_3a7kw")]
+position = Vector2(-72, -1215)
 
-[node name="enemy_range5" parent="." instance=ExtResource("10_lo0ed")]
-position = Vector2(3223, -3935)
+[node name="rockE_body3" parent="Rocks" instance=ExtResource("6_guy7b")]
+position = Vector2(-1589, -765)
 
-[node name="enemy_melee4" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(1721, -3990)
+[node name="rockA_body5" parent="Rocks" instance=ExtResource("9_guy7b")]
+position = Vector2(175, -1670)
 
-[node name="enemy_melee5" parent="." instance=ExtResource("11_guy7b")]
-position = Vector2(3000, -3573)
+[node name="rockB_body6" parent="Rocks" instance=ExtResource("8_lo0ed")]
+position = Vector2(1434, -1543)
+
+[node name="rockC_body4" parent="Rocks" instance=ExtResource("9_d6x1x")]
+position = Vector2(1707, -1149)
+
+[node name="rockD_body5" parent="Rocks" instance=ExtResource("7_3a7kw")]
+position = Vector2(1858, -1746)
+
+[node name="rockE_body4" parent="Rocks" instance=ExtResource("6_guy7b")]
+position = Vector2(1439, -2332)
+
+[node name="rockC_body5" parent="Rocks" instance=ExtResource("9_d6x1x")]
+position = Vector2(-396, -2974)
+
+[node name="rockB_body7" parent="Rocks" instance=ExtResource("8_lo0ed")]
+position = Vector2(-1063, -2812)
+
+[node name="rockA_body6" parent="Rocks" instance=ExtResource("9_guy7b")]
+position = Vector2(-1477, -3131)
+
+[node name="rockC_body6" parent="Rocks" instance=ExtResource("9_d6x1x")]
+position = Vector2(-497, -2034)
+
+[node name="rockD_body6" parent="Rocks" instance=ExtResource("7_3a7kw")]
+position = Vector2(-1629, -2170)

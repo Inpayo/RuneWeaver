@@ -6,9 +6,13 @@ var KBIntensity = 750
 var KBTime = 0.16
 var Box
 var Mid
+
+var direction
+var last_location
+@onready var init_location = get_parent().position
 var CD_Dur
 
-var Vars = ["Fire", "Blast", "Power", "Power"]
+var Vars = ["Fire", "Blast", "Power", "Knockback"]
 
 func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd, Aug1CT, Aug1KB, AugS1, Aug2Dam, Aug2Spd, Aug2CT, Aug2KB, AugS2):
 	var Mid = get_parent().get_node("Hurtbox/CollisionShape2D")
@@ -23,7 +27,7 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	damage = Damage * (1 + Aug1Dam + Aug2Dam)
 	
 	if Knockback == 0 and "Knockback" in Vars:
-		Knockback = 100
+		Knockback = 750
 	
 	KBIntensity = Knockback * (1 + Aug1KB + Aug2KB)
 	var BScale = target_size/Vector2(Box.radius * 2, Box.height + Box.radius * 2)/2
@@ -39,5 +43,8 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	
 func _physics_process(delta: float) -> void:
 	get_parent().position += Vector2.RIGHT.rotated(get_parent().rotation) * speed * delta
+	last_location = get_parent().position
+	direction = (last_location - init_location).normalized()
+	
 	
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2d0s1b8e5pql"]
 
-[ext_resource type="Script" uid="uid://c1bed54nqisgl" path="res://Scenes/wind_state.gd" id="1_4dn4i"]
+[ext_resource type="Script" path="res://Scripts/wind_state.gd" id="1_4dn4i"]
 [ext_resource type="Texture2D" uid="uid://bghr5fxk1ippy" path="res://Assets/Sprites/FoxyS.jpg" id="1_vlrny"]
 [ext_resource type="Texture2D" uid="uid://dum8wvjorst35" path="res://Assets/Sprites/FoxyJ.jpg" id="2_4dn4i"]
 

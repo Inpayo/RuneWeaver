@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3fyek6ojims4"]
+[gd_scene load_steps=6 format=3 uid="uid://b3fyek6ojims4"]
 
-[ext_resource type="Script" uid="uid://d3ulhcn50ehbn" path="res://boss_1.gd" id="1_bcsvb"]
 [ext_resource type="Texture2D" uid="uid://b7sh6bmxv1pen" path="res://Assets/Sprites/Swinged.png" id="2_ms1kr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8p7u"]
@@ -14,7 +13,6 @@ radius = 128.251
 radius = 371.363
 
 [node name="Boss1" type="CharacterBody2D"]
-script = ExtResource("1_bcsvb")
 
 [node name="Existing" type="Sprite2D" parent="."]
 

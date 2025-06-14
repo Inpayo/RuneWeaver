@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq6ft3kn7h3iw"]
+
+[ext_resource type="Texture2D" uid="uid://da7tqynfh4uu" path="res://Assets/Sprites/CaveB.png" id="1_j4714"]
+
+[node name="CaveB" type="StaticBody2D"]
+
+[node name="CaveB_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_j4714")
+
+[node name="CaveB_collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-113, -235, -155, -230, -219, -154, -256, -86, -283, -48, -286, -17, -191, -12, -109, -24, 4, -28, 110, -27, 152, -71, 149, -143, 82, -201, -5, -220)

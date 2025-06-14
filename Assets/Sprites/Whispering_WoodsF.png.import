@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm16il1a8m48e"
-path="res://.godot/imported/Whispering_WoodsD.png-658aaf5df838004a4cdb446d605becce.ctex"
+uid="uid://d2kxdr7hxm0bo"
+path="res://.godot/imported/Whispering_WoodsF.png-f8890f4ec9d98e89772823a4944b99d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Whispering_WoodsD.png"
-dest_files=["res://.godot/imported/Whispering_WoodsD.png-658aaf5df838004a4cdb446d605becce.ctex"]
+source_file="res://Assets/Sprites/Whispering_WoodsF.png"
+dest_files=["res://.godot/imported/Whispering_WoodsF.png-f8890f4ec9d98e89772823a4944b99d2.ctex"]
 
 [params]
 
