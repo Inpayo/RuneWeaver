@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var Pausing = false
+@onready var Pausing = false
+
 var chance: float = 0.0
 @export var luck: float = 1.0
 
@@ -18,6 +19,7 @@ var current_Hp: int = Hp
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var input_direction = Vector2.ZERO
+@onready var direction = input_direction
 
 @export var Keyboard: bool = true
 
@@ -49,6 +51,7 @@ func _ready() -> void:
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureRect.texture = preload("res://Assets/Sprites/E_Key_Dark.png")
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureRect.texture = preload("res://Assets/Sprites/C_Key_Dark.png")
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureRect.texture = preload("res://Assets/Sprites/Z_Key_Dark.png")
+	$CanvasLayer4.visible = false
 
 func Mode_toggle():
 	
@@ -183,6 +186,7 @@ func _physics_process(_delta):
 		Mode_toggle()
 		get_input(_delta)
 		Apply_friction(_delta)
+		direction = input_direction
 		
 		if knockback_timer > 0.0:
 			$Sprite2D/AnimationPlayer.play("Hit")
@@ -235,7 +239,6 @@ func Fight():
 		if (Input.is_action_just_pressed("SP1_Key") or Input.is_action_just_pressed("SP1_Con")) and $SP1.is_stopped():
 			SPC = "SP1"
 			TTF = punching.get_node("SP1")
-			print(Thingy1)
 			TTF.Vars = Thingy1
 			if Thingy1[0] != null or Thingy1[1] != null:
 				RELEASE = true

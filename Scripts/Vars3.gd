@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var element = Vars[0]
 var speed = 0
 var damage = 100
 var KBIntensity = 750
@@ -7,9 +8,8 @@ var KBTime = 0.16
 var Box
 var Mid
 
-var direction
-var last_location
-@onready var init_location = get_parent().position
+@onready var direction = Vector2.from_angle(get_parent().rotation)
+
 var CD_Dur
 
 
@@ -44,8 +44,7 @@ func Cast(Damage, Knockback, DOT, EffTim, SPRed, Sprite, Speed, Aug1Dam, Aug1Spd
 	
 func _physics_process(delta: float) -> void:
 	get_parent().position += Vector2.RIGHT.rotated(get_parent().rotation) * speed * delta
-	last_location = get_parent().position
-	direction = (last_location - init_location).normalized()
+	
 	
 	
 	
