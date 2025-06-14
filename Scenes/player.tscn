@@ -627,6 +627,10 @@ icon = ExtResource("24_xuaoq")
 layout_mode = 2
 icon = ExtResource("25_wohnl")
 
+[node name="FistCD" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Control2/Button" to="." method="_on_button_pressed"]
@@ -648,6 +652,5 @@ icon = ExtResource("25_wohnl")
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Knockback" to="CanvasLayer3/Control/HBoxContainer" method="_on_knockback_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Power" to="CanvasLayer3/Control/HBoxContainer" method="_on_power_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Augs/Speed" to="CanvasLayer3/Control/HBoxContainer" method="_on_speed_pressed"]
-
 
 [editable path="CanvasLayer2/ProgressBar"]

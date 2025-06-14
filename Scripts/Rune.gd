@@ -9,6 +9,8 @@ var SPComp = []
 var BehaveDict = {"Blast": 500, "Trap": 0}
 signal Early_Freed
 
+var direction
+
 var ElementDict = {
 				"Fire": [5, 0, 3, 5, 0, "res://Assets/Sprites/blast_fire.png"], 
 				"Wind": [3, 700, 0, 0, 0, "res://Assets/Sprites/blast_wind.png"],
@@ -22,7 +24,9 @@ var AugmentDict = {
 				"Speed":[-0.2, 0.5, 0, 0, 0],
 				null: [0,0,0,0,0]
 }
-
+func _process(float):
+	direction = SPC.direction
+	
 func SetSpell(SPComp):
 	if SPComp[0] == null or SPComp [1] == null:
 		queue_free()

@@ -221,9 +221,10 @@ func Fight():
 	var CD_dur
 	var RELEASE := false
 	
-	if Fisting == true and !Severed_universe:
+	if Fisting == true and !Severed_universe and $FistCD.is_stopped():
 		punching = Fist.instantiate()
 		RELEASE = true
+		$FistCD.start()
 		
 	elif Fisting == false and $Gen_CD.is_stopped() and !Severed_universe:
 		punching = Spell.instantiate()
