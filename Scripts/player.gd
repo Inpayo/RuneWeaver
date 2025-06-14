@@ -47,34 +47,39 @@ func _ready() -> void:
 	Health_bar.health_init(Hp)
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureRect.texture = preload("res://Assets/Sprites/Q_Key_Dark.png")
 	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureRect.texture = preload("res://Assets/Sprites/E_Key_Dark.png")
-	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureRect.texture = preload("res://Assets/Sprites/Z_Key_Dark.png")
-	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureRect.texture = preload("res://Assets/Sprites/C_Key_Dark.png")
+	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureRect.texture = preload("res://Assets/Sprites/C_Key_Dark.png")
+	$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureRect.texture = preload("res://Assets/Sprites/Z_Key_Dark.png")
 
 func Mode_toggle():
 	current_Hp = clamp(current_Hp, 0, Hp)
-	if Input.is_action_just_pressed("Swap_mode"):
+	if Input.is_action_just_pressed("Swap_mode") and !Severed_universe:
 		Keyboard = not Keyboard
 		if Keyboard:
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureRect.texture = preload("res://Assets/Sprites/Q_Key_Dark.png")
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureRect.texture = preload("res://Assets/Sprites/E_Key_Dark.png")
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureRect.texture = preload("res://Assets/Sprites/Z_Key_Dark.png")
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureRect.texture = preload("res://Assets/Sprites/C_Key_Dark.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureRect.texture = preload("res://Assets/Sprites/C_Key_Dark.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureRect.texture = preload("res://Assets/Sprites/Z_Key_Dark.png")
 		else:
 			Input.mouse_mode = (Input.MOUSE_MODE_CAPTURED)
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureRect.texture = preload("res://Assets/Sprites/PS5_L1.png")
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureRect.texture = preload("res://Assets/Sprites/PS5_R1.png")
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureRect.texture = preload("res://Assets/Sprites/PS5_R2.png")
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureRect.texture = preload("res://Assets/Sprites/PS5_L2.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureRect.texture = preload("res://Assets/Sprites/PS5_R2.png")
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureRect.texture = preload("res://Assets/Sprites/PS5_L2.png")
 
 func get_input(_delta):
-	if Keyboard:
+	
+	if Input.is_action_just_pressed("OpenUI"):
+		print("Nuts")
+		_on_button_pressed()
+	
+	if Keyboard and !Severed_universe:
 		if Input.is_action_just_pressed("restart"):
 			get_tree().reload_current_scene()
 			
 		if Input.is_action_just_pressed("SP1_Key") or Input.is_action_just_pressed("SP2_Key") or Input.is_action_just_pressed("SP3_Key") or Input.is_action_just_pressed("SP4_Key"):
 			Fisting = false
 			Fight()
-	elif !Keyboard:
+	elif !Keyboard and !Severed_universe:
 		if Input.is_action_just_pressed("SP1_Con") or Input.is_action_just_pressed("SP2_Con") or Input.is_action_just_pressed("SP3_Con") or Input.is_action_just_pressed("SP4_Con"):
 			Fisting = false
 			Fight()
@@ -106,11 +111,11 @@ func get_input(_delta):
 	elif facing.x < 0:
 		$Sprite2D.flip_h = false
 	
-	if Keyboard:
+	if Keyboard and !Severed_universe:
 		if Input.is_action_just_pressed("Fist_keyboard"):
 			Fisting = true
 			Fight()
-	elif !Keyboard:
+	elif !Keyboard and !Severed_universe:
 		if Input.is_action_just_pressed("Fist_controller"):
 			Fisting = true
 			Fight()
@@ -123,30 +128,38 @@ func get_input(_delta):
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			
-			
-	if !$SP1.is_stopped():
+	if !$Gen_CD.is_stopped():
+		var Progress = $Gen_CD.time_left/$Gen_CD.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = Progress
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = Progress
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = Progress
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = Progress
+		
+	if !$SP1.is_stopped() and $Gen_CD.is_stopped():
 		var Progress = $SP1.time_left/$SP1.wait_time * 100
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = Progress
-	else: 
+	elif $SP1.is_stopped and $Gen_CD.is_stopped(): 
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = 0.0
 		
-	if !$SP2.is_stopped():
+	if !$SP2.is_stopped() and $Gen_CD.is_stopped():
 		var Progress = $SP2.time_left/$SP2.wait_time * 100
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = Progress
-	else: 
+	elif $SP2.is_stopped and $Gen_CD.is_stopped(): 
 		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = 0.0
 	
-	if !$SP3.is_stopped():
+	if !$SP3.is_stopped() and $Gen_CD.is_stopped():
 		var Progress = $SP3.time_left/$SP3.wait_time * 100
-		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureProgressBar.value = Progress
-	else: 
-		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureProgressBar.value = 0.0
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = Progress
+	elif $SP3.is_stopped and $Gen_CD.is_stopped(): 
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = 0.0
 	
-	if !$SP4.is_stopped():
-		var Progress = $SP4.time_left/$SP1.wait_time * 100
-		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureProgressBar.value = Progress
-	else: 
-		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureProgressBar.value = 0.0
+	if !$SP4.is_stopped() and $Gen_CD.is_stopped():
+		var Progress = $SP4.time_left/$SP4.wait_time * 100
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = Progress
+	elif $SP4.is_stopped and $Gen_CD.is_stopped(): 
+		$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = 0.0
+	
+
 	
 	if !Severed_universe:
 		Acceleration = 2400
@@ -221,28 +234,28 @@ func Fight():
 			TTF.Vars = Thingy1
 			if Thingy1[0] != null or Thingy1[1] != null:
 				RELEASE = true
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = 1.0
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP1/TextureProgressBar.value = 100.0
 		elif (Input.is_action_just_pressed("SP2_Key") or Input.is_action_just_pressed("SP2_Con")) and $SP2.is_stopped():
 			SPC = "SP2"
 			TTF = punching.get_node("SP2")
 			TTF.Vars = Thingy2
 			if Thingy2[0] != null or Thingy2[1] != null:
 				RELEASE = true
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = 1.0
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP2/TextureProgressBar.value = 100.0
 		elif (Input.is_action_just_pressed("SP3_Key") or Input.is_action_just_pressed("SP3_Con"))and $SP3.is_stopped():
 			SPC = "SP3"
 			TTF = punching.get_node("SP3")
 			TTF.Vars = Thingy3
 			if Thingy3[0] != null or Thingy3[1] != null:
 				RELEASE = true
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP3/TextureProgressBar.value = 1.0
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP3/TextureProgressBar.value = 100.0
 		elif (Input.is_action_just_pressed("SP4_Key") or Input.is_action_just_pressed("SP4_Con")) and $SP4.is_stopped():
 			SPC = "SP4"
 			TTF = punching.get_node("SP4")
 			TTF.Vars = Thingy4
 			if Thingy4[0] != null or Thingy4[1] != null:
 				RELEASE = true
-			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer2/SP4/TextureProgressBar.value = 1.0
+			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = 100.0
 		if RELEASE == true:
 			punching.GetVars(SPC)
 			CD_dur = TTF.CD_Dur
@@ -281,7 +294,6 @@ func _on_hitbox_area_entered(area):
 
 func on_set_vars() -> void:
 	var Thing = $CanvasLayer3/Control/HBoxContainer
-	print(Thing.SPs)
 	Thingy1 = Thing.SPs[0]
 	Thingy2 = Thing.SPs[1]
 	Thingy3 = Thing.SPs[2]

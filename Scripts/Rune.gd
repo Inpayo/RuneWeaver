@@ -24,7 +24,6 @@ var AugmentDict = {
 }
 
 func SetSpell(SPComp):
-	print(SPComp)
 	if SPComp[0] == null or SPComp [1] == null:
 		queue_free()
 		return
