@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=2 format=3 uid="uid://dfhn7ldo475mp"]
+[gd_scene load_steps=2 format=3 uid="uid://cun22sd6lw0wp"]
 
-[ext_resource type="Script" uid="uid://bfcheywktsc1j" path="res://Scripts/control.gd" id="1_w158h"]
-=======
-[gd_scene load_steps=2 format=3 uid="uid://bpiff8mwlu0vy"]
-
-[ext_resource type="Script" path="res://Scripts/Victory.gd" id="1_w158h"]
->>>>>>> Stashed changes
+[ext_resource type="Script" uid="uid://cer6sc4gsvxia" path="res://Scripts/Victory.gd" id="1_1fp7o"]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
@@ -15,49 +9,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w158h")
+script = ExtResource("1_1fp7o")
 
-[node name="Panel" type="Label" parent="."]
+[node name="Congrats" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 133.0
-offset_top = 176.0
-offset_right = -1444.0
-offset_bottom = -874.0
+offset_left = 106.0
+offset_top = 156.0
+offset_right = -1469.0
+offset_bottom = -887.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
 text = "Congratulations! You have beaten the game"
-
-[node name="Replay" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 398.0
-offset_top = 480.0
-offset_right = -1310.0
-offset_bottom = -468.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-text = "Replay"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1174.0
+offset_left = 1310.0
 offset_top = 480.0
-offset_right = -534.0
-offset_bottom = -468.0
+offset_right = -484.0
+offset_bottom = -501.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 text = "Quit"
 
-[connection signal="pressed" from="Replay" to="." method="_on_replay_pressed"]
+[node name="Replay" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 480.0
+offset_right = -1474.0
+offset_bottom = -501.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+text = "Restart"
+
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Replay" to="." method="_on_replay_pressed"]

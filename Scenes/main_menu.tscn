@@ -1,10 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj2b40ir5f7hn"]
+[gd_scene load_steps=2 format=3 uid="uid://k27fxa1cmht7"]
 
-<<<<<<<< Updated upstream:Scenes/Control.tscn
-[ext_resource type="Script" uid="uid://bqu1d1ldj08ek" path="res://Scripts/MainMenu.gd" id="1_sjmnu"]
-========
-[ext_resource type="Script" uid="uid://dqtalwcncuap4" path="res://Scripts/MainMenu.gd" id="1_tt5f1"]
->>>>>>>> Stashed changes:Scenes/MainMenu.tscn
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_28flt"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,13 +9,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-<<<<<<<< Updated upstream:Scenes/Control.tscn
-script = ExtResource("1_sjmnu")
-========
-script = ExtResource("1_tt5f1")
->>>>>>>> Stashed changes:Scenes/MainMenu.tscn
+script = ExtResource("1_28flt")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +49,7 @@ offset_right = 596.0
 offset_bottom = 975.0
 text = "Quit Game"
 
-[node name="TheControls" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
