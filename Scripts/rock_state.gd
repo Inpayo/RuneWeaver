@@ -45,13 +45,18 @@ func StartDashing():
 	num_points = 1
 	CurrentDashTarget = 0
 	Dashing = true
+
+
 	
 func Dash(delta):
 	
+	boss.KBIntensity = 3600 
+	boss.KBTime = 0.2
+	boss.damage = 30
+	
 	if Dashing:
 		if not has_meta("current_target"):
-			var offset	 = Vector2(randf_range(-300, 300), randf_range(-200, 200))
-			var new_target = player.global_position + offset
+			var new_target = player.global_position 
 			set_meta("current_target", new_target)
 		var target = get_meta("current_target")
 		var direction = (target - global_position).normalized()

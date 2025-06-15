@@ -4,10 +4,14 @@ enum States {Dash, Hover}
 var state = States.Hover
 var dead: bool = false
 var player_detected: bool = false
-@onready var direction: Vector2 = position.direction_to(player.position)
+@onready var direction: Vector2 = global_position.direction_to(player.global_position)
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var weakness = "Physical"
+var KBIntensity = 600
+var KBTime = 0.12
+var damage = 10
+
 
 var Hp = 200
 
@@ -64,8 +68,10 @@ func Knockback(knockback_intensity, time, KBDir):
 
 func element_change(number) -> void:
 		var x: int = number/40
-		x = clamp(x, 1, 4)
-		Element = elemental_array[x-1]
+		x = clamp(x, 1, 4) - 1
+		Element = elemental_array[x]
+		$MovingSpr.frame_coords.x = 3-x
+		$AttackingSpr.frame_coords.x = 3-x
 		Element.Dashing = false
 		state = States.Hover
 

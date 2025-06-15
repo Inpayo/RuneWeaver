@@ -45,6 +45,9 @@ func StartDashing():
 	num_points = randi_range(1,2)
 	CurrentDashTarget = 0
 	Dashing = true
+	boss.KBIntensity = 1200
+	boss.KBTime = 0.12
+	boss.damage = 10
 	
 func Dash(delta):
 	

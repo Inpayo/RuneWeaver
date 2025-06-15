@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6hkoguuy0d14"]
 
 [ext_resource type="Script" uid="uid://bdnrifawjngec" path="res://Scripts/enemy_boss.gd" id="1_03pj2"]
-[ext_resource type="Texture2D" uid="uid://bghr5fxk1ippy" path="res://Assets/Sprites/FoxyS.jpg" id="1_vlrny"]
-[ext_resource type="Texture2D" uid="uid://dum8wvjorst35" path="res://Assets/Sprites/FoxyJ.jpg" id="2_4dn4i"]
+[ext_resource type="Texture2D" uid="uid://d2jndrb3yg1np" path="res://Assets/Sprites/Boss_states.png" id="2_648fd"]
+[ext_resource type="Script" uid="uid://chrkfn7iiy87r" path="res://Scenes/Dash.gd" id="3_03pj2"]
 [ext_resource type="PackedScene" uid="uid://b2d0s1b8e5pql" path="res://Scenes/ElementState.tscn" id="4_03pj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03pj2"]
@@ -12,8 +12,8 @@ size = Vector2(177.789, 131.111)
 size = Vector2(65, 126)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i713y"]
-radius = 346.988
-height = 1226.67
+radius = 61.6667
+height = 210.667
 
 [node name="Boss" type="CharacterBody2D" node_paths=PackedStringArray("wind", "fire", "rock", "ice") groups=["Enemies"]]
 scale = Vector2(3, 3)
@@ -24,11 +24,14 @@ rock = NodePath("ElementState/Rock")
 ice = NodePath("ElementState/Ice")
 
 [node name="MovingSpr" type="Sprite2D" parent="."]
-position = Vector2(51, 62)
-scale = Vector2(0.325806, 0.22844)
-texture = ExtResource("1_vlrny")
+position = Vector2(42, 63.6667)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_648fd")
+hframes = 4
+vframes = 2
 
 [node name="MovingHBox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(41, 107)
 scale = Vector2(0.325806, 0.22844)
 shape = SubResource("RectangleShape2D_03pj2")
@@ -41,17 +44,23 @@ collision_mask = 10
 position = Vector2(42.1667, 60.3333)
 shape = SubResource("RectangleShape2D_w5ahq")
 
-[node name="AttackingSpr" type="Sprite2D" parent="."]
+[node name="AttackingSpr" type="Sprite2D" parent="." node_paths=PackedStringArray("boss")]
 visible = false
-position = Vector2(96, 42.0001)
-scale = Vector2(0.15, 0.115278)
-texture = ExtResource("2_4dn4i")
+position = Vector2(88, 49)
+texture = ExtResource("2_648fd")
+hframes = 4
+vframes = 2
+frame = 4
+script = ExtResource("3_03pj2")
+boss = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="AttackingSpr"]
+position = Vector2(51.6667, 0.333336)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingSpr/Area2D"]
+position = Vector2(-49.3333, 4)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_i713y")
 

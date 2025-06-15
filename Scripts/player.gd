@@ -285,7 +285,11 @@ func Fight():
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy_attacks") or area.is_in_group("Enemies"):
 		var Stats = area.get_parent()
+		print(Stats.direction)
+		print(Stats.KBIntensity)
+		print(Stats.damage)
 		knockback = Stats.direction * Stats.KBIntensity
+		
 		knockback_timer = Stats.KBTime
 		Hp -= Stats.damage
 		Health_bar.health_change(-Stats.damage)

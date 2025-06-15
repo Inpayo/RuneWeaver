@@ -138,7 +138,6 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			if area.is_in_group("Special_proj"):
 				Stats = area.get_parent().SPC
 			received_damage(Stats.damage)
-			print(Stats)
 			apply_knockback(Stats.direction, Stats.KBIntensity, Stats.KBTime)
 			Stats = area.get_parent()
 			if area.is_in_group("Special_proj"):

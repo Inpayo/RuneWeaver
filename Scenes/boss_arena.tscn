@@ -12,6 +12,11 @@
 position = Vector2(1814, 920)
 player = NodePath("../Player")
 
+[node name="AttackingSpr" parent="Boss" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="Area2D" parent="Boss/AttackingSpr" index="0" groups=["Enemies"]]
+
 [node name="DashDur" parent="Boss" index="5"]
 wait_time = 2.0
 
