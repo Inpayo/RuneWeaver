@@ -138,8 +138,8 @@ shape = SubResource("RectangleShape2D_rfjv2")
 [connection signal="timeout" from="barierG/Timer" to="barierG" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Caverns_scene_change" to="Caverns_scene_change" method="_on_body_entered"]
 [connection signal="body_entered" from="Caverns_scene_change2" to="Caverns_scene_change2" method="_on_body_entered"]
-[connection signal="body_entered" from="Boss_area" to="barierG" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Boss_area" to="Boss" method="_on_boss_area_body_entered"]
+[connection signal="body_entered" from="Boss_area" to="barierG" method="_on_area_2d_body_entered"]
 
 [editable path="Node2D_enemies#Punishing Bird2"]
 [editable path="Boss"]

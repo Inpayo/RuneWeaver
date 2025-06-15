@@ -94,7 +94,7 @@ func received_damage(damage: int):
 		state = States.Hover
 		
 func on_death():
-	queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Victory.tscn")
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_attacks"):

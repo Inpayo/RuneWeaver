@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c7k7wffbv0nh2" path="res://Assets/Sprites/Z_Key_Dark.png" id="10_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://b8w0yxnoaqaxq" path="res://Assets/Sprites/MarkBook.png" id="12_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://bkyjmitifubkf" path="res://Assets/Sprites/Old_Parchment.png" id="15_0gysh"]
-[ext_resource type="Script" uid="uid://dr3avsir6ldeh" path="res://Scripts/SpellmakingUI.gd" id="15_h4iuc"]
+[ext_resource type="Script" path="res://Scripts/SpellmakingUI.gd" id="15_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://dabdhtkyfaemc" path="res://Assets/Sprites/Trap.png" id="16_p1odr"]
 [ext_resource type="Texture2D" uid="uid://c66t4yt7wsdst" path="res://Assets/Sprites/Blast.png" id="17_0gysh"]
 [ext_resource type="Texture2D" uid="uid://cuedrc65aqini" path="res://Assets/Sprites/Fire.png" id="18_0gysh"]

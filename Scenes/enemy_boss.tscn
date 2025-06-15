@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdnrifawjngec" path="res://Scripts/enemy_boss.gd" id="1_03pj2"]
 [ext_resource type="Texture2D" uid="uid://d2jndrb3yg1np" path="res://Assets/Sprites/Boss_states.png" id="2_648fd"]
-[ext_resource type="Script" uid="uid://chrkfn7iiy87r" path="res://Scripts/Dash.gd" id="3_03pj2"]
+[ext_resource type="Script" path="res://Scripts/Dash.gd" id="3_03pj2"]
 [ext_resource type="PackedScene" uid="uid://b2d0s1b8e5pql" path="res://Scenes/ElementState.tscn" id="4_03pj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03pj2"]

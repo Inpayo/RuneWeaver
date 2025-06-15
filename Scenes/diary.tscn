@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://deoexasdmpl6f"]
+[gd_scene load_steps=3 format=3 uid="uid://daoia4580i6he"]
 
 [ext_resource type="Script" uid="uid://3sbwafa4yt1h" path="res://Scripts/diary.gd" id="1_xgea4"]
+[ext_resource type="Texture2D" uid="uid://i0fgkwta21ry" path="res://Assets/Sprites/book.png" id="2_wnx8w"]
 
 [node name="diary" type="Control"]
 layout_mode = 3
@@ -15,5 +16,6 @@ script = ExtResource("1_xgea4")
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+icon = ExtResource("2_wnx8w")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
