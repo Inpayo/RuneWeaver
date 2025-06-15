@@ -8,5 +8,5 @@ func health_init(health):
 	value = Hp
 	
 func health_change(health):
-	Hp += health
+	Hp -= health
 	value = Hp

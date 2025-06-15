@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://damg756xr3o6h"]
+[gd_scene load_steps=3 format=3 uid="uid://damg756xr3o6h"]
 
-[ext_resource type="Texture2D" uid="uid://87xl7xxvtrnk" path="res://Assets/Sprites/Whiteytighty.png" id="1_as65t"]
+[ext_resource type="Texture2D" uid="uid://qgod14a0qhxy" path="res://Assets/Sprites/Whispering_WoodsArena.png" id="1_usdnp"]
+[ext_resource type="Texture2D" uid="uid://51l5vntyp3nf" path="res://Assets/Sprites/Whispering_WoodsE.png" id="2_yy2ov"]
 
 [node name="Map2B" type="StaticBody2D"]
 
 [node name="Whiteytighty" type="Sprite2D" parent="."]
 position = Vector2(1822.5, 1183)
-scale = Vector2(1.89844, 2.19074)
-texture = ExtResource("1_as65t")
+texture = ExtResource("1_usdnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1831, 4155)
+texture = ExtResource("2_yy2ov")
 
 [node name="WestBorder" type="CollisionPolygon2D" parent="."]
 position = Vector2(-562, -77)

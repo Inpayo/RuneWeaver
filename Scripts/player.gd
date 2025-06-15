@@ -203,9 +203,15 @@ func apply_knockback(knockback_direction: Vector2, intensity: float, time: float
 		knockback_timer = time
 
 func received_damage(Damage: int):
+		Health_bar.health_change(Damage)
 		Hp -= Damage
 		if Hp <= 0:
 			on_death()
+
+func _on_health_regen_timeout() -> void:
+	if Hp < 100:
+		Hp = clamp(Hp, 0, 100)
+		received_damage(-1)
 	
 func on_death():
 	if not dead:
@@ -286,11 +292,9 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("Enemy_attacks") or area.is_in_group("Enemies"):
 		var Stats = area.get_parent()
 		knockback = Stats.direction * Stats.KBIntensity
+		
 		knockback_timer = Stats.KBTime
-		Hp -= Stats.damage
-		Health_bar.health_change(-Stats.damage)
-		if Hp <= 0:
-			on_death()
+		received_damage(Stats.damage)
 		if area.is_in_group("Enemy_attacks"):
 			Stats.queue_free()
 	if area.is_in_group("Wind") and area.is_in_group("Player_attacks"):
@@ -316,7 +320,7 @@ func _on_restart_time_timeout() -> void:
 func _on_button_pressed() -> void:
 	$CanvasLayer3.visible = not $CanvasLayer3.visible
 	if $CanvasLayer3.visible == true:
-		Engine.time_scale = 0.2
+		Engine.time_scale = 0.01
 		Severed_universe = true
 	elif $CanvasLayer3.visible == false:
 		Engine.time_scale = 1.0

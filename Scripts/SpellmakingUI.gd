@@ -11,8 +11,8 @@ var Able = false
 
 var ComPicMap = {"Trap": preload("res://Assets/Sprites/Trap.png"), 
 "Blast": preload("res://Assets/Sprites/Blast.png"), 
-"Fire": preload("res://Assets/Sprites/blast_fire.png"), 
-"Wind": preload("res://Assets/Sprites/blast_wind.png"), 
+"Fire": preload("res://Assets/Sprites/Fire.png"), 
+"Wind": preload("res://Assets/Sprites/Wind.png"), 
 "Earth": preload("res://Assets/Sprites/Earth.png"), 
 "Ice": preload("res://Assets/Sprites/Ice.png"), 
 "SizeUp": preload("res://Assets/Sprites/SizeUp.png"), 

@@ -1,5 +1,5 @@
 extends Sprite2D
-var damage = 10
+var damage = 5
 var speed: float = 2250
 var velocity = 0
 var KBTime = 0.16
