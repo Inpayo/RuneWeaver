@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdnrifawjngec" path="res://Scripts/enemy_boss.gd" id="1_03pj2"]
 [ext_resource type="Texture2D" uid="uid://d2jndrb3yg1np" path="res://Assets/Sprites/Boss_states.png" id="2_648fd"]
-[ext_resource type="Script" uid="uid://chrkfn7iiy87r" path="res://Scenes/Dash.gd" id="3_03pj2"]
+[ext_resource type="Script" uid="uid://chrkfn7iiy87r" path="res://Scripts/Dash.gd" id="3_03pj2"]
 [ext_resource type="PackedScene" uid="uid://b2d0s1b8e5pql" path="res://Scenes/ElementState.tscn" id="4_03pj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03pj2"]
@@ -24,19 +24,19 @@ rock = NodePath("ElementState/Rock")
 ice = NodePath("ElementState/Ice")
 
 [node name="MovingSpr" type="Sprite2D" parent="."]
-position = Vector2(42, 63.6667)
+position = Vector2(-5, 10)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_648fd")
 hframes = 4
 vframes = 2
 
 [node name="MovingHBox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(41, 107)
+position = Vector2(-4, 50.3333)
 scale = Vector2(0.325806, 0.22844)
 shape = SubResource("RectangleShape2D_03pj2")
 
 [node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(-43, -60)
 collision_layer = 4
 collision_mask = 10
 
@@ -45,8 +45,7 @@ position = Vector2(42.1667, 60.3333)
 shape = SubResource("RectangleShape2D_w5ahq")
 
 [node name="AttackingSpr" type="Sprite2D" parent="." node_paths=PackedStringArray("boss")]
-visible = false
-position = Vector2(88, 49)
+position = Vector2(40.6667, -4.66667)
 texture = ExtResource("2_648fd")
 hframes = 4
 vframes = 2

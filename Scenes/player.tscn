@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://cigfs8dq6ov5x" path="res://Assets/Sprites/PS5_R2.png" id="9_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://c7k7wffbv0nh2" path="res://Assets/Sprites/Z_Key_Dark.png" id="10_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://b8w0yxnoaqaxq" path="res://Assets/Sprites/MarkBook.png" id="12_7dp3o"]
-[ext_resource type="Texture2D" uid="uid://bew6ruasm4m87" path="res://Assets/Sprites/OldParchTemp.jpeg" id="13_h4iuc"]
-[ext_resource type="Script" uid="uid://dr3avsir6ldeh" path="res://Scenes/SpellmakingUI.gd" id="15_h4iuc"]
-[ext_resource type="Texture2D" uid="uid://clq7kil3crf8a" path="res://Assets/Sprites/blast_fire.png" id="16_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://bkyjmitifubkf" path="res://Assets/Sprites/Old_Parchment.png" id="15_0gysh"]
+[ext_resource type="Script" uid="uid://dr3avsir6ldeh" path="res://Scripts/SpellmakingUI.gd" id="15_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://dabdhtkyfaemc" path="res://Assets/Sprites/Trap.png" id="16_p1odr"]
 [ext_resource type="Texture2D" uid="uid://c66t4yt7wsdst" path="res://Assets/Sprites/Blast.png" id="17_0gysh"]
-[ext_resource type="Texture2D" uid="uid://bpxqpb058y1n2" path="res://Assets/Sprites/blast_wind.png" id="18_olqyp"]
+[ext_resource type="Texture2D" uid="uid://cuedrc65aqini" path="res://Assets/Sprites/Fire.png" id="18_0gysh"]
+[ext_resource type="Texture2D" uid="uid://b5jurn6e6vxif" path="res://Assets/Sprites/Wind.png" id="19_vfarp"]
 [ext_resource type="Texture2D" uid="uid://dlnvcqdq5ytyx" path="res://Assets/Sprites/Earth.png" id="20_vfarp"]
 [ext_resource type="Texture2D" uid="uid://bw0r70iue3gui" path="res://Assets/Sprites/Ice.png" id="21_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://2ruot3miy8oi" path="res://Assets/Sprites/SizeUp.png" id="22_83xs0"]
@@ -128,8 +128,8 @@ size = Vector2(53, 174)
 [sub_resource type="Shortcut" id="Shortcut_fs7ks"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 3
-collision_mask = 16
+collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_i8wls")
 Fist = ExtResource("2_fkybt")
 Spell = ExtResource("3_x3wgy")
@@ -149,6 +149,7 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -42)
+zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 60.0
 
@@ -348,7 +349,6 @@ layout_mode = 2
 [node name="SpellMaking" type="TextureRect" parent="CanvasLayer/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("13_h4iuc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/SpellMaking"]
 layout_mode = 2
@@ -388,7 +388,6 @@ layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("13_h4iuc")
 flip_h = true
 
 [node name="BoxContainer" type="BoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/TextureRect"]
@@ -418,10 +417,9 @@ grow_vertical = 0
 
 [node name="Button" type="Button" parent="CanvasLayer2/Control2"]
 layout_mode = 0
-offset_left = -46.0
-offset_top = 17.0
-offset_right = 474.0
-offset_bottom = 537.0
+offset_top = -2.0
+offset_right = 520.0
+offset_bottom = 518.0
 rotation = -1.5708
 scale = Vector2(0.3, 0.3)
 shortcut = SubResource("Shortcut_fs7ks")
@@ -459,7 +457,7 @@ script = ExtResource("15_h4iuc")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer3/Control/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("13_h4iuc")
+texture = ExtResource("15_0gysh")
 expand_mode = 3
 
 [node name="Control" type="Control" parent="CanvasLayer3/Control/HBoxContainer/TextureRect"]
@@ -550,7 +548,7 @@ icon = ExtResource("3_was2g")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer3/Control/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("13_h4iuc")
+texture = ExtResource("15_0gysh")
 expand_mode = 3
 flip_h = true
 
@@ -589,11 +587,11 @@ columns = 2
 
 [node name="Fire" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem"]
 layout_mode = 2
-icon = ExtResource("16_fs7ks")
+icon = ExtResource("18_0gysh")
 
 [node name="Wind" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem"]
 layout_mode = 2
-icon = ExtResource("18_olqyp")
+icon = ExtResource("19_vfarp")
 
 [node name="Earth" type="Button" parent="CanvasLayer3/Control/HBoxContainer/TextureRect2/Control/Elem"]
 layout_mode = 2

@@ -16,10 +16,10 @@ signal Early_Freed
 var direction
 
 var ElementDict = {
-				"Fire": [5, 0, 3, 5, 0, "res://Assets/Sprites/blast_fire.png"], 
-				"Wind": [3, 700, 0, 0, 0, "res://Assets/Sprites/blast_wind.png"],
-				"Earth":[10, 0, 0, 0, 0, "res://Assets/Sprites/blast_rock.png"],
-				"Ice": [3, 0, 0, 7, -0.2, "res://Assets/Sprites/blast_ice.png"]
+				"Fire": [15, 0, 3, 5, 0, "res://Assets/Sprites/blast_fire.png"], 
+				"Wind": [9, 700, 0, 0, 0, "res://Assets/Sprites/blast_wind.png"],
+				"Earth":[30, 0, 0, 0, 0, "res://Assets/Sprites/blast_rock.png"],
+				"Ice": [9, 0, 0, 7, -0.2, "res://Assets/Sprites/blast_ice.png"]
 					}
 var AugmentDict = {
 				"SizeUp": [-0.2, -0.1, 0, 0, 0.5],

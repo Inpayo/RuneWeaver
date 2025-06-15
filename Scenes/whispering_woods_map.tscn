@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://w2ahnqvfsj78"]
+[gd_scene load_steps=16 format=3 uid="uid://w2ahnqvfsj78"]
 
 [ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_b8rdd"]
 [ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_tb5s2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccghc4kluicvv" path="res://Scenes/rockE.tscn" id="6_guy7b"]
 [ext_resource type="PackedScene" uid="uid://cr0pvreqo2hyc" path="res://Scenes/rockD.tscn" id="7_3a7kw"]
 [ext_resource type="Texture2D" uid="uid://c5ayt3sqc537v" path="res://Assets/Sprites/Whispering_WoodsG.png" id="7_d6x1x"]
+[ext_resource type="Texture2D" uid="uid://qgod14a0qhxy" path="res://Assets/Sprites/Whispering_WoodsArena.png" id="8_j11sv"]
 [ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rockB.tscn" id="8_lo0ed"]
 [ext_resource type="PackedScene" uid="uid://drccaoobi3ett" path="res://Scenes/rockC.tscn" id="9_d6x1x"]
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rockA.tscn" id="9_guy7b"]
@@ -56,6 +57,12 @@ texture = ExtResource("6_3a7kw")
 z_index = -1
 position = Vector2(19290, -2380)
 texture = ExtResource("7_d6x1x")
+
+[node name="Arena" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(2621, -10284)
+texture = ExtResource("8_j11sv")
 
 [node name="Trees" type="Node2D" parent="."]
 y_sort_enabled = true

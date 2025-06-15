@@ -4,7 +4,7 @@ enum States {Dash, Hover}
 var state = States.Hover
 var dead: bool = false
 var player_detected: bool = false
-@onready var direction: Vector2 = global_position.direction_to(player.global_position)
+@onready var direction: Vector2 = (player.global_position - global_position).normalized()
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var weakness = "Physical"
@@ -12,8 +12,8 @@ var KBIntensity = 600
 var KBTime = 0.12
 var damage = 10
 
-
-var Hp = 200
+@export var max_Hp = 1000
+@onready var Hp = max_Hp
 
 @export var player: Node
 @export var wind: Node
@@ -31,7 +31,12 @@ func _ready() -> void:
 	$DashDur.stop()
 
 func _physics_process(delta: float) -> void:
-
+	direction = (player.global_position - global_position).normalized()
+	if direction.x < 0:
+		$AttackingSpr.flip_h = true
+	else:
+		$AttackingSpr.flip_h = false
+	
 	if knockback_timer > 0.0:
 		global_position += knockback 
 		knockback_timer -= delta
@@ -67,7 +72,7 @@ func Knockback(knockback_intensity, time, KBDir):
 	knockback_timer = time
 
 func element_change(number) -> void:
-		var x: int = number/40
+		var x: int = number/(max_Hp/5)
 		x = clamp(x, 1, 4) - 1
 		Element = elemental_array[x]
 		$MovingSpr.frame_coords.x = 3-x
