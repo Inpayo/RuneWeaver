@@ -128,7 +128,7 @@ size = Vector2(53, 174)
 [sub_resource type="Shortcut" id="Shortcut_fs7ks"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 2
+collision_layer = 3
 collision_mask = 17
 script = ExtResource("1_i8wls")
 Fist = ExtResource("2_fkybt")
@@ -425,9 +425,6 @@ scale = Vector2(0.3, 0.3)
 shortcut = SubResource("Shortcut_fs7ks")
 icon = ExtResource("12_7dp3o")
 
-[node name="RestartTime" type="Timer" parent="."]
-wait_time = 3.0
-
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 visible = false
 
@@ -626,10 +623,6 @@ icon = ExtResource("24_xuaoq")
 layout_mode = 2
 icon = ExtResource("25_wohnl")
 
-[node name="FistCD" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [node name="CanvasLayer4" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer4"]
@@ -681,11 +674,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="FistCD" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="RestartTime" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="health_regen" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Control2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/Control2/Button" to="CanvasLayer3/Control/HBoxContainer" method="_on_button_pressed"]
-[connection signal="timeout" from="RestartTime" to="." method="_on_restart_time_timeout"]
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/In1" to="CanvasLayer3/Control/HBoxContainer" method="_on_in_1_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/In2" to="CanvasLayer3/Control/HBoxContainer" method="_on_in_2_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Control/HBoxContainer/TextureRect/Control/In3" to="CanvasLayer3/Control/HBoxContainer" method="_on_in_3_pressed"]
@@ -705,5 +708,7 @@ offset_bottom = 40.0
 [connection signal="pressed" from="CanvasLayer4/Control/Button" to="." method="pause"]
 [connection signal="pressed" from="CanvasLayer4/Control/Control/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer4/Control/Control/Controls" to="." method="_on_controls_pressed"]
+[connection signal="timeout" from="RestartTime" to="." method="_on_restart_time_timeout"]
+[connection signal="timeout" from="health_regen" to="." method="_on_health_regen_timeout"]
 
 [editable path="CanvasLayer2/ProgressBar"]

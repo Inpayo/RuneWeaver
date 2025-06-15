@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbaul56nxjy32"]
+[gd_scene load_steps=15 format=3 uid="uid://dbaul56nxjy32"]
 
 [ext_resource type="PackedScene" uid="uid://w2ahnqvfsj78" path="res://Scenes/whispering_woods_map.tscn" id="1_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://bdxdd5guevyi" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://dpbtiectljtq" path="res://Scenes/enemy_melee.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://cq6ft3kn7h3iw" path="res://Scenes/CaveB.tscn" id="5_i6g32"]
+[ext_resource type="PackedScene" uid="uid://b6hkoguuy0d14" path="res://Scenes/enemy_boss.tscn" id="5_rku1e"]
 [ext_resource type="PackedScene" uid="uid://b47updswo8fdd" path="res://Scenes/CaveA.tscn" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://c4b3svhvp3ons" path="res://Scenes/crystals.tscn" id="7_1l0tm"]
 [ext_resource type="Script" uid="uid://ct046glx0nqpo" path="res://Scripts/scene_change.gd" id="8_h4fw4"]
@@ -29,8 +30,6 @@ position = Vector2(-483, -196)
 y_sort_enabled = true
 position = Vector2(1841, 530)
 
-[node name="Node2D#enemies" type="Node" parent="."]
-
 [node name="Node2D_enemies#Punishing Bird2" parent="." instance=ExtResource("2_wrm1d")]
 light_mask = 0
 visibility_layer = 2
@@ -38,6 +37,26 @@ position = Vector2(1283, 671)
 
 [node name="enemy_range2" parent="." instance=ExtResource("8_v158k")]
 position = Vector2(1711, -186)
+
+[node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_rku1e")]
+position = Vector2(2132, -11024)
+Active = false
+player = NodePath("../Player")
+
+[node name="AttackingSpr" parent="Boss" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[node name="Wind" parent="Boss/ElementState" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Fire" parent="Boss/ElementState" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Rock" parent="Boss/ElementState" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[node name="Ice" parent="Boss/ElementState" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
 
 [node name="CaveB" parent="." instance=ExtResource("5_i6g32")]
 position = Vector2(6907, -2569)
@@ -108,20 +127,23 @@ location = Vector2(6673, -2485)
 position = Vector2(21, -192.5)
 shape = SubResource("RectangleShape2D_ldgsr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Boss_area" type="Area2D" parent="."]
 position = Vector2(1162, -8454)
 collision_mask = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_area"]
 position = Vector2(950, -1023)
 shape = SubResource("RectangleShape2D_rfjv2")
 
 [connection signal="timeout" from="barierG/Timer" to="barierG" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Caverns_scene_change" to="Caverns_scene_change" method="_on_body_entered"]
 [connection signal="body_entered" from="Caverns_scene_change2" to="Caverns_scene_change2" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D" to="barierG" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Boss_area" to="barierG" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Boss_area" to="Boss" method="_on_boss_area_body_entered"]
 
 [editable path="Node2D_enemies#Punishing Bird2"]
+[editable path="Boss"]
+[editable path="Boss/ElementState"]
 [editable path="crystalsB"]
 [editable path="crystalsR"]
 [editable path="barierB"]

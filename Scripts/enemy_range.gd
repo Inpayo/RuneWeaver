@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const bullet_scene = preload("res://Scenes/bullet.tscn")
-const coin_scene = preload("res://Scenes/coin.tscn")
 
 @export var speed: float = 300.0
 @export var Hp: int = 20
@@ -77,7 +76,7 @@ func on_death():
 
 	if not dead:
 		dead = true
-		loot()
+
 		
 		$Hitbox/CollisionShape2D.disabled = true
 		$Sprite2D/AnimationPlayer.play("death")
@@ -100,13 +99,6 @@ func shoot():
 	bullet.position = mark.global_position
 	bullet.rotation = (player.position - $Sprite2D/Marker2D.global_position).angle()
 	get_parent().add_child(bullet)
-
-func loot():
-	for n in range(3):
-		var loot = coin_scene.instantiate()
-		loot.position.x = position.x + randf_range(50.0, 100.0)
-		loot.position.y = position.y + randf_range(50.0, 100.0)
-		get_parent().add_child(loot)
 	
 
 func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
