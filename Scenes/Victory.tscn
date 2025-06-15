@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfcheywktsc1j" path="res://Scripts/control.gd" id="1_w158h"]
 
-[node name="Control" type="Control"]
+[node name="Victory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
