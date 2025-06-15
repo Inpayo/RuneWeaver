@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bb53qn26n7xbk"]
 
-[ext_resource type="Script" uid="uid://bocsini4vpsgo" path="res://Scenes/enemy_blast.gd" id="1_3xsr8"]
+
+[ext_resource type="Script" uid="uid://bocsini4vpsgo" path="res://Scripts/enemy_blast.gd" id="1_3xsr8"]
 [ext_resource type="Texture2D" uid="uid://ckgaog2dxe26c" path="res://Assets/Sprites/entity_hawktuah_spritesheet.png" id="2_20bmr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oduel"]
