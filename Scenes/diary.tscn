@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=2 format=3 uid="uid://wcxdo1uxtjhu"]
 
 [ext_resource type="Script" uid="uid://3sbwafa4yt1h" path="res://Scripts/diary.gd" id="1_xgea4"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://db4yg4wpsubog"]
+
+[ext_resource type="Script" path="res://Scripts/diary.gd" id="1_xgea4"]
+>>>>>>> Stashed changes
 
 [node name="Diary" type="Control"]
 layout_mode = 3

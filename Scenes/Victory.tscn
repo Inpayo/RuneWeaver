@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=2 format=3 uid="uid://dfhn7ldo475mp"]
 
 [ext_resource type="Script" uid="uid://bfcheywktsc1j" path="res://Scripts/control.gd" id="1_w158h"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://bpiff8mwlu0vy"]
+
+[ext_resource type="Script" path="res://Scripts/Victory.gd" id="1_w158h"]
+>>>>>>> Stashed changes
 
 [node name="Victory" type="Control"]
 layout_mode = 3
