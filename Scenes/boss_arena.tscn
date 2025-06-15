@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp6cmyccwhgm8"]
+[gd_scene load_steps=6 format=3 uid="uid://cp6cmyccwhgm8"]
 
 [ext_resource type="PackedScene" uid="uid://damg756xr3o6h" path="res://Scenes/map_2b.tscn" id="1_ycwjk"]
 [ext_resource type="PackedScene" uid="uid://b6hkoguuy0d14" path="res://Scenes/enemy_boss.tscn" id="2_nisv6"]
 [ext_resource type="PackedScene" uid="uid://bdxdd5guevyi" path="res://Scenes/player.tscn" id="3_mewru"]
+[ext_resource type="PackedScene" uid="uid://d1pwame06xnpn" path="res://barrier.tscn" id="4_mewru"]
+[ext_resource type="Texture2D" uid="uid://drqc0mrjamtbp" path="res://Assets/Sprites/barrier_grey.png" id="5_xmu81"]
 
 [node name="Boss_arena" type="Node2D"]
 
 [node name="Map2B" parent="." instance=ExtResource("1_ycwjk")]
 
 [node name="Boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_nisv6")]
-position = Vector2(1814, 920)
+position = Vector2(1826, 608)
 player = NodePath("../Player")
 
 [node name="AttackingSpr" parent="Boss" index="3" node_paths=PackedStringArray("player")]
@@ -33,7 +35,15 @@ player = NodePath("../../../Player")
 player = NodePath("../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_mewru")]
-position = Vector2(1926, 2304)
+position = Vector2(1816, 1997)
+
+[node name="barier" parent="." instance=ExtResource("4_mewru")]
+position = Vector2(1791, 2268)
+
+[node name="Sprite2D" parent="barier" index="0"]
+scale = Vector2(3.525, 1)
+texture = ExtResource("5_xmu81")
 
 [editable path="Boss"]
 [editable path="Boss/ElementState"]
+[editable path="barier"]

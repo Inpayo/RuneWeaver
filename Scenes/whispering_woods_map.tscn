@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://w2ahnqvfsj78"]
+[gd_scene load_steps=17 format=3 uid="uid://w2ahnqvfsj78"]
 
 [ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_b8rdd"]
 [ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_tb5s2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://nxkumwtepwy5" path="res://Scenes/rockB.tscn" id="8_lo0ed"]
 [ext_resource type="PackedScene" uid="uid://drccaoobi3ett" path="res://Scenes/rockC.tscn" id="9_d6x1x"]
 [ext_resource type="PackedScene" uid="uid://25gx3enx7k5t" path="res://Scenes/rockA.tscn" id="9_guy7b"]
+[ext_resource type="Texture2D" uid="uid://dg7uj57ggaw7j" path="res://Assets/Sprites/solid.png" id="9_yo4lt"]
 [ext_resource type="PackedScene" uid="uid://bappm3xkbtsn" path="res://Scenes/treeA.tscn" id="11_j11sv"]
 [ext_resource type="PackedScene" uid="uid://c38iuyp2p8a17" path="res://Scenes/treeB.tscn" id="12_yo4lt"]
 
@@ -64,6 +65,13 @@ y_sort_enabled = true
 position = Vector2(2621, -10284)
 texture = ExtResource("8_j11sv")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -4
+z_as_relative = false
+position = Vector2(2476, -5452)
+scale = Vector2(6.97891, 14.5245)
+texture = ExtResource("9_yo4lt")
+
 [node name="Trees" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(3488, -3824)
@@ -103,6 +111,12 @@ position = Vector2(329, 4315)
 
 [node name="treeA_body6" parent="Trees" instance=ExtResource("11_j11sv")]
 position = Vector2(361, 3539)
+
+[node name="treeA_body7" parent="Trees" instance=ExtResource("11_j11sv")]
+position = Vector2(1066, 2811)
+
+[node name="treeB_body7" parent="Trees" instance=ExtResource("12_yo4lt")]
+position = Vector2(1246, 2786)
 
 [node name="Rocks" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -194,3 +208,31 @@ position = Vector2(-497, -2034)
 
 [node name="rockD_body6" parent="Rocks" instance=ExtResource("7_3a7kw")]
 position = Vector2(-1629, -2170)
+
+[node name="Overallbarrier" type="CollisionPolygon2D" parent="."]
+position = Vector2(1817.72, -11171.7)
+polygon = PackedVector2Array(-134.717, 1917.75, -638.717, 1520.75, -941.717, 1069.75, -1008.72, 686.746, -854.717, 370.746, -531.717, 121.746, -114.717, 20.7461, 935.283, -60.2539, 1372.28, -33.2539, 2052.28, 101.746, 2314.28, 296.746, 2543.28, 531.746, 2549.28, 962.746, 2193.28, 1312.75, 1991.28, 1661.75, 1762.28, 1910.75, 1749.28, 5812.75, 1978.28, 5812.75, 1991.28, 7985.75, 5792.28, 7972.75, 5826.28, 10091.7, 1957.28, 10078.7, 1991.28, 12230.7, -1809.72, 12251.7, -1796.72, 7817.75, -5644.72, 7810.75, -5644.72, 5698.75, -1870.72, 5685.75, -1870.72, 5799.75, -134.717, 5806.75, -143.717, 2100.75, -363.717, 2132.75, -587.717, 5577.75, -6188.72, 5393.75, -5863.72, 8384.75, -2039.72, 8004.75, -2136.72, 12978.7, 2554.28, 12403.7, 2305.28, 10377.7, 6282.28, 10226.7, 6000.28, 7517.75, 2370.28, 7755.75, 2338.28, 5307.75, 2153.28, 2273.75, 3194.28, 810.746, 2218.28, -619.254, 225.283, -912.254, -1172.72, 203.746, -1453.72, 1211.75, -1226.72, 1937.75, -685.717, 2098.75, -367.717, 2031.75, -160.717, 2066.75)
+
+[node name="treeA_body" parent="." instance=ExtResource("11_j11sv")]
+position = Vector2(4901, -1029)
+
+[node name="treeB_body" parent="." instance=ExtResource("12_yo4lt")]
+position = Vector2(5064, -996)
+
+[node name="treeA_body2" parent="." instance=ExtResource("11_j11sv")]
+position = Vector2(5227, -1042)
+
+[node name="treeB_body2" parent="." instance=ExtResource("12_yo4lt")]
+position = Vector2(5431, -1013)
+
+[node name="treeA_body3" parent="." instance=ExtResource("11_j11sv")]
+position = Vector2(5598, -1025)
+
+[node name="treeB_body3" parent="." instance=ExtResource("12_yo4lt")]
+position = Vector2(5786, -992)
+
+[node name="treeA_body4" parent="." instance=ExtResource("11_j11sv")]
+position = Vector2(5966, -1000)
+
+[node name="treeB_body4" parent="." instance=ExtResource("12_yo4lt")]
+position = Vector2(6150, -979)
