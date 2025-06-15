@@ -10,4 +10,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_controls_pressed() -> void:
-	$Control.visible = not $Control.visible
+	$TheControls.visible = not $TheControls.visible
