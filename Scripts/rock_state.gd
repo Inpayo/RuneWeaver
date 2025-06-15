@@ -3,18 +3,12 @@ extends Node2D
 enum States {Dash, Hover}
 var state = States.Hover
 
-func multiplier(type):
-	if type == "Rock":
-		return 2
-	else:
-		return 1
-		
-var time = 2.0
+var time = 3.0
 var Melee = true
-var HoverSep := 100
+var HoverSep := 50
 var HoverSepV := 50
-var HoverSp := 2.0
-var HoverAmp := 20
+var HoverSp := 1.0
+var HoverAmp := 10
 var HoverAng := 0.0
 
 @export var player: Node
@@ -26,6 +20,11 @@ var CurrentDashTarget := 0
 var DashSpeed := 2000
 var Dashing := false
 
+func multiplier(type):
+	if type == "Ice":
+		return 2
+	else:
+		return 1
 	
 func GetHoverPos(delta: float) -> Vector2:
 	HoverAng += HoverSp * delta
@@ -37,12 +36,13 @@ func GetHoverPos(delta: float) -> Vector2:
 func HoverNearPlayer(delta):
 	var HoverPos = GetHoverPos(delta)
 	var dir = (HoverPos - global_position).normalized()
-	boss.velocity = dir * 300
+	boss.velocity = dir * 100
 	boss.move_and_slide()
 	
 func StartDashing():
+	print("Rock & Roll")
 	Dash_points.clear()
-	num_points = randi_range(1,2)
+	num_points = 1
 	CurrentDashTarget = 0
 	Dashing = true
 	
