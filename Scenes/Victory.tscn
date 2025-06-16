@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://smoilen6qy06"]
+[gd_scene load_steps=5 format=3 uid="uid://smoilen6qy06"]
 
 [ext_resource type="Script" uid="uid://cer6sc4gsvxia" path="res://Scripts/Victory.gd" id="1_1fp7o"]
+[ext_resource type="Texture2D" uid="uid://dqdnhh010knm2" path="res://Assets/Sprites/quit.png" id="2_13fhg"]
+[ext_resource type="Texture2D" uid="uid://b1a63xkb0s05k" path="res://Assets/Sprites/start.png" id="3_f6307"]
+[ext_resource type="AudioStream" uid="uid://cm70ywqeosgc4" path="res://Assets/Sounds/victory_speach.wav" id="4_f6307"]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
@@ -30,28 +33,35 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1293.0
-offset_top = 567.0
-offset_right = -501.0
-offset_bottom = -464.0
+offset_left = 1094.0
+offset_top = 326.0
+offset_right = -585.0
+offset_bottom = -533.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
-text = "Quit"
+icon = ExtResource("2_13fhg")
+flat = true
 
 [node name="Replay" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 298.0
-offset_top = 565.0
-offset_right = -1496.0
-offset_bottom = -460.0
+offset_left = 133.0
+offset_top = 322.0
+offset_right = -1546.0
+offset_bottom = -537.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
-text = "Restart"
+icon = ExtResource("3_f6307")
+flat = true
+alignment = 0
+icon_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_f6307")
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Replay" to="." method="_on_replay_pressed"]

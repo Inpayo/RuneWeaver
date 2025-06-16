@@ -271,10 +271,14 @@ func Fight():
 				RELEASE = true
 			$CanvasLayer/Cooldowns/Cooldowns/HBoxContainer/VBoxContainer/SP4/TextureProgressBar.value = 100.0
 		if RELEASE == true:
+			
 			punching.GetVars(SPC)
 			CD_dur = TTF.CD_Dur
 		
 			get_node(SPC).start(CD_dur)
+			$AudioStreamPlayer2D.play()
+			await get_tree().create_timer(0.2).timeout
+			$AudioStreamPlayer2D.stream_paused = true
 		$Gen_CD.start(1.0)
 	
 	if RELEASE == true:

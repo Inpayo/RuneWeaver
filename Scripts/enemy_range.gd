@@ -35,6 +35,7 @@ var damage_type
 
 
 func _ready():
+
 	dead = false
 	$shoot_cd.wait_time = cd_duration
 	
@@ -126,6 +127,8 @@ func shoot():
 	bullet.position = mark.global_position
 	bullet.rotation = (player.position - $Sprite2D/Marker2D.global_position).angle()
 	get_parent().add_child(bullet)
+	$AudioStreamPlayer2D.play()
+
 	
 
 func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:

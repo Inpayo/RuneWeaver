@@ -14,6 +14,7 @@ func crystal_break() -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_attacks"):
 		if not broken:
+			$AudioStreamPlayer2D.play()
 			broken = true
 			crystal_break()
 

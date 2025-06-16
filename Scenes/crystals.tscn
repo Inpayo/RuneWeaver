@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4b3svhvp3ons"]
+[gd_scene load_steps=6 format=3 uid="uid://c4b3svhvp3ons"]
 
 [ext_resource type="Script" uid="uid://d3digiottokh" path="res://Scripts/crystals.gd" id="1_bafxm"]
 [ext_resource type="Texture2D" uid="uid://blr2owe5f3guo" path="res://Assets/Sprites/crystals.png" id="1_qcjw8"]
+[ext_resource type="AudioStream" uid="uid://bg0l8ck78awvj" path="res://Assets/Sounds/crystal_break.mp3" id="3_udfyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5muk"]
 size = Vector2(145, 118.555)
@@ -30,5 +31,8 @@ shape = SubResource("RectangleShape2D_e5muk")
 [node name="hitbox collision" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-7.5, -165)
 shape = SubResource("RectangleShape2D_wvrxk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_udfyf")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

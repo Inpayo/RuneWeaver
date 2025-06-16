@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://du0wca2y10sgs"]
+[gd_scene load_steps=13 format=3 uid="uid://du0wca2y10sgs"]
 
 [ext_resource type="Script" uid="uid://m8c4foh5a8qs" path="res://Scripts/enemy_range.gd" id="1_rpk5w"]
 [ext_resource type="Texture2D" uid="uid://ckgaog2dxe26c" path="res://Assets/Sprites/entity_hawktuah_spritesheet.png" id="2_rpk5w"]
+[ext_resource type="AudioStream" uid="uid://o5pwjwii6ksi" path="res://Assets/Sounds/enemy.mp3" id="3_snqrt"]
 
 [sub_resource type="Animation" id="Animation_s1fu1"]
 resource_name = "Fly"
@@ -143,6 +144,9 @@ shape = SubResource("CircleShape2D_2agt4")
 
 [node name="death_timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_snqrt")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

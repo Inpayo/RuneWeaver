@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://w2ahnqvfsj78"]
+[gd_scene load_steps=32 format=3 uid="uid://w2ahnqvfsj78"]
 
 [ext_resource type="Texture2D" uid="uid://sq0omwu84wqe" path="res://Assets/Sprites/Whispering_WoodsA.png" id="1_b8rdd"]
 [ext_resource type="Texture2D" uid="uid://dsn25qnkv2mel" path="res://Assets/Sprites/Whispering_WoodsB.png" id="2_tb5s2"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://dr1s7ub1ad1fp" path="res://Scenes/log.tscn" id="25_x0m3b"]
 [ext_resource type="PackedScene" uid="uid://cswh8o4pfaxdh" path="res://Scenes/trunkB.tscn" id="28_dw130"]
 [ext_resource type="PackedScene" uid="uid://bvnr1fgwuifn1" path="res://Scenes/trunkC.tscn" id="29_51vmn"]
+[ext_resource type="Texture2D" uid="uid://tppcmoydhw6a" path="res://Assets/Sprites/forest.png" id="30_4868k"]
+[ext_resource type="Texture2D" uid="uid://dqnknsvbyqo37" path="res://Assets/Sprites/forest_snow.png" id="31_broyt"]
 
 [node name="WhisperingWoods_Map" type="StaticBody2D"]
 light_mask = 0
@@ -81,7 +83,7 @@ texture = ExtResource("8_j11sv")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -4
 z_as_relative = false
-position = Vector2(2476, -5452)
+position = Vector2(2468, -4101)
 scale = Vector2(6.97891, 14.5245)
 texture = ExtResource("9_yo4lt")
 
@@ -345,5 +347,225 @@ position = Vector2(851, -5113)
 
 [node name="treeB_body5" parent="." instance=ExtResource("12_yo4lt")]
 position = Vector2(-97, -3499)
+
+[node name="Forest" type="Sprite2D" parent="."]
+position = Vector2(4668, -3651)
+texture = ExtResource("30_4868k")
+
+[node name="Forest2" type="Sprite2D" parent="."]
+position = Vector2(4629, -4403)
+texture = ExtResource("30_4868k")
+
+[node name="Forest3" type="Sprite2D" parent="."]
+position = Vector2(4507, -5171)
+texture = ExtResource("30_4868k")
+
+[node name="Forest4" type="Sprite2D" parent="."]
+position = Vector2(4488, -5954)
+texture = ExtResource("30_4868k")
+
+[node name="Forest5" type="Sprite2D" parent="."]
+position = Vector2(4503, -6720)
+texture = ExtResource("30_4868k")
+
+[node name="Forest6" type="Sprite2D" parent="."]
+position = Vector2(4463, -7477)
+texture = ExtResource("30_4868k")
+
+[node name="Forest7" type="Sprite2D" parent="."]
+position = Vector2(4463, -8169)
+texture = ExtResource("30_4868k")
+
+[node name="Forest8" type="Sprite2D" parent="."]
+position = Vector2(4503, -8698)
+texture = ExtResource("30_4868k")
+
+[node name="Forest9" type="Sprite2D" parent="."]
+position = Vector2(5505, -9260)
+texture = ExtResource("30_4868k")
+
+[node name="Forest10" type="Sprite2D" parent="."]
+position = Vector2(5431, -10001)
+texture = ExtResource("30_4868k")
+
+[node name="Forest11" type="Sprite2D" parent="."]
+position = Vector2(5407, -10815)
+texture = ExtResource("30_4868k")
+
+[node name="Forest12" type="Sprite2D" parent="."]
+position = Vector2(5106, -11613)
+texture = ExtResource("30_4868k")
+
+[node name="Forest13" type="Sprite2D" parent="."]
+position = Vector2(3877, -11881)
+texture = ExtResource("30_4868k")
+
+[node name="Forest14" type="Sprite2D" parent="."]
+position = Vector2(2371, -11873)
+texture = ExtResource("30_4868k")
+
+[node name="Forest15" type="Sprite2D" parent="."]
+position = Vector2(759, -11670)
+texture = ExtResource("30_4868k")
+
+[node name="Forest16" type="Sprite2D" parent="."]
+position = Vector2(181, -11450)
+texture = ExtResource("30_4868k")
+
+[node name="Forest17" type="Sprite2D" parent="."]
+position = Vector2(-120, -10953)
+texture = ExtResource("30_4868k")
+
+[node name="Forest18" type="Sprite2D" parent="."]
+position = Vector2(-218, -10367)
+texture = ExtResource("30_4868k")
+
+[node name="Forest19" type="Sprite2D" parent="."]
+position = Vector2(-193, -9635)
+texture = ExtResource("30_4868k")
+
+[node name="Forest20" type="Sprite2D" parent="."]
+position = Vector2(100, -8853)
+texture = ExtResource("30_4868k")
+
+[node name="Forest21" type="Sprite2D" parent="."]
+position = Vector2(555, -8585)
+texture = ExtResource("30_4868k")
+
+[node name="Forest22" type="Sprite2D" parent="."]
+position = Vector2(612, -7860)
+texture = ExtResource("30_4868k")
+
+[node name="Forest23" type="Sprite2D" parent="."]
+position = Vector2(572, -7111)
+texture = ExtResource("30_4868k")
+
+[node name="Forest24" type="Sprite2D" parent="."]
+position = Vector2(588, -6484)
+texture = ExtResource("30_4868k")
+
+[node name="Forest25" type="Sprite2D" parent="."]
+position = Vector2(539, -5931)
+texture = ExtResource("30_4868k")
+
+[node name="ForestSnow" type="Sprite2D" parent="."]
+position = Vector2(-1276, -5945)
+texture = ExtResource("31_broyt")
+
+[node name="ForestSnow2" type="Sprite2D" parent="."]
+position = Vector2(-2966, -5989)
+texture = ExtResource("31_broyt")
+
+[node name="ForestSnow3" type="Sprite2D" parent="."]
+position = Vector2(-4634, -5956)
+texture = ExtResource("31_broyt")
+
+[node name="ForestSnow4" type="Sprite2D" parent="."]
+position = Vector2(-4695, -5278)
+texture = ExtResource("31_broyt")
+
+[node name="ForestSnow5" type="Sprite2D" parent="."]
+position = Vector2(-4701, -4672)
+texture = ExtResource("31_broyt")
+
+[node name="ForestSnow6" type="Sprite2D" parent="."]
+position = Vector2(-4740, -4071)
+texture = ExtResource("31_broyt")
+
+[node name="ForestSnow7" type="Sprite2D" parent="."]
+position = Vector2(-4762, -3221)
+texture = ExtResource("31_broyt")
+
+[node name="ForestSnow8" type="Sprite2D" parent="."]
+position = Vector2(-3150, -2943)
+texture = ExtResource("31_broyt")
+
+[node name="Forest26" type="Sprite2D" parent="."]
+position = Vector2(-914, -2876)
+texture = ExtResource("30_4868k")
+
+[node name="ForestSnow9" type="Sprite2D" parent="."]
+position = Vector2(-1548, -2865)
+texture = ExtResource("31_broyt")
+
+[node name="Forest27" type="Sprite2D" parent="."]
+position = Vector2(-918, -2240)
+texture = ExtResource("30_4868k")
+
+[node name="Forest28" type="Sprite2D" parent="."]
+position = Vector2(-851, -1610)
+texture = ExtResource("30_4868k")
+
+[node name="Forest29" type="Sprite2D" parent="."]
+position = Vector2(-893, -852)
+texture = ExtResource("30_4868k")
+
+[node name="Forest30" type="Sprite2D" parent="."]
+position = Vector2(-857, -81)
+texture = ExtResource("30_4868k")
+
+[node name="Forest31" type="Sprite2D" parent="."]
+position = Vector2(-844, 322)
+texture = ExtResource("30_4868k")
+
+[node name="Forest32" type="Sprite2D" parent="."]
+position = Vector2(-899, 1081)
+texture = ExtResource("30_4868k")
+
+[node name="Forest33" type="Sprite2D" parent="."]
+position = Vector2(574, 1558)
+texture = ExtResource("30_4868k")
+
+[node name="Forest34" type="Sprite2D" parent="."]
+position = Vector2(-1058, 1692)
+texture = ExtResource("30_4868k")
+
+[node name="Forest35" type="Sprite2D" parent="."]
+position = Vector2(2073, 1564)
+texture = ExtResource("30_4868k")
+
+[node name="Forest36" type="Sprite2D" parent="."]
+position = Vector2(3535, 1545)
+texture = ExtResource("30_4868k")
+
+[node name="Forest37" type="Sprite2D" parent="."]
+position = Vector2(4605, 720)
+texture = ExtResource("30_4868k")
+
+[node name="Forest38" type="Sprite2D" parent="."]
+position = Vector2(4587, -63)
+texture = ExtResource("30_4868k")
+
+[node name="Forest39" type="Sprite2D" parent="."]
+position = Vector2(4568, -669)
+texture = ExtResource("30_4868k")
+
+[node name="Forest40" type="Sprite2D" parent="."]
+position = Vector2(5938, -693)
+texture = ExtResource("30_4868k")
+
+[node name="Forest41" type="Sprite2D" parent="."]
+position = Vector2(7424, -650)
+texture = ExtResource("30_4868k")
+
+[node name="Forest42" type="Sprite2D" parent="."]
+position = Vector2(6391, -3696)
+texture = ExtResource("30_4868k")
+
+[node name="Forest43" type="Sprite2D" parent="."]
+position = Vector2(8109, -3671)
+texture = ExtResource("30_4868k")
+
+[node name="Forest44" type="Sprite2D" parent="."]
+position = Vector2(8415, -2950)
+texture = ExtResource("30_4868k")
+
+[node name="Forest45" type="Sprite2D" parent="."]
+position = Vector2(8452, -2295)
+texture = ExtResource("30_4868k")
+
+[node name="Forest46" type="Sprite2D" parent="."]
+position = Vector2(8403, -1519)
+texture = ExtResource("30_4868k")
 
 [editable path="log_body4"]

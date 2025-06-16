@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://drvls2fbeqsbf"]
+[gd_scene load_steps=6 format=3 uid="uid://drvls2fbeqsbf"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://b1a63xkb0s05k" path="res://Assets/Sprites/start.png" id="2_ee4bf"]
+[ext_resource type="Texture2D" uid="uid://belr5hs0qj4m8" path="res://Assets/Sprites/Start_screen.png" id="2_kbped"]
+[ext_resource type="Texture2D" uid="uid://ddmxml4njho7x" path="res://Assets/Sprites/controls.png" id="3_kbped"]
+[ext_resource type="Texture2D" uid="uid://dqdnhh010knm2" path="res://Assets/Sprites/quit.png" id="4_fj5cn"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,43 +15,36 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0fbet")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1138.0
-offset_top = 238.0
-offset_right = -675.0
-offset_bottom = -813.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
-text = "Rune Weaver "
+[node name="StartScreen" type="Sprite2D" parent="."]
+position = Vector2(965, 545)
+texture = ExtResource("2_kbped")
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 272.0
-offset_right = 374.0
-offset_bottom = 457.0
-text = "Start Game "
+offset_left = 263.0
+offset_top = 246.0
+offset_right = 504.0
+offset_bottom = 467.0
+icon = ExtResource("2_ee4bf")
+flat = true
 
 [node name="Controls" type="Button" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 512.0
-offset_right = 374.0
-offset_bottom = 697.0
-text = "Controls"
+offset_left = 281.0
+offset_top = 503.0
+offset_right = 522.0
+offset_bottom = 724.0
+icon = ExtResource("3_kbped")
+flat = true
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 752.0
-offset_right = 374.0
-offset_bottom = 937.0
-text = "Quit Game"
+offset_left = 281.0
+offset_top = 757.0
+offset_right = 522.0
+offset_bottom = 978.0
+icon = ExtResource("4_fj5cn")
+flat = true
 
 [node name="Control" type="Control" parent="."]
 visible = false
