@@ -10,6 +10,8 @@ var player
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
 var Delta
+@export var weakness: String = "none"
+var damage_type
 
 var KBIntensity = 600
 var KBTime = 0.12
@@ -62,10 +64,15 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func received_damage(damage: int):
-	Hp -= damage
+	print(damage)
+	Hp -= damage * multiplier(damage_type)
 	if Hp <= 0:
 		on_death()
-
+func multiplier(type):
+	if type == weakness:
+		return 2
+	else:
+		return 1
 
 func on_death():
 	dead = true
@@ -80,14 +87,16 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		var Stats = area.get_parent()
 		if area.is_in_group("Special_proj"):
 			Stats = area.get_parent().SPC
-		received_damage(Stats.damage)
 		var KBDir = Stats.direction
+		var damage_done = Stats.damage
 		Knockback(Stats.KBIntensity, Stats.KBTime, KBDir)
 		Stats = area.get_parent()
 		if area.is_in_group("Special_proj"):
 			Stats.KYS()
 			pass
 		if area.is_in_group("Player_attacks"):
+			received_damage(damage_done)
+			damage_type = Stats.element
 			Stats.queue_free()
 
 

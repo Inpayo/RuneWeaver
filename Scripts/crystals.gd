@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var barrier = Node
+var broken: bool = false
 
 func _ready() -> void:
 	$crystal_sprite.frame_coords.y = 0
@@ -12,7 +13,9 @@ func crystal_break() -> void:
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_attacks"):
-		crystal_break()
+		if not broken:
+			broken = true
+			crystal_break()
 
 		var Stats = area.get_parent()
 		Stats.queue_free()

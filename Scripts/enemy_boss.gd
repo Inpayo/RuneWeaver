@@ -7,7 +7,7 @@ var player_detected: bool = false
 @onready var direction: Vector2 = (player.global_position - global_position).normalized()
 var knockback: Vector2 = Vector2.ZERO
 var knockback_timer: float = 0.0
-var weakness = "Physical"
+var weakness = null
 var KBIntensity = 600
 var KBTime = 0.12
 var damage = 10
@@ -32,7 +32,6 @@ func _ready() -> void:
 	$DashDur.stop()
 
 func _physics_process(delta: float) -> void:
-	print(Active)
 	if Active:
 		direction = (player.global_position - global_position).normalized()
 		if direction.x < 0:
@@ -116,7 +115,6 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 
 func _on_dash_dur_timeout() -> void:
 	if Element.Dashing and Element.Melee:
-		print("activate")
 		Element.Dashing = false
 		state = States.Hover
 

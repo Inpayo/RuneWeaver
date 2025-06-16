@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbaul56nxjy32"]
+[gd_scene load_steps=18 format=3 uid="uid://dbaul56nxjy32"]
 
 [ext_resource type="PackedScene" uid="uid://w2ahnqvfsj78" path="res://Scenes/whispering_woods_map.tscn" id="1_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://bdxdd5guevyi" path="res://Scenes/player.tscn" id="2_qxrlw"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://d1pwame06xnpn" path="res://barrier.tscn" id="9_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://3adre1y7c4wx" path="res://Assets/Sprites/barrier_red.png" id="10_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://drqc0mrjamtbp" path="res://Assets/Sprites/barrier_grey.png" id="10_rku1e"]
+[ext_resource type="PackedScene" uid="uid://bmw8gsutcfbrv" path="res://Scenes/murder_pengu.tscn" id="13_nb51f"]
+[ext_resource type="PackedScene" uid="uid://8m0aohl5jhss" path="res://Scenes/rock_fellow.tscn" id="14_nnt18"]
+[ext_resource type="PackedScene" uid="uid://bwnnefjtxe24g" path="res://Scenes/Fire_Wisp.tscn" id="15_ewbju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldgsr"]
 size = Vector2(314, 343)
@@ -28,7 +31,7 @@ position = Vector2(-483, -196)
 
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
 y_sort_enabled = true
-position = Vector2(1841, 530)
+position = Vector2(-190, 787)
 
 [node name="Node2D_enemies#Punishing Bird2" parent="." instance=ExtResource("2_wrm1d")]
 light_mask = 0
@@ -104,7 +107,7 @@ scale = Vector2(3.54, 1)
 texture = ExtResource("10_rku1e")
 
 [node name="CollisionShape2D" parent="barierG" index="1"]
-position = Vector2(-6, 29)
+position = Vector2(20, 101.25)
 
 [node name="Timer" type="Timer" parent="barierG"]
 
@@ -134,6 +137,57 @@ collision_mask = 18
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_area"]
 position = Vector2(950, -1023)
 shape = SubResource("RectangleShape2D_rfjv2")
+
+[node name="enemy_range" parent="." instance=ExtResource("13_nb51f")]
+position = Vector2(-2970, -4046)
+
+[node name="enemy_range3" parent="." instance=ExtResource("13_nb51f")]
+position = Vector2(-1702, -4827)
+
+[node name="enemy_range4" parent="." instance=ExtResource("14_nnt18")]
+position = Vector2(6408, -2015)
+
+[node name="enemy_range5" parent="." instance=ExtResource("14_nnt18")]
+position = Vector2(5636, -2443)
+
+[node name="enemy_range6" parent="." instance=ExtResource("14_nnt18")]
+position = Vector2(18261, -1867)
+
+[node name="enemy_range7" parent="." instance=ExtResource("15_ewbju")]
+position = Vector2(17751, -2652)
+
+[node name="enemy_range8" parent="." instance=ExtResource("15_ewbju")]
+position = Vector2(1583, -3100)
+
+[node name="enemy_range9" parent="." instance=ExtResource("15_ewbju")]
+position = Vector2(303, -2100)
+
+[node name="enemy_range10" parent="." instance=ExtResource("8_v158k")]
+position = Vector2(3164, -1745)
+
+[node name="enemy_range11" parent="." instance=ExtResource("8_v158k")]
+position = Vector2(846, -4780)
+
+[node name="enemy_melee" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(2920, -4268)
+
+[node name="enemy_melee2" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(2824, -3349)
+
+[node name="enemy_range12" parent="." instance=ExtResource("15_ewbju")]
+position = Vector2(19107, -2502)
+
+[node name="enemy_range13" parent="." instance=ExtResource("13_nb51f")]
+position = Vector2(-3096, -4846)
+
+[node name="enemy_melee3" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(-2416, -4515)
+
+[node name="enemy_melee4" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(6458, -2631)
+
+[node name="enemy_range14" parent="." instance=ExtResource("15_ewbju")]
+position = Vector2(1448, -2049)
 
 [connection signal="timeout" from="barierG/Timer" to="barierG" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Caverns_scene_change" to="Caverns_scene_change" method="_on_body_entered"]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwnnefjtxe24g"]
+
+[ext_resource type="Script" uid="uid://m8c4foh5a8qs" path="res://Scripts/enemy_range.gd" id="1_isu3x"]
+[ext_resource type="Texture2D" uid="uid://drfrbdrcihwey" path="res://Assets/Sprites/fire_wisp.png" id="2_d5ymi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gbma"]
+size = Vector2(43, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osfw3"]
+size = Vector2(39, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdmi6"]
+radius = 311.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2agt4"]
+radius = 632.064
+
+[node name="enemy_range" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_isu3x")
+projectile = "Fire"
+weakness = "Wind"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -66)
+texture = ExtResource("2_d5ymi")
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D"]
+position = Vector2(1, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 18
+visibility_layer = 2
+position = Vector2(-2.5, 6.5)
+shape = SubResource("RectangleShape2D_6gbma")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+light_mask = 18
+visibility_layer = 2
+position = Vector2(-3, -44)
+shape = SubResource("RectangleShape2D_osfw3")
+
+[node name="Player_detection" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="Detection" type="CollisionShape2D" parent="Player_detection"]
+light_mask = 18
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tdmi6")
+
+[node name="Attack_range" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="attack" type="CollisionShape2D" parent="Attack_range"]
+position = Vector2(-3, 9)
+shape = SubResource("CircleShape2D_2agt4")
+
+[node name="shoot_cd" type="Timer" parent="."]
+
+[node name="death_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Player_detection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="Player_detection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="Attack_range" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="Attack_range" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="shoot_cd" to="." method="_on_shoot_cd_timeout"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

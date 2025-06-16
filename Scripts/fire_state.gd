@@ -1,6 +1,6 @@
 extends Node2D
 
-const bullet_scene = preload("res://Scenes/enemy_blast.tscn")
+const bullet_scene = preload("res://Scenes/dark_flames.tscn")
 enum States {Dash, Hover}
 var state = States.Hover
 

@@ -1,9 +1,6 @@
 extends Sprite2D
 
-@onready var RayCast: RayCast2D = $RayCast2D
-@onready var player: CharacterBody2D = $"../Player"
-@onready var player_hitbox: Area2D = $"../Player/Hitbox"
-@onready var direction: Vector2 = (player.position - position).normalized()
+@onready var direction = Vector2.RIGHT.rotated(rotation)
 var damage = 20
 var speed: float = 750
 var KBIntensity = 750
