@@ -44,6 +44,9 @@ position = Vector2(1791, 2268)
 scale = Vector2(3.525, 1)
 texture = ExtResource("5_xmu81")
 
+[node name="CollisionShape2D" parent="barier" index="1"]
+position = Vector2(29, -12.5)
+
 [editable path="Boss"]
 [editable path="Boss/ElementState"]
 [editable path="barier"]
