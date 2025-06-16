@@ -1,7 +1,22 @@
 extends CharacterBody2D
 
-const bullet_scene = preload("res://Scenes/bullet.tscn")
+@export var projectile: String = "default"
 
+const spit = preload("res://Scenes/bullet.tscn")
+const flame = preload("res://Scenes/dark_flames.tscn")
+const earth = preload("res://Scenes/black_rock.tscn")
+const freeze = preload("res://Scenes/red_ice.tscn")
+
+var bullet: Dictionary = {
+	"default" : spit,
+	"Fire" : flame,
+	"Rock" : earth,
+	"Ice" : freeze
+}
+
+@onready var bullet_scene = bullet[projectile] 
+
+@export var offset: float
 @export var speed: float = 300.0
 @export var Hp: int = 20
 var last_location = null
@@ -15,6 +30,8 @@ var knockback_timer: float = 0.0
 var on_cd: bool = false
 @export var cd_duration: float = 2.0 
 @onready var mark: Marker2D = $Sprite2D/Marker2D
+@export var weakness: String = "none"
+var damage_type
 
 
 func _ready():
@@ -26,18 +43,19 @@ func _physics_process(_delta):
 	if not dead:
 		$Player_detection/Detection.disabled = false
 		
-		if direction != Vector2.ZERO:
-			$Sprite2D/AnimationPlayer.play("Fly")
-		else:
-			$Sprite2D/AnimationPlayer.play("idle")
+		if has_node("Sprite2D/AnimationPlayer"):
+			if direction != Vector2.ZERO:
+				$Sprite2D/AnimationPlayer.play("Fly")
+			else:
+				$Sprite2D/AnimationPlayer.play("idle")
 			
 		if direction.x > 0:
 			$Sprite2D.flip_h = true
-			$Sprite2D/Marker2D.position.x = 76
+			$Sprite2D/Marker2D.position.x = offset
 
 		elif direction.x < 0:
 			$Sprite2D.flip_h = false
-			$Sprite2D/Marker2D.position.x = -76
+			$Sprite2D/Marker2D.position.x = -offset
 		
 		if player_in_range:
 			if not on_cd:
@@ -46,7 +64,6 @@ func _physics_process(_delta):
 				$shoot_cd.start()
 
 		if knockback_timer > 0.0:
-			print(knockback)
 			velocity = knockback 
 			if direction == Vector2.ZERO:
 				velocity -= velocity * 3 ** 2 * _delta
@@ -68,9 +85,16 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func received_damage(damage):
-	Hp -= damage
+	print(damage)
+	Hp -= damage * multiplier(damage_type)
 	if Hp <= 0:
 		on_death()
+
+func multiplier(type):
+	if type == weakness:
+		return 2
+	else:
+		return 1
 
 func on_death():
 
@@ -79,8 +103,11 @@ func on_death():
 
 		
 		$Hitbox/CollisionShape2D.disabled = true
-		$Sprite2D/AnimationPlayer.play("death")
-		if $Sprite2D/AnimationPlayer.animation_finished:
+		if has_node("Sprite2D/AnimationPlayer"):
+			$Sprite2D/AnimationPlayer.play("death")
+			if $Sprite2D/AnimationPlayer.animation_finished:
+				velocity = Vector2.ZERO
+		else:
 			velocity = Vector2.ZERO
 
 	$death_timer.start()
@@ -102,10 +129,8 @@ func shoot():
 	
 
 func apply_knockback(knockback_direction: Vector2, intensity: float, time: float) -> void:
-	print(knockback_direction, intensity, time)
 	knockback = knockback_direction * intensity
 	knockback_timer = time
-	print(knockback, knockback_timer)
 
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
@@ -136,7 +161,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 				Stats.KYS()
 				pass
 			if area.is_in_group("Player_attacks"):
+				print(Stats.damage)
+				damage_type = Stats.element
 				Stats.queue_free()
+				
 
 func _on_death_timer_timeout() -> void:
 	queue_free()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1pwame06xnpn"]
 
 [ext_resource type="Texture2D" uid="uid://bxv3nppbremxb" path="res://Assets/Sprites/barrier_blue.png" id="1_lfb78"]
-[ext_resource type="Script" uid="uid://d067jw3k66vfb" path="res://barrier.gd" id="1_vdbah"]
+[ext_resource type="Script" uid="uid://d067jw3k66vfb" path="res://Scripts/barrier.gd" id="1_vdbah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdbah"]
 size = Vector2(1878, 59)

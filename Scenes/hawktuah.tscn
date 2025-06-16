@@ -90,6 +90,8 @@ radius = 632.064
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_rpk5w")
+offset = 76.0
+weakness = "Rock"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(23, -89)
